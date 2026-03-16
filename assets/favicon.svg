@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- Página esquerda -->
+  <polygon points="3,9 14,10.5 14,23 3,21.5" fill="#03bb85"/>
+  <!-- Página direita -->
+  <polygon points="18,10.5 29,9 29,21.5 18,23" fill="#03bb85"/>
+  <!-- Lombada -->
+  <rect x="13.5" y="9" width="5" height="14" rx="1" fill="#029e70"/>
+  <!-- Número 7 em branco -->
+  <text x="23.5" y="20.5" font-family="Arial,sans-serif" font-size="12" font-weight="900" fill="white" text-anchor="middle">7</text>
+</svg>

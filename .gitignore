@@ -1,0 +1,9 @@
+# Debug screenshots
+debug-*.png
+
+# Sistema
+.DS_Store
+Thumbs.db
+
+# Node
+node_modules/
