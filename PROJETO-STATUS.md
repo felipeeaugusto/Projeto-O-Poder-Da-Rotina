@@ -18,7 +18,7 @@ Este não é só um projeto de LP. É um **sistema completo de vendas e conteúd
 **O sistema tem 3 pilares:**
 1. **Squad de conteúdo** — agentes IA que geram posts/stories automaticamente (já criado)
 2. **Landing Page** — converte tráfego pago em vendas (feita e online)
-3. **Script Python compositor** — garante fidelidade de cor nas imagens geradas por IA (pendente — PRIORIDADE MÁXIMA)
+3. **Script Python compositor** — Fase 1 criada (validação manual em andamento). Fase 2 (automação total) pendente.
 
 ---
 
@@ -50,7 +50,6 @@ Este não é só um projeto de LP. É um **sistema completo de vendas e conteúd
 ### Favicon
 - Logo do abraço da drjuliaresende em verde (#03bb85), fundo transparente
 - Arquivo: `assets/favicon.png`
-- HTML aponta para `assets/favicon.png`
 
 ### Bugs Corrigidos
 - **BUG-01:** Seção "Você se reconhece?" — colunas com espaçamento correto (grid gap)
@@ -62,38 +61,54 @@ Este não é só um projeto de LP. É um **sistema completo de vendas e conteúd
 ### Pagamento
 - Links de checkout Eduzz já funcionando: oferta R$10 e oferta R$27 ✅
 
-### Facebook
-- Logo (800×800) e Capa (1702×630) feitas e **uploadadas na página @drjuliaresende** ✅
+### Facebook — FEITO
+- **Upload da logo** na página @drjuliaresende — feito por Felipe ✅
+- **Upload da capa** na página @drjuliaresende — feito por Felipe ✅
+- Arquivos: `squads/dr-julia-resende/assets/logo-facebook-drjuliaresende.png` e `capa-facebook-drjuliaresende.png`
+
+### Script Python Compositor — Fase 1 CRIADA
+- **Script:** `squads/dr-julia-resende/scripts/compositor.py` — redesenhado com templates por formato
+- **Carrossel:** `squads/dr-julia-resende/scripts/carrossel.py` — 6 slides estilo Academia Lendária criados
+- **Logo sem fundo:** `squads/dr-julia-resende/assets/logo-sem-fundo.png` — gerada
+- **Python 3.14 + Pillow 12.1.1** instalados no PC do Felipe (notebook)
+- **Testes em andamento** — carrossel de 6 slides gerado, aguardando feedback do Felipe
+- PRD: `docs/prd/compositor-python-prd.md`
+- Story: `docs/stories/2.1.story.md` (Ready for Dev — Tasks 1-6 completas, Task 7 pendente)
 
 ---
 
 ## 🔄 Pendências do Projeto Completo
 
 ### 🔴 Prioridade Máxima
-1. **Script Python compositor de imagens** — gera fundos na cor exata (#03bb85) por código; ChatGPT só gera elemento artístico por cima. Especificações em `squads/dr-julia-resende/data/DR-JULIA-RESENDE-DS.yaml` → seção `python_compositor`. Agente: @dev. Nunca foi criado.
-2. **Agente compositor** via squad-creator-pro — após o script Python pronto, o squad-creator-pro cria o agente que usa esse script no fluxo automático de conteúdo.
+1. **Felipe dar feedback no carrossel** — 6 slides gerados (`slide-01` a `slide-06` em `squads/dr-julia-resende/scripts/carrossel/`). Aguardando aprovação/ajustes.
+2. **Refazer 3 posts de teste (VE/QC/MT)** — primeira rodada rejeitada. Novo compositor redesenhado, aguarda validação do estilo carrossel primeiro.
+3. **Agente compositor** via squad-creator-pro — após validação dos posts, criar o agente que usa o script Python no fluxo automático.
 
 ### 🟡 Prioridade Alta
-3. **DS.yaml — 10 novos formatos** — identificados na análise de referências visuais (13/03 noite). Formatos 06 ao 15. Confirmar se foram adicionados ao DS.yaml v2.0.
+4. **DS.yaml — 10 novos formatos** — formatos 06 ao 15 já estão no DS.yaml v2.0. Confirmar se estão corretos.
+5. **Logo "O J do Abraço"** (Passo 5 do DS) — logo tipográfica da marca, nunca criada. Agente: @Design:agents:aaron-draplin.
 
 ### 🟡 Prioridade Média (LP)
-4. **Domínio próprio** — ex: `poderdarotina.com.br` — aguardar João Paulo
-5. **Verificar Pixel disparando** — confirmar no Facebook Events Manager que o PageView está chegando
-6. **Testes mobile** — verificar LP em celular real
-7. **Console zero erros** — abrir DevTools e confirmar ausência de erros JS
+6. **Domínio próprio** — ex: `poderdarotina.com.br` — aguardar João Paulo
+7. **Verificar Pixel disparando** — confirmar no Facebook Events Manager que o PageView está chegando
+8. **Testes mobile** — verificar LP em celular real
+9. **Console zero erros** — abrir DevTools e confirmar ausência de erros JS
 
 ### 🟢 Prioridade Baixa
-8. **Brandbook** — documento estratégico + visual da marca (conceito, PDF + site). Agente: @Design:agents:design-chief + @ux-design-expert.
+10. **Brandbook** — documento estratégico + visual da marca. Agente: @Design:agents:design-chief + @ux-design-expert.
+11. **Script Python Fase 2** — integração automática com API DALL-E (só após Fase 1 aprovada por Felipe).
 
 ---
 
 ## ➡️ Próximos Passos Priorizados
 
-1. **@dev** — criar script Python compositor de imagens (especificações no DS.yaml → `python_compositor`)
-2. **squad-creator-pro** — criar agente compositor que usa o script Python no fluxo automático
-3. **Felipe** — verificar Pixel no Facebook Events Manager
-4. **Felipe** — testar LP no celular
-5. **Aguardar João Paulo** — domínio próprio
+1. **Felipe** — dar feedback nos 6 slides do carrossel (pasta `carrossel/`)
+2. **@dev** — ajustar carrossel conforme feedback → Felipe aprovar estilo
+3. **@dev + Felipe** — refazer os 3 posts de teste (VE, QC, MT) com novo compositor
+4. **squad-creator-pro** — criar agente compositor após aprovação dos posts
+5. **Felipe** — verificar Pixel no Facebook Events Manager
+6. **Felipe** — testar LP no celular
+7. **Aguardar João Paulo** — domínio próprio
 
 ---
 
@@ -104,6 +119,7 @@ Este não é só um projeto de LP. É um **sistema completo de vendas e conteúd
 - Toma decisões vendo na prática — precisa visualizar para aprovar
 - Comunicação simples — explicar como se fosse para uma criança
 - Quando aprova algo, costuma dizer "gostei", "ficou bom", "ficou excelente"
+- **Conteúdo com intenção:** Felipe exige que cada post tenha um hook claro, texto que prende e ação definida. Conteúdo genérico não é aceito.
 
 ---
 
@@ -117,38 +133,51 @@ Este não é só um projeto de LP. É um **sistema completo de vendas e conteúd
 | Preços | R$10 e R$27 via Eduzz |
 | Meta Pixel ID | `32651609107818251` |
 | Servidor local | `npx serve . -p 3000` (Edge bloqueava file://) |
-| Fonte do projeto | Poppins (Regular + Extra Bold) |
+| Fonte do projeto | Poppins (Regular + Bold) |
 | Ferramenta de imagem | ChatGPT (DALL-E) — NUNCA misturar com outras IAs |
-| Compositor final de posts | Canva (adiciona texto, logo, marca por cima das imagens IA) |
+| Compositor de posts | Script Python (`compositor.py`) — substitui Canva no fluxo automático |
 | Squad | `squads/dr-julia-resende/` — 5 agentes (julia-chief, copy-agent, image-agent, approval-agent, ebook-agent) |
 | DS.yaml | `squads/dr-julia-resende/data/DR-JULIA-RESENDE-DS.yaml` v2.0 |
 | Ebook v2 | `squads/dr-julia-resende/data/ebook_v2.txt` — aprovado com prefácio + 8 aplicações de parentalidade |
-| Logo Facebook | `squads/dr-julia-resende/assets/logo-facebook-drjuliaresende.png` — aprovada e uploadada |
-| Capa Facebook | `squads/dr-julia-resende/assets/capa-facebook-drjuliaresende.png` — aprovada e uploadada |
-| Logo master (01.png) | `squads/dr-julia-resende/assets/01.png` — logo oficial da marca (hug mark) |
+| Logo Facebook | `squads/dr-julia-resende/assets/logo-facebook-drjuliaresende.png` — aprovada e UPLOADADA ✅ |
+| Capa Facebook | `squads/dr-julia-resende/assets/capa-facebook-drjuliaresende.png` — aprovada e UPLOADADA ✅ |
+| Logo master (01.png) | `squads/dr-julia-resende/assets/01.png` — logo do abraço |
+| Logo sem fundo | `squads/dr-julia-resende/assets/logo-sem-fundo.png` — símbolo branco fundo transparente |
 | Logo tipográfica | ❌ NÃO será criada — 01.png + @drjuliaresende são suficientes |
 | Handoffs históricos | `squads/dr-julia-resende/data/HANDOFF-DR-JULIA-RESENDE-v4 a v7.md` — no GitHub |
 | Design System terracota | ❌ DESCARTADO — João Paulo não gostou |
 | Anti-padrão cores | ❌ Nunca misturar cores dentro do mesmo post |
+| *waves | Usar sempre que houver stories paralelas — Felipe quer isso em todo o projeto |
+| Estilo visual dos posts | **Estilo Academia Lendária** — tipografia forte, fundo escuro, accent verde, prova social. Posts com ilustração clipart rejeitados. |
+| Carrossel de teste | 6 slides criados (`carrossel/slide-01` a `slide-06`) — aguardando feedback do Felipe |
+| Posts VE/QC/MT | ❌ Primeira rodada rejeitada ("resultado porco"). Compositor redesenhado. Refazer após aprovar estilo carrossel. |
 
 ---
 
 ## 🗓️ Histórico de Sessões
 
 ### Sessão — 2026-03-16
-**Feito:** Hero redesenhado com foto da Julia, favicon criado (logo do abraço verde), BUG-01 e BUG-02 corrigidos, Meta Pixel instalado, imagem otimizada para WebP, sistema de caderno de projeto criado (PROJETO-STATUS.md + regra project-log.md), repositório GitHub criado (felipeeaugusto/Projeto-O-Poder-Da-Rotina), LP publicada na Vercel. Atlas leu todos os handoffs v4 a v7 + yaml e mapeou o projeto completo. Descoberto que o script Python compositor e o agente via squad-creator-pro nunca foram criados — prioridade máxima para a próxima sessão.
-**URL online:** https://projeto-o-poder-da-rotina.vercel.app/
-**Parou em:** Felipe foi para casa (braço doendo). Continuação no PC de casa.
-**Próxima sessão começa em:** Script Python compositor → @dev.
+**Feito:** Hero redesenhado com foto da Julia, favicon criado (logo do abraço verde), BUG-01 e BUG-02 corrigidos, Meta Pixel instalado, imagem otimizada para WebP, sistema de caderno de projeto criado (PROJETO-STATUS.md + regra project-log.md), repositório GitHub criado (felipeeaugusto/Projeto-O-Poder-Da-Rotina), LP publicada na Vercel. Atlas leu todos os handoffs v4 a v7 + yaml e mapeou o projeto completo.
+**Parou em:** Felipe foi para casa (braço doendo).
 
-### Sessão — 2026-03-17 (tarde)
-**Feito:** Conversa perdida (terminal fechou) recuperada dos logs. Diagnosticados e corrigidos todos os problemas de sincronização entre PCs: `.gitmodules` criado (submodule da LP não tinha URL), DS.yaml + ebook + biografia + logos + 01.png copiados para o repositório, handoffs v4-v7 adicionados ao GitHub, `config.yaml` do squad corrigido de caminhos absolutos para relativos, caminhos no PROJETO-STATUS.md atualizados. Explicado como atualizar o PC de casa sem fechar o terminal do Claude.
-**Parou em:** Todas as brechas de sincronização resolvidas. Pronto para continuar de qualquer PC.
+### Sessão — 2026-03-17 (manhã)
+**Feito:** Problemas de sincronização entre PCs resolvidos: `.gitmodules` criado, DS.yaml + ebook + logos copiados para o repositório, handoffs v4-v7 adicionados ao GitHub, `config.yaml` do squad corrigido.
+**Parou em:** Pronto para continuar de qualquer PC.
 
-### Sessão — 2026-03-17 (noite)
-**Feito:** Atlas ativado no PC de casa. Confirmado que todos os assets estão no repositório. Esclarecido que Felipe é o decisor de todas as etapas (João Paulo só recebe o resultado final). Upload da logo + capa no Facebook confirmado como feito pelo Felipe. Decisão: logo tipográfica não será criada — 01.png + @drjuliaresende são suficientes. Perfil do Felipe e pendências atualizados no caderno.
-**Parou em:** Felipe foi dormir.
-**Próxima sessão começa em:** Script Python compositor → @dev (DS.yaml em `squads/dr-julia-resende/data/`).
+### Sessão — 2026-03-17 (tarde/noite — notebook)
+**Feito:** PRD do compositor Python criado. Story 2.1 criada, validada e aprovada (Ready for Dev). Script `compositor.py` implementado — Fase 1 funcional. Python 3.14 + Pillow instalados. Logo sem fundo gerada. Teste 1 (VE) rodado — compositor funciona mas resultado foi rejeitado.
+**Parou em:** @analyst definindo estratégia dos 3 posts de teste.
+
+### Sessão — 2026-03-17 (noite — notebook/casa)
+**Feito:**
+- API do Claude crashou (529) — contexto recuperado pelo Atlas via `history.jsonl`
+- Analisadas todas as referências visuais: ref00, ref01, ref02, ref03, ref04
+- **Diagnóstico:** compositor gerava layout clipart genérico — nunca vai chegar no nível das referências com fotografia real
+- **Novo caminho definido:** estilo Academia Lendária (tipografia + prova social + fundo escuro)
+- Compositor redesenhado com templates por formato (VE, QC, MT)
+- **Carrossel de 6 slides criado** — `squads/dr-julia-resende/scripts/carrossel/slide-01` a `slide-06`
+**Parou em:** Felipe viu os 6 slides e foi para o PC de casa — aguardando feedback
+**Próxima sessão começa em:** Felipe dá feedback no carrossel → ajustes → aprovar estilo → continuar
 
 ---
 
