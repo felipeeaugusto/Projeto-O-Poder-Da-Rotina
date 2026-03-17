@@ -124,10 +124,12 @@ Este não é só um projeto de LP. É um **sistema completo de vendas e conteúd
 | Ferramenta de imagem | ChatGPT (DALL-E) — NUNCA misturar com outras IAs |
 | Compositor final de posts | Canva (adiciona texto, logo, marca por cima das imagens IA) |
 | Squad | `squads/dr-julia-resende/` — 5 agentes (julia-chief, copy-agent, image-agent, approval-agent, ebook-agent) |
-| DS.yaml | `C:\Users\felip\Documents\DR-JULIA-RESENDE-DS.yaml` v2.0 |
-| Ebook v2 | `C:\Users\felip\Documents\ebook_v2.txt` — aprovado com prefácio + 8 aplicações de parentalidade |
-| Logo Facebook | `C:\Users\felip\Pictures\Camera Roll\logo-facebook-drjuliaresende.png` — aprovada |
-| Capa Facebook | `C:\Users\felip\Pictures\Camera Roll\capa-facebook-drjuliaresende.png` — aprovada |
+| DS.yaml | `squads/dr-julia-resende/data/DR-JULIA-RESENDE-DS.yaml` v2.0 |
+| Ebook v2 | `squads/dr-julia-resende/data/ebook_v2.txt` — aprovado com prefácio + 8 aplicações de parentalidade |
+| Logo Facebook | `squads/dr-julia-resende/assets/logo-facebook-drjuliaresende.png` — aprovada |
+| Capa Facebook | `squads/dr-julia-resende/assets/capa-facebook-drjuliaresende.png` — aprovada |
+| Logo master (01.png) | `squads/dr-julia-resende/assets/01.png` — logo do abraço |
+| Handoffs históricos | `squads/dr-julia-resende/data/HANDOFF-DR-JULIA-RESENDE-v4 a v7.md` — no GitHub |
 | Design System terracota | ❌ DESCARTADO — João Paulo não gostou |
 | Anti-padrão cores | ❌ Nunca misturar cores dentro do mesmo post |
 
@@ -141,6 +143,11 @@ Este não é só um projeto de LP. É um **sistema completo de vendas e conteúd
 **Parou em:** Felipe foi para casa (braço doendo). Continuação no PC de casa.
 **Próxima sessão começa em:** Script Python compositor → @dev.
 
+### Sessão — 2026-03-17
+**Feito:** Conversa perdida (terminal fechou) recuperada dos logs. Diagnosticados e corrigidos todos os problemas de sincronização entre PCs: `.gitmodules` criado (submodule da LP não tinha URL), DS.yaml + ebook + biografia + logos + 01.png copiados para o repositório, handoffs v4-v7 adicionados ao GitHub, `config.yaml` do squad corrigido de caminhos absolutos para relativos, caminhos no PROJETO-STATUS.md atualizados. Explicado como atualizar o PC de casa sem fechar o terminal do Claude.
+**Parou em:** Todas as brechas de sincronização resolvidas. Pronto para continuar de qualquer PC.
+**Próxima sessão começa em:** Script Python compositor → @dev (DS.yaml agora acessível de qualquer PC).
+
 ---
 
-*Atualizado por: Atlas (analyst) — 2026-03-16*
+*Atualizado por: Atlas (analyst) — 2026-03-17*
