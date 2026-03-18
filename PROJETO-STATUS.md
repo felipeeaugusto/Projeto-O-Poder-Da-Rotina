@@ -73,13 +73,15 @@ Este não é só um projeto de LP. É um **sistema completo de vendas e conteúd
 - PRD: `docs/prd/compositor-python-prd.md` (desatualizado)
 - Story: `docs/stories/2.1.story.md` (pausada — escopo mudou com a nova ferramenta)
 
-### Estilos Visuais — DS.yaml v3.0 APROVADO
-- **DS.yaml:** `squads/dr-julia-resende/data/DR-JULIA-RESENDE-DS.yaml` v3.0
-- 3 estilos aprovados por Felipe com protótipos HTML + PNG:
-  - **S01 Bold** — `prototipo-carrosseis/estilo-01-bold.html/png`
-  - **S03 Collage Editorial** — `prototipo-carrosseis/estilo-03-collage.html/png`
-  - **S04 Depoimento** — `prototipo-carrosseis/estilo-04-depoimento.html/png`
-- S04 inclui banco de depoimentos fictícios verossímeis com template
+### Estilos Visuais — DS.yaml v4.0 APROVADO
+- **DS.yaml:** `squads/dr-julia-resende/data/DR-JULIA-RESENDE-DS.yaml` v4.0
+- 5 estilos aprovados por Felipe com protótipos PNG:
+  - **S01 Bold** — carrossel — fundo preto, Bebas Neue
+  - **S03 Collage Editorial** — carrossel — fundo preto escuro, Playfair Display
+  - **S04 Depoimento** — carrossel — fundo preto, card estilo WhatsApp
+  - **P01 Manifesto** — post único 1:1 — fundo creme #f7f3ee, DM Serif Display ✅ NOVO
+  - **ST01 Direta** — story 9:16 — fundo verde #03bb85, Poppins ExtraBold ✅ NOVO
+- Cada formato tem estilo exclusivo — julia-chief não pode mais usar estilo de carrossel em post ou story
 
 ### Carrossel-01 — APROVADO
 - 5 slides aprovados por Felipe: `squads/dr-julia-resende/carrossel-01/slide-01` a `slide-05`
@@ -161,9 +163,10 @@ Este não é só um projeto de LP. É um **sistema completo de vendas e conteúd
 | Anti-padrão cores | ❌ Nunca misturar cores dentro do mesmo post |
 | *waves | Usar sempre que houver stories paralelas — Felipe quer isso em todo o projeto |
 | Estilo visual dos posts | **Estilo Academia Lendária** — tipografia forte, fundo escuro, accent verde, prova social. Posts com ilustração clipart rejeitados. |
-| Ferramenta compositor | ✅ HTML/CSS + Playwright → PNG 1080x1080 (Python/Pillow descartado) |
+| Ferramenta compositor | ✅ HTML/CSS + Playwright → PNG 1080x1080/1920 (Python/Pillow descartado) |
 | Carrossel-01 | ✅ 5 slides aprovados (`carrossel-01/slide-01` a `slide-05`) |
-| Estilos visuais aprovados | S01 Bold, S03 Collage Editorial, S04 Depoimento — protótipos em `prototipo-carrosseis/` |
+| Estilos visuais aprovados | S01, S03, S04 (carrossel) + P01 Manifesto (post) + ST01 Direta (story) |
+| DS.yaml versão | v4.0 — cada formato tem estilo exclusivo |
 | Posts VE/QC/MT (1ª rodada) | ❌ Rejeitados ("resultado porco"). Nova ferramenta HTML/CSS definida. |
 | post-01.png / story-01.png | Criados em 2026-03-18, aguardam revisão do Felipe |
 
@@ -205,4 +208,4 @@ Este não é só um projeto de LP. É um **sistema completo de vendas e conteúd
 
 ---
 
-*Atualizado por: Atlas (analyst) — 2026-03-18 (reconstruído via commits)*
+*Atualizado por: Brad Frost (design-chief) — 2026-03-18*
