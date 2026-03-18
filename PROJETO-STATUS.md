@@ -66,27 +66,40 @@ Este não é só um projeto de LP. É um **sistema completo de vendas e conteúd
 - **Upload da capa** na página @drjuliaresende — feito por Felipe ✅
 - Arquivos: `squads/dr-julia-resende/assets/logo-facebook-drjuliaresende.png` e `capa-facebook-drjuliaresende.png`
 
-### Script Python Compositor — Fase 1 CRIADA
-- **Script:** `squads/dr-julia-resende/scripts/compositor.py` — redesenhado com templates por formato
-- **Carrossel:** `squads/dr-julia-resende/scripts/carrossel.py` — 6 slides estilo Academia Lendária criados
-- **Logo sem fundo:** `squads/dr-julia-resende/assets/logo-sem-fundo.png` — gerada
-- **Python 3.14 + Pillow 12.1.1** instalados no PC do Felipe (notebook)
-- **Testes em andamento** — carrossel de 6 slides gerado, aguardando feedback do Felipe
-- PRD: `docs/prd/compositor-python-prd.md`
-- Story: `docs/stories/2.1.story.md` (Ready for Dev — Tasks 1-6 completas, Task 7 pendente)
+### Script Python Compositor — DESCARTADO
+- Python/Pillow descartado como ferramenta de geração de imagens
+- **Nova ferramenta definida:** HTML/CSS + Playwright → PNG 1080x1080
+- Vantagem: funciona de qualquer PC sem dependências locais (Python, Pillow, pastas)
+- PRD: `docs/prd/compositor-python-prd.md` (desatualizado)
+- Story: `docs/stories/2.1.story.md` (pausada — escopo mudou com a nova ferramenta)
+
+### Estilos Visuais — DS.yaml v3.0 APROVADO
+- **DS.yaml:** `squads/dr-julia-resende/data/DR-JULIA-RESENDE-DS.yaml` v3.0
+- 3 estilos aprovados por Felipe com protótipos HTML + PNG:
+  - **S01 Bold** — `prototipo-carrosseis/estilo-01-bold.html/png`
+  - **S03 Collage Editorial** — `prototipo-carrosseis/estilo-03-collage.html/png`
+  - **S04 Depoimento** — `prototipo-carrosseis/estilo-04-depoimento.html/png`
+- S04 inclui banco de depoimentos fictícios verossímeis com template
+
+### Carrossel-01 — APROVADO
+- 5 slides aprovados por Felipe: `squads/dr-julia-resende/carrossel-01/slide-01` a `slide-05`
+- Gerados com HTML/CSS + Playwright
+
+### Post e Story de Teste — CRIADOS (aguardam revisão)
+- `squads/dr-julia-resende/teste-post-story/post-01.png`
+- `squads/dr-julia-resende/teste-post-story/story-01.png`
 
 ---
 
 ## 🔄 Pendências do Projeto Completo
 
 ### 🔴 Prioridade Máxima
-1. **Felipe dar feedback no carrossel** — 6 slides gerados (`slide-01` a `slide-06` em `squads/dr-julia-resende/scripts/carrossel/`). Aguardando aprovação/ajustes.
-2. **Refazer 3 posts de teste (VE/QC/MT)** — primeira rodada rejeitada. Novo compositor redesenhado, aguarda validação do estilo carrossel primeiro.
-3. **Agente compositor** via squad-creator-pro — após validação dos posts, criar o agente que usa o script Python no fluxo automático.
+1. **Revisar post-01.png e story-01.png** — criados na sessão de 2026-03-18, aguardam revisão do Felipe.
+2. **Agente compositor** via squad-creator-pro — após posts aprovados, criar agente que usa HTML/CSS + Playwright no fluxo automático.
 
 ### 🟡 Prioridade Alta
-4. **DS.yaml — 10 novos formatos** — formatos 06 ao 15 já estão no DS.yaml v2.0. Confirmar se estão corretos.
-5. **Logo "O J do Abraço"** (Passo 5 do DS) — logo tipográfica da marca, nunca criada. Agente: @Design:agents:aaron-draplin.
+3. **DS.yaml — confirmar formatos 06 ao 15** — v3.0 tem estilos visuais, mas confirmar se os 10 formatos estão corretos.
+4. **Logo "O J do Abraço"** (Passo 5 do DS) — logo tipográfica da marca, nunca criada. Agente: @Design:agents:aaron-draplin.
 
 ### 🟡 Prioridade Média (LP)
 6. **Domínio próprio** — ex: `poderdarotina.com.br` — aguardar João Paulo
@@ -102,13 +115,12 @@ Este não é só um projeto de LP. É um **sistema completo de vendas e conteúd
 
 ## ➡️ Próximos Passos Priorizados
 
-1. **Felipe** — dar feedback nos 6 slides do carrossel (pasta `carrossel/`)
-2. **@dev** — ajustar carrossel conforme feedback → Felipe aprovar estilo
-3. **@dev + Felipe** — refazer os 3 posts de teste (VE, QC, MT) com novo compositor
-4. **squad-creator-pro** — criar agente compositor após aprovação dos posts
-5. **Felipe** — verificar Pixel no Facebook Events Manager
-6. **Felipe** — testar LP no celular
-7. **Aguardar João Paulo** — domínio próprio
+1. **Felipe** — revisar post-01.png e story-01.png (`squads/dr-julia-resende/teste-post-story/`)
+2. **@dev + Felipe** — ajustes nos posts conforme feedback → aprovar estilo final
+3. **squad-creator-pro** — criar agente compositor (HTML/CSS + Playwright) após posts aprovados
+4. **Felipe** — verificar Pixel no Facebook Events Manager
+5. **Felipe** — testar LP no celular
+6. **Aguardar João Paulo** — domínio próprio
 
 ---
 
@@ -149,8 +161,11 @@ Este não é só um projeto de LP. É um **sistema completo de vendas e conteúd
 | Anti-padrão cores | ❌ Nunca misturar cores dentro do mesmo post |
 | *waves | Usar sempre que houver stories paralelas — Felipe quer isso em todo o projeto |
 | Estilo visual dos posts | **Estilo Academia Lendária** — tipografia forte, fundo escuro, accent verde, prova social. Posts com ilustração clipart rejeitados. |
-| Carrossel de teste | 6 slides criados (`carrossel/slide-01` a `slide-06`) — aguardando feedback do Felipe |
-| Posts VE/QC/MT | ❌ Primeira rodada rejeitada ("resultado porco"). Compositor redesenhado. Refazer após aprovar estilo carrossel. |
+| Ferramenta compositor | ✅ HTML/CSS + Playwright → PNG 1080x1080 (Python/Pillow descartado) |
+| Carrossel-01 | ✅ 5 slides aprovados (`carrossel-01/slide-01` a `slide-05`) |
+| Estilos visuais aprovados | S01 Bold, S03 Collage Editorial, S04 Depoimento — protótipos em `prototipo-carrosseis/` |
+| Posts VE/QC/MT (1ª rodada) | ❌ Rejeitados ("resultado porco"). Nova ferramenta HTML/CSS definida. |
+| post-01.png / story-01.png | Criados em 2026-03-18, aguardam revisão do Felipe |
 
 ---
 
@@ -177,8 +192,17 @@ Este não é só um projeto de LP. É um **sistema completo de vendas e conteúd
 - Compositor redesenhado com templates por formato (VE, QC, MT)
 - **Carrossel de 6 slides criado** — `squads/dr-julia-resende/scripts/carrossel/slide-01` a `slide-06`
 **Parou em:** Felipe viu os 6 slides e foi para o PC de casa — aguardando feedback
-**Próxima sessão começa em:** Felipe dá feedback no carrossel → ajustes → aprovar estilo → continuar
+
+### Sessão — 2026-03-18 (madrugada — PC de casa)
+**Feito:**
+- **Python/Pillow descartado** — nova ferramenta: HTML/CSS + Playwright → PNG 1080x1080
+- DS.yaml atualizado para v3.0 com seção completa de estilos visuais
+- **3 estilos aprovados:** S01 Bold, S03 Collage Editorial, S04 Depoimento (protótipos HTML + PNG)
+- **Carrossel-01:** 5 slides aprovados e commitados (`carrossel-01/`)
+- **post-01.png e story-01.png** criados e commitados (`teste-post-story/`)
+- PROJETO-STATUS.md atualizado mas submodule não foi pushed (recuperado nesta sessão via commits)
+**Parou em:** post-01.png e story-01.png criados — aguardam revisão do Felipe na próxima sessão
 
 ---
 
-*Atualizado por: Atlas (analyst) — 2026-03-17*
+*Atualizado por: Atlas (analyst) — 2026-03-18 (reconstruído via commits)*
