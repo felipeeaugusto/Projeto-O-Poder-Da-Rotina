@@ -66,6 +66,39 @@ Este não é só um projeto de LP. É um **sistema completo de vendas e conteúd
 - **Upload da capa** na página @drjuliaresende — feito por Felipe ✅
 - Arquivos: `squads/dr-julia-resende/assets/logo-facebook-drjuliaresende.png` e `capa-facebook-drjuliaresende.png`
 
+### Protótipos de Carrosséis HTML/CSS — APROVADOS
+- **Ferramenta definida:** HTML/CSS + Playwright → PNG 1080x1080 (substitui Python/Pillow para carrosséis)
+- **Canva Pro** assinado + MCP do Canva conectado no Claude Code
+- **estilo-01-bold.png** — fundo preto, "7 MIN." centralizado em verde 260px, dinâmica em 3 zonas ✅
+- **estilo-03-collage.png** — fundo escuro, título Playfair italic, citação da Julia com borda verde ✅
+- **estilo-04-depoimento.png** — estilo Academia Lendária, card de depoimento tipo WhatsApp ✅
+- Pasta: `squads/dr-julia-resende/prototipo-carrosseis/`
+- **Decisão:** Python/Pillow descartado para criação visual. HTML/CSS+Playwright é o caminho.
+
+### DS.yaml v3.0 — Estilos Visuais Aprovados Documentados
+- DS.yaml atualizado de v2.0 → v3.0 com seção `visual_styles_approved`
+- **3 estilos completamente documentados:** S01 Bold, S03 Collage, S04 Depoimento
+- Cada estilo tem: cores exatas, tipografia, layout por zonas, regras, anti-padrões
+- S04 inclui banco de 3 depoimentos fictícios prontos para uso
+- Guia de uso: estrutura padrão de carrossel (5 slides), mapeamento por objetivo
+- Squad julia-chief pode criar conteúdo de qualquer PC sem precisar de pastas locais
+
+### Carrossel-01 — APROVADO por Felipe (2026-03-18)
+- **5 slides com conteúdo real da Dra. Julia**
+- Slide 01: S01 Bold — hook "7 MIN. / por dia." ✅
+- Slide 02: S03 Collage — "Manhã em caos — o dia inteiro paga o preço." ✅
+- Slide 03: S03 Collage — dados científicos (78%, 15k, 20 anos) ✅
+- Slide 04: S04 Depoimento — Fernanda M. / Belo Horizonte ✅
+- Slide 05: S01 Bold — CTA "O Poder da Rotina / Link na Bio." ✅
+- Pasta: `squads/dr-julia-resende/carrossel-01/`
+- Felipe aprovou o carrossel completo: "Gostei do Carrossel, por completo"
+
+### Post e Story de Teste — Criados, aguardando revisão (2026-03-18)
+- **post-01.png** — S01 Bold — "MÃE PERFEITA." — não aprovado, Felipe quer conversar amanhã
+- **story-01.png** — S03 Collage vertical 1080x1920 — "Conexão antes de correção." — não aprovado, Felipe quer conversar amanhã
+- Feedback recebido: feed precisa de VARIEDADE — não só estilos escuros. Falta estilo branco/claro.
+- Pasta: `squads/dr-julia-resende/teste-post-story/`
+
 ### Script Python Compositor — Fase 1 CRIADA
 - **Script:** `squads/dr-julia-resende/scripts/compositor.py` — redesenhado com templates por formato
 - **Carrossel:** `squads/dr-julia-resende/scripts/carrossel.py` — 6 slides estilo Academia Lendária criados
@@ -80,13 +113,13 @@ Este não é só um projeto de LP. É um **sistema completo de vendas e conteúd
 ## 🔄 Pendências do Projeto Completo
 
 ### 🔴 Prioridade Máxima
-1. **Felipe dar feedback no carrossel** — 6 slides gerados (`slide-01` a `slide-06` em `squads/dr-julia-resende/scripts/carrossel/`). Aguardando aprovação/ajustes.
-2. **Refazer 3 posts de teste (VE/QC/MT)** — primeira rodada rejeitada. Novo compositor redesenhado, aguarda validação do estilo carrossel primeiro.
-3. **Agente compositor** via squad-creator-pro — após validação dos posts, criar o agente que usa o script Python no fluxo automático.
+1. **Definir Estilo 05 (post branco) e Estilo 06 (story branco)** — feed precisa de variedade. Estilos escuros aprovados, mas faltam versões claras. Felipe quer conversar sobre post-01 e story-01 na próxima sessão.
+2. **Revisar post-01 e story-01** — criados mas não aprovados. Próxima sessão começa aqui.
+3. **Criar mais carrosséis** — carrossel-01 aprovado. Próximo: criar carrossel com tema diferente.
 
 ### 🟡 Prioridade Alta
-4. **DS.yaml — 10 novos formatos** — formatos 06 ao 15 já estão no DS.yaml v2.0. Confirmar se estão corretos.
-5. **Logo "O J do Abraço"** (Passo 5 do DS) — logo tipográfica da marca, nunca criada. Agente: @Design:agents:aaron-draplin.
+4. **Agente compositor** via squad-creator-pro — após estilos branco/claro definidos e aprovados.
+5. **DS.yaml — 10 novos formatos** — formatos 06 ao 15 já estão no DS.yaml v3.0. Confirmar se estão corretos.
 
 ### 🟡 Prioridade Média (LP)
 6. **Domínio próprio** — ex: `poderdarotina.com.br` — aguardar João Paulo
@@ -102,13 +135,14 @@ Este não é só um projeto de LP. É um **sistema completo de vendas e conteúd
 
 ## ➡️ Próximos Passos Priorizados
 
-1. **Felipe** — dar feedback nos 6 slides do carrossel (pasta `carrossel/`)
-2. **@dev** — ajustar carrossel conforme feedback → Felipe aprovar estilo
-3. **@dev + Felipe** — refazer os 3 posts de teste (VE, QC, MT) com novo compositor
-4. **squad-creator-pro** — criar agente compositor após aprovação dos posts
-5. **Felipe** — verificar Pixel no Facebook Events Manager
-6. **Felipe** — testar LP no celular
-7. **Aguardar João Paulo** — domínio próprio
+1. **Felipe + @julia-chief** — revisar post-01.png e story-01.png (criados em 2026-03-18, ainda não aprovados)
+2. **@julia-chief** — definir e criar Estilo 05 (post branco/claro) e Estilo 06 (story branco) — aprovação do Felipe
+3. **@julia-chief** — adicionar estilos branco ao DS.yaml v3.0 após aprovação
+4. **@julia-chief** — criar mais carrosséis com conteúdo real nos estilos aprovados
+5. **squad-creator-pro** — criar agente compositor após estilos completos aprovados
+6. **Felipe** — verificar Pixel no Facebook Events Manager
+7. **Felipe** — testar LP no celular
+8. **Aguardar João Paulo** — domínio próprio
 
 ---
 
@@ -137,7 +171,7 @@ Este não é só um projeto de LP. É um **sistema completo de vendas e conteúd
 | Ferramenta de imagem | ChatGPT (DALL-E) — NUNCA misturar com outras IAs |
 | Compositor de posts | Script Python (`compositor.py`) — substitui Canva no fluxo automático |
 | Squad | `squads/dr-julia-resende/` — 5 agentes (julia-chief, copy-agent, image-agent, approval-agent, ebook-agent) |
-| DS.yaml | `squads/dr-julia-resende/data/DR-JULIA-RESENDE-DS.yaml` v2.0 |
+| DS.yaml | `squads/dr-julia-resende/data/DR-JULIA-RESENDE-DS.yaml` v3.0 — inclui estilos visuais aprovados |
 | Ebook v2 | `squads/dr-julia-resende/data/ebook_v2.txt` — aprovado com prefácio + 8 aplicações de parentalidade |
 | Logo Facebook | `squads/dr-julia-resende/assets/logo-facebook-drjuliaresende.png` — aprovada e UPLOADADA ✅ |
 | Capa Facebook | `squads/dr-julia-resende/assets/capa-facebook-drjuliaresende.png` — aprovada e UPLOADADA ✅ |
@@ -148,9 +182,19 @@ Este não é só um projeto de LP. É um **sistema completo de vendas e conteúd
 | Design System terracota | ❌ DESCARTADO — João Paulo não gostou |
 | Anti-padrão cores | ❌ Nunca misturar cores dentro do mesmo post |
 | *waves | Usar sempre que houver stories paralelas — Felipe quer isso em todo o projeto |
-| Estilo visual dos posts | **Estilo Academia Lendária** — tipografia forte, fundo escuro, accent verde, prova social. Posts com ilustração clipart rejeitados. |
-| Carrossel de teste | 6 slides criados (`carrossel/slide-01` a `slide-06`) — aguardando feedback do Felipe |
-| Posts VE/QC/MT | ❌ Primeira rodada rejeitada ("resultado porco"). Compositor redesenhado. Refazer após aprovar estilo carrossel. |
+| Estilo visual dos posts | **3 estilos aprovados:** bold (fundo preto), collage (Playfair dark), depoimento (Academia Lendária) |
+| Ferramenta de carrossel | HTML/CSS + Playwright → PNG 1080x1080. Python/Pillow descartado para criação visual. |
+| Canva Pro | Assinado. MCP conectado no Claude Code. ⚠️ MCP NÃO dá acesso à biblioteca de elementos do Canva (bloqueio comercial). Só funciona com templates criados manualmente. |
+| Carrossel de teste | 6 slides antigos descartados. 3 novos protótipos aprovados em `prototipo-carrosseis/` |
+| Carrossel-01 | APROVADO. 5 slides com conteúdo real. Pasta: `squads/dr-julia-resende/carrossel-01/` |
+| Posts VE/QC/MT | ❌ Primeira rodada rejeitada. Substituído pelo carrossel-01 aprovado. |
+| Squad de conteúdo | **julia-chief** é o responsável por criar todo o conteúdo. design-chief só define estilos uma vez. |
+| CTA padrão | "Link na Bio" — NUNCA "Link da bio" |
+| Preço no post | ❌ NUNCA mostrar preço do ebook em posts/carrosséis |
+| CTA duplicado | ❌ NUNCA repetir CTA duas vezes no mesmo slide |
+| Variedade visual | ⚠️ Feed precisa alternar estilos escuros e claros. Faltam S05 (post branco) e S06 (story branco). |
+| HTMLs intermediários | Apagados automaticamente após renderização. Felipe só vê os PNGs finais. |
+| Caminho dos arquivos | Informar SEMPRE o caminho completo ANTES de perguntar feedback ao Felipe. |
 
 ---
 
@@ -177,8 +221,19 @@ Este não é só um projeto de LP. É um **sistema completo de vendas e conteúd
 - Compositor redesenhado com templates por formato (VE, QC, MT)
 - **Carrossel de 6 slides criado** — `squads/dr-julia-resende/scripts/carrossel/slide-01` a `slide-06`
 **Parou em:** Felipe viu os 6 slides e foi para o PC de casa — aguardando feedback
-**Próxima sessão começa em:** Felipe dá feedback no carrossel → ajustes → aprovar estilo → continuar
+
+### Sessão — 2026-03-18 (PC de casa)
+**Feito:**
+- DS.yaml atualizado para v3.0 — 3 estilos visuais completamente documentados (S01 Bold, S03 Collage, S04 Depoimento)
+- Protótipos PNG aprovados adicionados ao GitHub: `prototipo-carrosseis/estilo-01-bold.png`, `estilo-03-collage.png`, `estilo-04-depoimento.png`
+- **Carrossel-01 criado e APROVADO por Felipe** — 5 slides com conteúdo real da Dra. Julia: hook, problema, método, depoimento, CTA
+- Post único (post-01.png) e Story (story-01.png) criados como teste — NÃO aprovados, aguardam revisão
+- Feedback registrado: feed precisa de variedade (faltam estilos claros/brancos), "Link na Bio" é o padrão, nunca mostrar preço em posts, nunca duplicar CTA
+- Canva MCP: confirmado que não tem acesso à biblioteca de elementos (limitação da Canva)
+- Squad julia-chief definido como responsável único por criar conteúdo
+**Parou em:** Discussão sobre variedade visual — precisam de Estilo 05 (post branco) e Estilo 06 (story branco)
+**Próxima sessão começa em:** Revisar post-01 e story-01 → definir estilos brancos → criar mais conteúdo
 
 ---
 
-*Atualizado por: Atlas (analyst) — 2026-03-17*
+*Atualizado por: Atlas (@analyst) — 2026-03-18*
