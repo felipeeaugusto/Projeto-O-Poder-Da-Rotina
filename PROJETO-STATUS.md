@@ -15,10 +15,11 @@ Este não é só um projeto de LP. É um **sistema completo de vendas e conteúd
 - **Cliente final:** João Paulo R. Costa (recebe os resultados — não aprova etapas)
 - **Decisor e executor:** Felipe (toma todas as decisões do projeto)
 
-**O sistema tem 3 pilares:**
+**O sistema tem 4 pilares:**
 1. **Squad de conteúdo** — agentes IA que geram posts/stories automaticamente (já criado)
 2. **Landing Page** — converte tráfego pago em vendas (feita e online)
-3. **Script Python compositor** — Fase 1 criada (validação manual em andamento). Fase 2 (automação total) pendente.
+3. **Script HTML/CSS + Playwright compositor** — ferramenta de geração de imagens aprovada
+4. **Squad de Mineração de Conteúdo** — ⚠️ NOVO — coleta viral dos 30 perfis de referência e gera briefing semanal obrigatório para o julia-chief
 
 ---
 
@@ -66,81 +67,104 @@ Este não é só um projeto de LP. É um **sistema completo de vendas e conteúd
 - **Upload da capa** na página @drjuliaresende — feito por Felipe ✅
 - Arquivos: `squads/dr-julia-resende/assets/logo-facebook-drjuliaresende.png` e `capa-facebook-drjuliaresende.png`
 
-### Protótipos de Carrosséis HTML/CSS — APROVADOS
-- **Ferramenta definida:** HTML/CSS + Playwright → PNG 1080x1080 (substitui Python/Pillow para carrosséis)
-- **Canva Pro** assinado + MCP do Canva conectado no Claude Code
-- **estilo-01-bold.png** — fundo preto, "7 MIN." centralizado em verde 260px, dinâmica em 3 zonas ✅
-- **estilo-03-collage.png** — fundo escuro, título Playfair italic, citação da Julia com borda verde ✅
-- **estilo-04-depoimento.png** — estilo Academia Lendária, card de depoimento tipo WhatsApp ✅
-- Pasta: `squads/dr-julia-resende/prototipo-carrosseis/`
-- **Decisão:** Python/Pillow descartado para criação visual. HTML/CSS+Playwright é o caminho.
+### Script Python Compositor — DESCARTADO
+- Python/Pillow descartado como ferramenta de geração de imagens
+- **Nova ferramenta definida:** HTML/CSS + Playwright → PNG 1080x1080
+- Vantagem: funciona de qualquer PC sem dependências locais (Python, Pillow, pastas)
+- PRD: `docs/prd/compositor-python-prd.md` (desatualizado)
+- Story: `docs/stories/2.1.story.md` (pausada — escopo mudou com a nova ferramenta)
 
-### DS.yaml v3.0 — Estilos Visuais Aprovados Documentados
-- DS.yaml atualizado de v2.0 → v3.0 com seção `visual_styles_approved`
-- **3 estilos completamente documentados:** S01 Bold, S03 Collage, S04 Depoimento
-- Cada estilo tem: cores exatas, tipografia, layout por zonas, regras, anti-padrões
-- S04 inclui banco de 3 depoimentos fictícios prontos para uso
-- Guia de uso: estrutura padrão de carrossel (5 slides), mapeamento por objetivo
-- Squad julia-chief pode criar conteúdo de qualquer PC sem precisar de pastas locais
+### Estilos Visuais — DS.yaml v4.0 APROVADO
+- **DS.yaml:** `squads/dr-julia-resende/data/DR-JULIA-RESENDE-DS.yaml` v4.0
+- 5 estilos aprovados por Felipe com protótipos PNG:
+  - **S01 Bold** — carrossel — fundo preto, Bebas Neue
+  - **S03 Collage Editorial** — carrossel — fundo preto escuro, Playfair Display
+  - **S04 Depoimento** — carrossel — fundo preto, card estilo WhatsApp
+  - **P01 Manifesto** — post único 1:1 — fundo creme #f7f3ee, DM Serif Display ✅
+  - **ST01 Direta** — story 9:16 — fundo verde #03bb85, Poppins ExtraBold ✅
+- Cada formato tem estilo exclusivo — julia-chief não pode mais usar estilo de carrossel em post ou story
 
-### Carrossel-01 — APROVADO por Felipe (2026-03-18)
-- **5 slides com conteúdo real da Dra. Julia**
-- Slide 01: S01 Bold — hook "7 MIN. / por dia." ✅
-- Slide 02: S03 Collage — "Manhã em caos — o dia inteiro paga o preço." ✅
-- Slide 03: S03 Collage — dados científicos (78%, 15k, 20 anos) ✅
-- Slide 04: S04 Depoimento — Fernanda M. / Belo Horizonte ✅
-- Slide 05: S01 Bold — CTA "O Poder da Rotina / Link na Bio." ✅
-- Pasta: `squads/dr-julia-resende/carrossel-01/`
-- Felipe aprovou o carrossel completo: "Gostei do Carrossel, por completo"
+### Carrossel-01 — APROVADO
+- 5 slides aprovados por Felipe: `squads/dr-julia-resende/carrossel-01/slide-01` a `slide-05`
+- Gerados com HTML/CSS + Playwright
 
-### Post e Story de Teste — Criados, aguardando revisão (2026-03-18)
-- **post-01.png** — S01 Bold — "MÃE PERFEITA." — não aprovado, Felipe quer conversar amanhã
-- **story-01.png** — S03 Collage vertical 1080x1920 — "Conexão antes de correção." — não aprovado, Felipe quer conversar amanhã
-- Feedback recebido: feed precisa de VARIEDADE — não só estilos escuros. Falta estilo branco/claro.
-- Pasta: `squads/dr-julia-resende/teste-post-story/`
+### Post e Story de Teste — CRIADOS (aguardam revisão)
+- `squads/dr-julia-resende/teste-post-story/post-01.png`
+- `squads/dr-julia-resende/teste-post-story/story-01.png`
+- `squads/dr-julia-resende/teste-post-story/post-02.png` ← criado na sessão 2026-03-18/19
+- `squads/dr-julia-resende/teste-post-story/story-02.png` ← criado na sessão 2026-03-18/19
 
-### Script Python Compositor — Fase 1 CRIADA
-- **Script:** `squads/dr-julia-resende/scripts/compositor.py` — redesenhado com templates por formato
-- **Carrossel:** `squads/dr-julia-resende/scripts/carrossel.py` — 6 slides estilo Academia Lendária criados
-- **Logo sem fundo:** `squads/dr-julia-resende/assets/logo-sem-fundo.png` — gerada
-- **Python 3.14 + Pillow 12.1.1** instalados no PC do Felipe (notebook)
-- **Testes em andamento** — carrossel de 6 slides gerado, aguardando feedback do Felipe
-- PRD: `docs/prd/compositor-python-prd.md`
-- Story: `docs/stories/2.1.story.md` (Ready for Dev — Tasks 1-6 completas, Task 7 pendente)
+### Protótipo P02 Social Proof — CRIADO (aguarda revisão)
+- Script: `squads/dr-julia-resende/assets/render-p02-v2.js`
+- Output: `squads/dr-julia-resende/prototipo-carrosseis/estilo-p02-social-proof.png`
+- Design: fundo navy escuro, texto à esquerda (hook "Tem mães" + checklist + CTA), celular diagonal à direita com WhatsApp dark mode
+- Script rodou com sucesso: `✅ P02 v2 gerado!`
+- ⚠️ Aguarda revisão do Felipe
+
+### Protótipos de Novos Estilos — CRIADOS (aguardam revisão)
+- `squads/dr-julia-resende/prototipo-carrosseis/estilo-s05-diagrama.png`
+- `squads/dr-julia-resende/prototipo-carrosseis/estilo-s06-meme.png`
+- ⚠️ Aguardam revisão do Felipe
+
+### Squad de Mineração — CRIADO ✅
+- **Spec:** `squads/dr-julia-resende/data/SQUAD-MINERACAO-SPEC.md`
+- **5 agentes criados** em `squads/dr-julia-resende/agents/`:
+  - 🔭 `scout-agent.md` — coleta via Apify (30 perfis)
+  - 🧠 `analyst-agent-mineracao.md` — classifica padrões (Método Subido de Mineração)
+  - 📋 `briefing-agent.md` — top 5 oportunidades semanais (obrigatório para julia-chief)
+  - 🖼️ `compositor-agent.md` — HTML/CSS + Playwright → PNG
+  - 📡 `publisher-agent.md` — Meta Graph API → Instagram + Facebook
+- **30 perfis de referência:** `data/perfis-referencia.yaml`
+- **Pastas de dados:** `data/mineracao/posts_brutos/`, `posts_analisados/`, `briefings/`
+- **Pasta de output:** `output/` (PNGs gerados pelo compositor-agent)
+- **Regra crítica:** julia-chief só opera com briefing da semana — obrigatório
+- **Credenciais Meta:** `config/publisher-secrets.yaml` (não vai ao GitHub)
+  - Instagram ID: `34441085755536074` (@drjuliaresende) ✅
+  - Facebook Page ID: `436558862879390` ✅
+  - Token Instagram: válido ✅
+  - Token Facebook: expirado ⚠️ renovar antes de publicar
+- **Pendência:** URL pública para imagens (necessário para Meta Graph API) — definir solução
+
+### Análise do Curso Pedro Sobral — FEITA
+- Curso: "Gestão de Tráfego Orgânico" — materiais em `C:/Users/felip/Downloads/Telegram Desktop/materiais/`
+- Método Subido de Mineração 1.0 (7 passos) extraído e incorporado na spec do Squad de Mineração
+- Insights aplicados: algoritmo Instagram (Sistema 1 + Sistema 2), formatos por alcance (Reels 15%, Carrossel 11%), jornada do cliente
 
 ---
 
 ## 🔄 Pendências do Projeto Completo
 
-### 🔴 Prioridade Máxima (Squad de Mineração — em andamento)
-1. **Rodar analyst-agent nos 69 posts coletados** — `coleta-2026-03-23.json` pronto, `posts_analisados/` vazia, análise não feita ainda
-2. **Gerar briefing semanal** — `briefings/` vazia, nenhum briefing gerado ainda
-3. **Revisar post-01.png e story-01.png** — criados em 2026-03-18, não aprovados. Feed precisa de estilos claros/brancos.
+### 🔴 Prioridade Máxima
+1. **Revisar post-01.png, post-02.png, story-01.png, story-02.png** — criados, aguardam revisão do Felipe (`squads/dr-julia-resende/teste-post-story/`)
+2. **Revisar P02 Social Proof** — `prototipo-carrosseis/estilo-p02-social-proof.png` — aguarda revisão do Felipe
+3. **Revisar estilo-s05-diagrama.png e estilo-s06-meme.png** — novos protótipos, aguardam revisão
 
 ### 🟡 Prioridade Alta
-4. **Definir Estilo 05 (post branco) e Estilo 06 (story branco)** — após análise dos posts coletados
-5. **Criar compositor-agent e publisher-agent** via squad-creator-pro — bloqueado até spec aprovada
-6. **Configurar Meta Graph API** (Felipe faz 1x) — bloqueado até agentes criados
+4. **Rodar mining completo** — scout-agent com os 30 perfis corrigidos
+5. **Primeiro teste end-to-end** — scout → analyst → briefing → julia-chief → copy → image → compositor → publisher
+6. **Renovar token Instagram** — expira a cada 60 dias sem renovação (verificar data)
+7. **DS.yaml — confirmar formatos 06 ao 15** — v4.0 tem 5 estilos, mas confirmar se os demais formatos estão corretos
 
 ### 🟡 Prioridade Média (LP)
 7. **Domínio próprio** — ex: `poderdarotina.com.br` — aguardar João Paulo
 8. **Verificar Pixel disparando** — confirmar no Facebook Events Manager que o PageView está chegando
 9. **Testes mobile** — verificar LP em celular real
+10. **Console zero erros** — abrir DevTools e confirmar ausência de erros JS
 
 ### 🟢 Prioridade Baixa
-10. **Brandbook** — documento estratégico + visual da marca
-11. **Script Python Fase 2** — integração automática com API DALL-E
+11. **Brandbook** — documento estratégico + visual da marca. Agente: @Design:agents:design-chief + @ux-design-expert
+12. **Script Python Fase 2** — integração automática com API DALL-E (só após Fase 1 aprovada por Felipe)
 
 ---
 
 ## ➡️ Próximos Passos Priorizados
 
-1. **@analyst** — rodar analyst-agent: processar `coleta-2026-03-23.json` (69 posts) → extrair padrões → salvar em `posts_analisados/`
-2. **@analyst** — rodar briefing-agent: gerar `briefing-semanal-2026-03-23.md` em `briefings/`
-3. **@julia-chief** — usar briefing para produzir conteúdo da semana
-4. **Felipe** — revisar post-01.png e story-01.png e decidir sobre estilos brancos
-5. **squad-creator-pro** — criar compositor-agent e publisher-agent após aprovação da spec
-6. **Felipe** — configurar Meta Graph API (1x) para publicação automática
+1. **Atlas** — rodar mining completo dos 30 perfis via Apify (scout-agent)
+2. **Atlas** — rodar analyst-agent + briefing-agent na coleta
+3. **Teste end-to-end** — briefing → julia-chief → copy → compositor → publisher (primeiro post real)
+4. **Felipe** — revisar post-01, post-02, story-01, story-02 (`squads/dr-julia-resende/teste-post-story/`)
+5. **Felipe** — revisar P02 Social Proof (`prototipo-carrosseis/estilo-p02-social-proof.png`)
+6. **Felipe** — verificar Pixel no Facebook Events Manager
 
 ---
 
@@ -167,9 +191,9 @@ Este não é só um projeto de LP. É um **sistema completo de vendas e conteúd
 | Servidor local | `npx serve . -p 3000` (Edge bloqueava file://) |
 | Fonte do projeto | Poppins (Regular + Bold) |
 | Ferramenta de imagem | ChatGPT (DALL-E) — NUNCA misturar com outras IAs |
-| Compositor de posts | Script Python (`compositor.py`) — substitui Canva no fluxo automático |
+| Compositor de posts | ✅ HTML/CSS + Playwright → PNG 1080x1080 (Python/Pillow descartado) |
 | Squad | `squads/dr-julia-resende/` — 5 agentes (julia-chief, copy-agent, image-agent, approval-agent, ebook-agent) |
-| DS.yaml | `squads/dr-julia-resende/data/DR-JULIA-RESENDE-DS.yaml` v3.0 — inclui estilos visuais aprovados |
+| DS.yaml | `squads/dr-julia-resende/data/DR-JULIA-RESENDE-DS.yaml` v4.0 |
 | Ebook v2 | `squads/dr-julia-resende/data/ebook_v2.txt` — aprovado com prefácio + 8 aplicações de parentalidade |
 | Logo Facebook | `squads/dr-julia-resende/assets/logo-facebook-drjuliaresende.png` — aprovada e UPLOADADA ✅ |
 | Capa Facebook | `squads/dr-julia-resende/assets/capa-facebook-drjuliaresende.png` — aprovada e UPLOADADA ✅ |
@@ -180,19 +204,23 @@ Este não é só um projeto de LP. É um **sistema completo de vendas e conteúd
 | Design System terracota | ❌ DESCARTADO — João Paulo não gostou |
 | Anti-padrão cores | ❌ Nunca misturar cores dentro do mesmo post |
 | *waves | Usar sempre que houver stories paralelas — Felipe quer isso em todo o projeto |
-| Estilo visual dos posts | **3 estilos aprovados:** bold (fundo preto), collage (Playfair dark), depoimento (Academia Lendária) |
-| Ferramenta de carrossel | HTML/CSS + Playwright → PNG 1080x1080. Python/Pillow descartado para criação visual. |
-| Canva Pro | Assinado. MCP conectado no Claude Code. ⚠️ MCP NÃO dá acesso à biblioteca de elementos do Canva (bloqueio comercial). Só funciona com templates criados manualmente. |
-| Carrossel de teste | 6 slides antigos descartados. 3 novos protótipos aprovados em `prototipo-carrosseis/` |
-| Carrossel-01 | APROVADO. 5 slides com conteúdo real. Pasta: `squads/dr-julia-resende/carrossel-01/` |
-| Posts VE/QC/MT | ❌ Primeira rodada rejeitada. Substituído pelo carrossel-01 aprovado. |
-| Squad de conteúdo | **julia-chief** é o responsável por criar todo o conteúdo. design-chief só define estilos uma vez. |
-| CTA padrão | "Link na Bio" — NUNCA "Link da bio" |
-| Preço no post | ❌ NUNCA mostrar preço do ebook em posts/carrosséis |
-| CTA duplicado | ❌ NUNCA repetir CTA duas vezes no mesmo slide |
-| Variedade visual | ⚠️ Feed precisa alternar estilos escuros e claros. Faltam S05 (post branco) e S06 (story branco). |
-| HTMLs intermediários | Apagados automaticamente após renderização. Felipe só vê os PNGs finais. |
-| Caminho dos arquivos | Informar SEMPRE o caminho completo ANTES de perguntar feedback ao Felipe. |
+| Estilo visual dos posts | **Estilo Academia Lendária** — tipografia forte, fundo escuro, accent verde, prova social. Posts com ilustração clipart rejeitados. |
+| Carrossel-01 | ✅ 5 slides aprovados (`carrossel-01/slide-01` a `slide-05`) |
+| Estilos visuais aprovados | S01, S03, S04 (carrossel) + P01 Manifesto (post) + ST01 Direta (story) |
+| DS.yaml versão | v4.0 — cada formato tem estilo exclusivo |
+| Posts VE/QC/MT (1ª rodada) | ❌ Rejeitados ("resultado porco"). Nova ferramenta HTML/CSS definida. |
+| post-01/02.png / story-01/02.png | Criados, aguardam revisão do Felipe |
+| P02 Social Proof | Gerado HTML/CSS + Playwright — `prototipo-carrosseis/estilo-p02-social-proof.png` — aguarda revisão |
+| Squad de Mineração | ✅ CRIADO — 5 agentes em `squads/dr-julia-resende/agents/`: scout, analyst-mineracao, briefing, compositor, publisher |
+| Briefing semanal | ⚠️ OBRIGATÓRIO para julia-chief — sem briefing, julia-chief não opera (heurística JC007) |
+| 30 perfis de referência | Corrigidos: @maternidadereal (377k) substituiu @maternidadepratica (38 seguidores). @oalanicolas movido para camada 3 (referência visual) |
+| Thresholds scout-agent | Tiered por tamanho: grande +1M / médio 100k-1M / pequeno -100k |
+| Cloudinary | ✅ Configurado em publisher-secrets.yaml — upload temporário para URL pública (~5s) |
+| Token Facebook Page | ✅ Renovado 2026-03-21 — Page Token "Dra. Julia Resende" validado |
+| Token Instagram | ✅ Válido — monitorar validade (expira ~60 dias) |
+| Apify | ✅ Token configurado — teste piloto rodado (5 perfis) e corrigido |
+| Curso Pedro Sobral | Materiais lidos e incorporados na arquitetura do Squad de Mineração |
+| publisher-secrets.yaml | Gitignored — Felipe sincroniza manualmente via Google Drive entre PCs |
 
 ---
 
@@ -220,40 +248,54 @@ Este não é só um projeto de LP. É um **sistema completo de vendas e conteúd
 - **Carrossel de 6 slides criado** — `squads/dr-julia-resende/scripts/carrossel/slide-01` a `slide-06`
 **Parou em:** Felipe viu os 6 slides e foi para o PC de casa — aguardando feedback
 
-### Sessão — 2026-03-18 (PC de casa)
+### Sessão — 2026-03-18 (madrugada — PC de casa)
 **Feito:**
-- DS.yaml atualizado para v3.0 — 3 estilos visuais completamente documentados (S01 Bold, S03 Collage, S04 Depoimento)
-- Protótipos PNG aprovados adicionados ao GitHub: `prototipo-carrosseis/estilo-01-bold.png`, `estilo-03-collage.png`, `estilo-04-depoimento.png`
-- **Carrossel-01 criado e APROVADO por Felipe** — 5 slides com conteúdo real da Dra. Julia: hook, problema, método, depoimento, CTA
-- Post único (post-01.png) e Story (story-01.png) criados como teste — NÃO aprovados, aguardam revisão
-- Feedback registrado: feed precisa de variedade (faltam estilos claros/brancos), "Link na Bio" é o padrão, nunca mostrar preço em posts, nunca duplicar CTA
-- Canva MCP: confirmado que não tem acesso à biblioteca de elementos (limitação da Canva)
-- Squad julia-chief definido como responsável único por criar conteúdo
-**Parou em:** Discussão sobre variedade visual — precisam de Estilo 05 (post branco) e Estilo 06 (story branco)
+- **Python/Pillow descartado** — nova ferramenta: HTML/CSS + Playwright → PNG 1080x1080
+- DS.yaml atualizado para v3.0 com seção completa de estilos visuais
+- **3 estilos aprovados:** S01 Bold, S03 Collage Editorial, S04 Depoimento (protótipos HTML + PNG)
+- **Carrossel-01:** 5 slides aprovados e commitados (`carrossel-01/`)
+- **post-01.png e story-01.png** criados e commitados (`teste-post-story/`)
+**Parou em:** post-01.png e story-01.png criados — aguardam revisão do Felipe na próxima sessão
 
-### Sessão — 2026-03-19 a 2026-03-20
+### Sessão — 2026-03-18/19 (contexto recuperado de compactação)
 **Feito:**
-- **SQUAD-MINERACAO-SPEC.md criado** — arquitetura completa do squad de mineração (scout-agent, analyst-agent, briefing-agent, compositor-agent, publisher-agent)
-- publisher-agent + Meta Graph API documentados no spec (passos de configuração, tokens, permissões)
-- `perfis-referencia.yaml` criado com os 30 perfis organizados em 3 camadas
-- Teste piloto de coleta: `coleta-piloto-2026-03-20.json`
-- DS.yaml atualizado para v4.0 — estilos P01 (Manifesto) e ST01 (Direta) aprovados
-**Parou em:** Aguardando aprovação do Felipe para criar os agentes via squad-creator-pro
+- DS.yaml atualizado para **v4.0** — P01 Manifesto e ST01 Direta aprovados com protótipos PNG
+- **post-02.png e story-02.png** criados (`teste-post-story/`) — aguardam revisão
+- **estilo-s05-diagrama.png e estilo-s06-meme.png** criados (`prototipo-carrosseis/`) — aguardam revisão
+- **P02 Social Proof** renderizado com HTML/CSS + Playwright:
+  - Script: `squads/dr-julia-resende/assets/render-p02-v2.js`
+  - Output: `prototipo-carrosseis/estilo-p02-social-proof.png`
+  - Design: navy escuro, hook "Tem mães" + checklist à esquerda, celular diagonal com WA dark mode à direita
+  - Bug corrigido: `<div class="divider">` faltando no HTML — adicionado e script rodou com sucesso
+- **wa-screen-dark.js** criado (`squads/dr-julia-resende/assets/`) — componente de tela WhatsApp reutilizável
+**Parou em:** P02 gerado, aguardando feedback do Felipe
 
-### Sessão — 2026-03-21
+### Sessão — 2026-03-19
 **Feito:**
-- Correções pós-piloto nos perfis: `perfis-referencia.yaml` corrigido
-- Credenciais do squad completas
-- `scout-run.js` e `scout-investigate.js` criados — scripts de coleta e diagnóstico
-**Parou em:** Preparação para coleta corrigida
+- Atlas leu todos os PDFs do curso Pedro Sobral "Gestão de Tráfego Orgânico" (Telegram Desktop/materiais/)
+- Extraídos: Método Subido de Mineração 1.0, algoritmo Instagram (Sistemas 1 e 2), formatos por alcance, jornada do cliente
+- **Squad de Mineração de Conteúdo arquitetado:**
+  - 3 agentes: scout-agent (Apify) → analyst-agent → briefing-agent
+  - 30 perfis de referência mapeados (3 camadas: nicho, criadores, referências visuais)
+  - Regra definida: julia-chief OBRIGATÓRIO usa briefing — sem briefing não produz
+  - Spec escrita: `squads/dr-julia-resende/data/SQUAD-MINERACAO-SPEC.md`
+- Caderno atualizado com tudo das sessões anteriores e desta sessão
+**Parou em:** Aguardando confirmação do Felipe para criar o Squad de Mineração
 
-### Sessão — 2026-03-23
+### Sessão — 2026-03-20/21
 **Feito:**
-- **5 usernames corrigidos + 12 perfis inexistentes substituídos** no `perfis-referencia.yaml`
-- **Coleta rodada nos 29 perfis ativos**: `coleta-2026-03-23.json` — 69 posts coletados de 23/29 perfis (6 perfis sem posts nos filtros)
-- Scripts de coleta e diagnóstico commitados no GitHub
-**Parou em:** Coleta feita. Próximo passo: rodar analyst-agent nos 69 posts para gerar briefing
+- **Squad de Mineração criado completo** — 5 agentes: scout-agent, analyst-agent-mineracao, briefing-agent, compositor-agent, publisher-agent
+- **Credenciais Meta Graph API configuradas** — Instagram ID + token ✅, Facebook Page ID + token ✅
+- **Teste piloto Apify** — 5 perfis rodados, 3 problemas encontrados e corrigidos:
+  - @maternidadepratica (38 seguidores) → substituída por @maternidadereal (377k)
+  - @oalanicolas reclassificado para camada 3 (referência visual — nicho AI/negócios)
+  - Thresholds tiered implementados no scout-agent (grande/médio/pequeno)
+- **Cloudinary configurado** — cloud_name `dvxe4ijzt` — upload temporário para URLs públicas (~5s)
+- **Token Facebook Page renovado** — Page Token "Dra. Julia Resende" validado via Graph API
+- **julia-chief atualizado** — heurística JC007: briefing semanal obrigatório + veto condition
+- **Workflow de secrets** definido: publisher-secrets.yaml (gitignored) sincronizado via Google Drive entre PCs
+**Parou em:** Próximo passo é rodar mining completo dos 30 perfis
 
 ---
 
-*Atualizado por: Atlas (@analyst) — 2026-03-23*
+*Atualizado por: Atlas (@analyst) — 2026-03-21*
