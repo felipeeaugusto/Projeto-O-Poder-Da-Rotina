@@ -296,6 +296,14 @@ Este não é só um projeto de LP. É um **sistema completo de vendas e conteúd
 - **Workflow de secrets** definido: publisher-secrets.yaml (gitignored) sincronizado via Google Drive entre PCs
 **Parou em:** Próximo passo é rodar mining completo dos 30 perfis
 
+### Sessão — 2026-03-23
+**Feito:**
+- **5 usernames corrigidos + 12 perfis inexistentes substituídos** no `perfis-referencia.yaml` — validados via Apify
+- **Coleta completa rodada nos 29 perfis ativos** via `scout-run.js` → `coleta-2026-03-23.json`
+  - **69 posts coletados de 23/29 perfis** (6 perfis sem posts nos thresholds definidos)
+- `scout-investigate.js` criado — script de diagnóstico para inspecionar perfis com problemas
+**Parou em:** Coleta pronta. Próximo passo: rodar analyst-agent nos 69 posts para classificar e gerar briefing.
+
 ---
 
-*Atualizado por: Atlas (@analyst) — 2026-03-21*
+*Atualizado por: Atlas (@analyst) — 2026-03-23*
