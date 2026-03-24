@@ -99,18 +99,14 @@ Este não é só um projeto de LP. É um **sistema completo de vendas e conteúd
 - Pasta: `squads/dr-julia-resende/carrossel-02/`
 - Gerados com HTML/CSS + Playwright (render.js)
 
-### Post e Story de Teste — CRIADOS (aguardam revisão)
-- `squads/dr-julia-resende/teste-post-story/post-01.png`
-- `squads/dr-julia-resende/teste-post-story/story-01.png`
-- `squads/dr-julia-resende/teste-post-story/post-02.png` ← criado na sessão 2026-03-18/19
-- `squads/dr-julia-resende/teste-post-story/story-02.png` ← criado na sessão 2026-03-18/19
+### Post e Story de Teste — APROVADOS ✅
+- `squads/dr-julia-resende/teste-post-story/post-01.png` ✅ aprovado 2026-03-24
+- `squads/dr-julia-resende/teste-post-story/story-01.png` ✅ aprovado 2026-03-24
+- `squads/dr-julia-resende/teste-post-story/post-02.png` ✅ aprovado 2026-03-24
+- `squads/dr-julia-resende/teste-post-story/story-02.png` ✅ aprovado 2026-03-24
 
-### Protótipo P02 Social Proof — CRIADO (aguarda revisão)
-- Script: `squads/dr-julia-resende/assets/render-p02-v2.js`
-- Output: `squads/dr-julia-resende/prototipo-carrosseis/estilo-p02-social-proof.png`
-- Design: fundo navy escuro, texto à esquerda (hook "Tem mães" + checklist + CTA), celular diagonal à direita com WhatsApp dark mode
-- Script rodou com sucesso: `✅ P02 v2 gerado!`
-- ⚠️ Aguarda revisão do Felipe
+### Protótipo P02 Social Proof — ❌ DESCARTADO PERMANENTEMENTE
+- Descartado por Felipe em 2026-03-24. Não retomar.
 
 ### Protótipos de Novos Estilos — CRIADOS (aguardam revisão)
 - `squads/dr-julia-resende/prototipo-carrosseis/estilo-s05-diagrama.png`
@@ -146,9 +142,8 @@ Este não é só um projeto de LP. É um **sistema completo de vendas e conteúd
 ## 🔄 Pendências do Projeto Completo
 
 ### 🔴 Prioridade Máxima
-1. **Criar carrosséis dos Briefings #2 a #5** — mineração feita, carrossel-02 aprovado, próximos a produzir
-2. **Revisar post-01.png, post-02.png, story-01.png, story-02.png** — criados, aguardam revisão (`squads/dr-julia-resende/teste-post-story/`)
-3. **Revisar P02 Social Proof** — `prototipo-carrosseis/estilo-p02-social-proof.png` — aguarda revisão do Felipe
+1. **Criar carrossel-03** — Briefing #2: "Ter filho é lindo. É também esgotante pra caramba."
+2. **Criar carrossel/reel dos Briefings #3 a #5**
 
 ### 🟡 Prioridade Alta
 4. **Sincronizar publisher-secrets.yaml** — novo token Instagram + novo page_access_token Facebook + novo ig_user_id — copiar para o outro PC via Google Drive
@@ -169,12 +164,10 @@ Este não é só um projeto de LP. É um **sistema completo de vendas e conteúd
 
 ## ➡️ Próximos Passos Priorizados
 
-1. **Felipe** — sincronizar `publisher-secrets.yaml` atualizado para o outro PC via Google Drive
-2. **@analyst** — criar carrossel-03 (Briefing #2: "Ter filho é lindo. É também esgotante pra caramba.")
-3. **@analyst** — criar carrossel ou reel dos Briefings #3 a #5
-4. **Felipe** — revisar post-01, post-02, story-01, story-02 (`squads/dr-julia-resende/teste-post-story/`)
-5. **Felipe** — revisar P02 Social Proof (`prototipo-carrosseis/estilo-p02-social-proof.png`)
-6. **Felipe** — verificar Pixel no Facebook Events Manager
+1. **@analyst** — criar carrossel-03 (Briefing #2: "Ter filho é lindo. É também esgotante pra caramba.")
+2. **@analyst** — criar carrossel/reel dos Briefings #3 a #5
+3. **Felipe** — sincronizar `publisher-secrets.yaml` pro outro PC via Google Drive
+4. **Felipe** — verificar Pixel no Facebook Events Manager
 
 ---
 
