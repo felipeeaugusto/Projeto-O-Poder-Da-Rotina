@@ -151,8 +151,8 @@ Este não é só um projeto de LP. É um **sistema completo de vendas e conteúd
 3. **Revisar P02 Social Proof** — `prototipo-carrosseis/estilo-p02-social-proof.png` — aguarda revisão do Felipe
 
 ### 🟡 Prioridade Alta
-4. **Primeiro teste end-to-end** — briefing → julia-chief → copy → compositor → publisher (primeiro post real)
-5. **Renovar token Instagram** — expira a cada 60 dias sem renovação (verificar data)
+4. **Sincronizar publisher-secrets.yaml** — novo token Instagram + novo page_access_token Facebook + novo ig_user_id — copiar para o outro PC via Google Drive
+5. **Renovar token Instagram** — expira a cada 60 dias (gerado ~2026-03-23, renovar antes de ~2026-05-22)
 6. **DS.yaml — confirmar formatos 06 ao 15** — v4.0 tem 5 estilos, confirmar se os demais formatos estão corretos
 
 ### 🟡 Prioridade Média (LP)
@@ -169,11 +169,11 @@ Este não é só um projeto de LP. É um **sistema completo de vendas e conteúd
 
 ## ➡️ Próximos Passos Priorizados
 
-1. **@analyst** — criar carrossel-03 (Briefing #2: "Ter filho é lindo. É também esgotante pra caramba.")
-2. **@analyst** — criar carrossel ou reel dos Briefings #3 a #5
-3. **Felipe** — revisar post-01, post-02, story-01, story-02 (`squads/dr-julia-resende/teste-post-story/`)
-4. **Felipe** — revisar P02 Social Proof (`prototipo-carrosseis/estilo-p02-social-proof.png`)
-5. **Teste end-to-end** — briefing → copy → compositor → publisher (primeiro post real publicado)
+1. **Felipe** — sincronizar `publisher-secrets.yaml` atualizado para o outro PC via Google Drive
+2. **@analyst** — criar carrossel-03 (Briefing #2: "Ter filho é lindo. É também esgotante pra caramba.")
+3. **@analyst** — criar carrossel ou reel dos Briefings #3 a #5
+4. **Felipe** — revisar post-01, post-02, story-01, story-02 (`squads/dr-julia-resende/teste-post-story/`)
+5. **Felipe** — revisar P02 Social Proof (`prototipo-carrosseis/estilo-p02-social-proof.png`)
 6. **Felipe** — verificar Pixel no Facebook Events Manager
 
 ---
@@ -306,13 +306,30 @@ Este não é só um projeto de LP. É um **sistema completo de vendas e conteúd
 - **Workflow de secrets** definido: publisher-secrets.yaml (gitignored) sincronizado via Google Drive entre PCs
 **Parou em:** Próximo passo é rodar mining completo dos 30 perfis
 
-### Sessão — 2026-03-23
+### Sessão — 2026-03-23 (parte 1)
 **Feito:**
 - **5 usernames corrigidos + 12 perfis inexistentes substituídos** no `perfis-referencia.yaml` — validados via Apify
 - **Coleta completa rodada nos 29 perfis ativos** via `scout-run.js` → `coleta-2026-03-23.json`
   - **69 posts coletados de 23/29 perfis** (6 perfis sem posts nos thresholds definidos)
 - `scout-investigate.js` criado — script de diagnóstico para inspecionar perfis com problemas
-**Parou em:** Coleta pronta. Próximo passo: rodar analyst-agent nos 69 posts para classificar e gerar briefing.
+- **Analyst-agent rodado nos 69 posts** → `posts_analisados-2026-03-23.json` (18 posts com ângulo de adaptação)
+- **Briefing semanal gerado** → `briefing-semanal-2026-03-23.md` (top 5 oportunidades)
+- **Carrossel-02 criado e aprovado** — "Mãe perfeita vs. mãe presente" — 5 slides HTML/CSS + Playwright
+- **compositor-agent.js criado** — `squads/dr-julia-resende/assets/compositor-agent.js`
+- **publisher-agent.js criado** — `squads/dr-julia-resende/assets/publisher-agent.js`
+**Parou em:** Scripts criados, credenciais a preencher.
+
+### Sessão — 2026-03-23 (parte 2)
+**Feito:**
+- **js-yaml instalado** — dependência necessária para o publisher-agent
+- **publisher-agent.js corrigido** — Facebook agora publica álbum completo (não só a primeira imagem)
+- **Credenciais atualizadas** em `publisher-secrets.yaml`:
+  - `ig_user_id`: `17841405614941405` (ID correto da conta Business)
+  - `ig_access_token`: token renovado (~2026-03-23, expira ~2026-05-22)
+  - `page_access_token`: token da página Facebook renovado
+- **🎉 PRIMEIRO POST REAL PUBLICADO** — carrossel-02 no ar no Instagram (@drjuliaresende) e Facebook
+- **Flag `--so-facebook` adicionada** ao publisher-agent — evita duplicação se precisar re-rodar só o Facebook
+**Parou em:** Pipeline end-to-end funcionando. Próximo: criar carrossel-03 (Briefing #2).
 
 ---
 
