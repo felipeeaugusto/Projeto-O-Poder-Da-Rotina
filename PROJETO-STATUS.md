@@ -147,19 +147,19 @@ Este não é só um projeto de LP. É um **sistema completo de vendas e conteúd
 4. **Criar carrossel/reel dos Briefings #3 a #5**
 
 ### 🟡 Prioridade Alta
-4. **Sincronizar publisher-secrets.yaml** — novo token Instagram + novo page_access_token Facebook + novo ig_user_id — copiar para o outro PC via Google Drive
-5. **Renovar token Instagram** — expira a cada 60 dias (gerado ~2026-03-23, renovar antes de ~2026-05-22)
-6. **DS.yaml — confirmar formatos 06 ao 15** — v4.0 tem 5 estilos, confirmar se os demais formatos estão corretos
+5. **Sincronizar publisher-secrets.yaml** — novo token Instagram + novo page_access_token Facebook + novo ig_user_id — copiar para o outro PC via Google Drive
+6. **Renovar token Instagram** — expira a cada 60 dias (gerado ~2026-03-23, renovar antes de ~2026-05-22)
+7. **DS.yaml — confirmar formatos 06 ao 15** — v4.0 tem 5 estilos, confirmar se os demais formatos estão corretos
 
 ### 🟡 Prioridade Média (LP)
-7. **Domínio próprio** — ex: `poderdarotina.com.br` — aguardar João Paulo
-8. **Verificar Pixel disparando** — confirmar no Facebook Events Manager que o PageView está chegando
-9. **Testes mobile** — verificar LP em celular real
-10. **Console zero erros** — abrir DevTools e confirmar ausência de erros JS
+8. **Domínio próprio** — ex: `poderdarotina.com.br` — aguardar João Paulo
+9. **Verificar Pixel disparando** — confirmar no Facebook Events Manager que o PageView está chegando
+10. **Testes mobile** — verificar LP em celular real
+11. **Console zero erros** — abrir DevTools e confirmar ausência de erros JS
 
 ### 🟢 Prioridade Baixa
-11. **Brandbook** — documento estratégico + visual da marca. Agente: @Design:agents:design-chief + @ux-design-expert
-12. **Script Python Fase 2** — integração automática com API DALL-E (só após Fase 1 aprovada por Felipe)
+12. **Brandbook** — documento estratégico + visual da marca. Agente: @Design:agents:design-chief + @ux-design-expert
+13. **Script Python Fase 2** — integração automática com API DALL-E (só após Fase 1 aprovada por Felipe)
 
 ---
 
