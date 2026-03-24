@@ -129,8 +129,8 @@ Este não é só um projeto de LP. É um **sistema completo de vendas e conteúd
   - Instagram ID: `34441085755536074` (@drjuliaresende) ✅
   - Facebook Page ID: `436558862879390` ✅
   - Token Instagram: válido ✅
-  - Token Facebook: expirado ⚠️ renovar antes de publicar
-- **Pendência:** URL pública para imagens (necessário para Meta Graph API) — definir solução
+  - Token Facebook: ✅ renovado 2026-03-21
+- **Cloudinary resolve URL pública** — já configurado em publisher-secrets.yaml
 
 ### Análise do Curso Pedro Sobral — FEITA
 - Curso: "Gestão de Tráfego Orgânico" — materiais em `C:/Users/felip/Downloads/Telegram Desktop/materiais/`
@@ -214,8 +214,8 @@ Este não é só um projeto de LP. É um **sistema completo de vendas e conteúd
 | Estilos visuais aprovados | S01, S03, S04 (carrossel) + P01 Manifesto (post) + ST01 Direta (story) |
 | DS.yaml versão | v4.0 — cada formato tem estilo exclusivo |
 | Posts VE/QC/MT (1ª rodada) | ❌ Rejeitados ("resultado porco"). Nova ferramenta HTML/CSS definida. |
-| post-01/02.png / story-01/02.png | Criados, aguardam revisão do Felipe |
-| P02 Social Proof | Gerado HTML/CSS + Playwright — `prototipo-carrosseis/estilo-p02-social-proof.png` — aguarda revisão |
+| post-01/02.png / story-01/02.png | ✅ Aprovados por Felipe em 2026-03-24 |
+| P02 Social Proof | ❌ DESCARTADO PERMANENTEMENTE em 2026-03-24 — não retomar |
 | Squad de Mineração | ✅ CRIADO — 5 agentes em `squads/dr-julia-resende/agents/`: scout, analyst-mineracao, briefing, compositor, publisher |
 | Briefing semanal | ⚠️ OBRIGATÓRIO para julia-chief — sem briefing, julia-chief não opera (heurística JC007) |
 | 30 perfis de referência | Corrigidos: @maternidadereal (377k) substituiu @maternidadepratica (38 seguidores). @oalanicolas movido para camada 3 (referência visual) |
