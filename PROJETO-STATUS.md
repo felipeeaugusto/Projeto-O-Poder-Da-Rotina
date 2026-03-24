@@ -108,10 +108,9 @@ Este não é só um projeto de LP. É um **sistema completo de vendas e conteúd
 ### Protótipo P02 Social Proof — ❌ DESCARTADO PERMANENTEMENTE
 - Descartado por Felipe em 2026-03-24. Não retomar.
 
-### Protótipos de Novos Estilos — CRIADOS (aguardam revisão)
-- `squads/dr-julia-resende/prototipo-carrosseis/estilo-s05-diagrama.png`
-- `squads/dr-julia-resende/prototipo-carrosseis/estilo-s06-meme.png`
-- ⚠️ Aguardam revisão do Felipe
+### Protótipos de Novos Estilos — ❌ REJEITADOS
+- `squads/dr-julia-resende/prototipo-carrosseis/estilo-s05-diagrama.png` ❌ rejeitado 2026-03-23
+- `squads/dr-julia-resende/prototipo-carrosseis/estilo-s06-meme.png` ❌ rejeitado 2026-03-23
 
 ### Squad de Mineração — CRIADO ✅
 - **Spec:** `squads/dr-julia-resende/data/SQUAD-MINERACAO-SPEC.md`
@@ -143,8 +142,9 @@ Este não é só um projeto de LP. É um **sistema completo de vendas e conteúd
 
 ### 🔴 Prioridade Máxima
 1. **@dev — construir `content-generator.js`** — script que lê o briefing e gera os HTMLs dos slides automaticamente, para automatizar a criação dos carrosseis #3 a #5
-2. **Criar carrossel-03** — Briefing #2: "Ter filho é lindo. É também esgotante pra caramba." (após automação pronta)
-3. **Criar carrossel/reel dos Briefings #3 a #5**
+2. **Recriar S05 Diagrama e S06 Meme** — rejeitados em 2026-03-23, redefinir conceitos
+3. **Criar carrossel-03** — Briefing #2: "Ter filho é lindo. É também esgotante pra caramba." (após automação pronta)
+4. **Criar carrossel/reel dos Briefings #3 a #5**
 
 ### 🟡 Prioridade Alta
 4. **Sincronizar publisher-secrets.yaml** — novo token Instagram + novo page_access_token Facebook + novo ig_user_id — copiar para o outro PC via Google Drive
