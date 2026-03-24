@@ -112,37 +112,35 @@ Este não é só um projeto de LP. É um **sistema completo de vendas e conteúd
 
 ## 🔄 Pendências do Projeto Completo
 
-### 🔴 Prioridade Máxima
-1. **Definir Estilo 05 (post branco) e Estilo 06 (story branco)** — feed precisa de variedade. Estilos escuros aprovados, mas faltam versões claras. Felipe quer conversar sobre post-01 e story-01 na próxima sessão.
-2. **Revisar post-01 e story-01** — criados mas não aprovados. Próxima sessão começa aqui.
-3. **Criar mais carrosséis** — carrossel-01 aprovado. Próximo: criar carrossel com tema diferente.
+### 🔴 Prioridade Máxima (Squad de Mineração — em andamento)
+1. **Rodar analyst-agent nos 69 posts coletados** — `coleta-2026-03-23.json` pronto, `posts_analisados/` vazia, análise não feita ainda
+2. **Gerar briefing semanal** — `briefings/` vazia, nenhum briefing gerado ainda
+3. **Revisar post-01.png e story-01.png** — criados em 2026-03-18, não aprovados. Feed precisa de estilos claros/brancos.
 
 ### 🟡 Prioridade Alta
-4. **Agente compositor** via squad-creator-pro — após estilos branco/claro definidos e aprovados.
-5. **DS.yaml — 10 novos formatos** — formatos 06 ao 15 já estão no DS.yaml v3.0. Confirmar se estão corretos.
+4. **Definir Estilo 05 (post branco) e Estilo 06 (story branco)** — após análise dos posts coletados
+5. **Criar compositor-agent e publisher-agent** via squad-creator-pro — bloqueado até spec aprovada
+6. **Configurar Meta Graph API** (Felipe faz 1x) — bloqueado até agentes criados
 
 ### 🟡 Prioridade Média (LP)
-6. **Domínio próprio** — ex: `poderdarotina.com.br` — aguardar João Paulo
-7. **Verificar Pixel disparando** — confirmar no Facebook Events Manager que o PageView está chegando
-8. **Testes mobile** — verificar LP em celular real
-9. **Console zero erros** — abrir DevTools e confirmar ausência de erros JS
+7. **Domínio próprio** — ex: `poderdarotina.com.br` — aguardar João Paulo
+8. **Verificar Pixel disparando** — confirmar no Facebook Events Manager que o PageView está chegando
+9. **Testes mobile** — verificar LP em celular real
 
 ### 🟢 Prioridade Baixa
-10. **Brandbook** — documento estratégico + visual da marca. Agente: @Design:agents:design-chief + @ux-design-expert.
-11. **Script Python Fase 2** — integração automática com API DALL-E (só após Fase 1 aprovada por Felipe).
+10. **Brandbook** — documento estratégico + visual da marca
+11. **Script Python Fase 2** — integração automática com API DALL-E
 
 ---
 
 ## ➡️ Próximos Passos Priorizados
 
-1. **Felipe + @julia-chief** — revisar post-01.png e story-01.png (criados em 2026-03-18, ainda não aprovados)
-2. **@julia-chief** — definir e criar Estilo 05 (post branco/claro) e Estilo 06 (story branco) — aprovação do Felipe
-3. **@julia-chief** — adicionar estilos branco ao DS.yaml v3.0 após aprovação
-4. **@julia-chief** — criar mais carrosséis com conteúdo real nos estilos aprovados
-5. **squad-creator-pro** — criar agente compositor após estilos completos aprovados
-6. **Felipe** — verificar Pixel no Facebook Events Manager
-7. **Felipe** — testar LP no celular
-8. **Aguardar João Paulo** — domínio próprio
+1. **@analyst** — rodar analyst-agent: processar `coleta-2026-03-23.json` (69 posts) → extrair padrões → salvar em `posts_analisados/`
+2. **@analyst** — rodar briefing-agent: gerar `briefing-semanal-2026-03-23.md` em `briefings/`
+3. **@julia-chief** — usar briefing para produzir conteúdo da semana
+4. **Felipe** — revisar post-01.png e story-01.png e decidir sobre estilos brancos
+5. **squad-creator-pro** — criar compositor-agent e publisher-agent após aprovação da spec
+6. **Felipe** — configurar Meta Graph API (1x) para publicação automática
 
 ---
 
@@ -232,8 +230,30 @@ Este não é só um projeto de LP. É um **sistema completo de vendas e conteúd
 - Canva MCP: confirmado que não tem acesso à biblioteca de elementos (limitação da Canva)
 - Squad julia-chief definido como responsável único por criar conteúdo
 **Parou em:** Discussão sobre variedade visual — precisam de Estilo 05 (post branco) e Estilo 06 (story branco)
-**Próxima sessão começa em:** Revisar post-01 e story-01 → definir estilos brancos → criar mais conteúdo
+
+### Sessão — 2026-03-19 a 2026-03-20
+**Feito:**
+- **SQUAD-MINERACAO-SPEC.md criado** — arquitetura completa do squad de mineração (scout-agent, analyst-agent, briefing-agent, compositor-agent, publisher-agent)
+- publisher-agent + Meta Graph API documentados no spec (passos de configuração, tokens, permissões)
+- `perfis-referencia.yaml` criado com os 30 perfis organizados em 3 camadas
+- Teste piloto de coleta: `coleta-piloto-2026-03-20.json`
+- DS.yaml atualizado para v4.0 — estilos P01 (Manifesto) e ST01 (Direta) aprovados
+**Parou em:** Aguardando aprovação do Felipe para criar os agentes via squad-creator-pro
+
+### Sessão — 2026-03-21
+**Feito:**
+- Correções pós-piloto nos perfis: `perfis-referencia.yaml` corrigido
+- Credenciais do squad completas
+- `scout-run.js` e `scout-investigate.js` criados — scripts de coleta e diagnóstico
+**Parou em:** Preparação para coleta corrigida
+
+### Sessão — 2026-03-23
+**Feito:**
+- **5 usernames corrigidos + 12 perfis inexistentes substituídos** no `perfis-referencia.yaml`
+- **Coleta rodada nos 29 perfis ativos**: `coleta-2026-03-23.json` — 69 posts coletados de 23/29 perfis (6 perfis sem posts nos filtros)
+- Scripts de coleta e diagnóstico commitados no GitHub
+**Parou em:** Coleta feita. Próximo passo: rodar analyst-agent nos 69 posts para gerar briefing
 
 ---
 
-*Atualizado por: Atlas (@analyst) — 2026-03-18*
+*Atualizado por: Atlas (@analyst) — 2026-03-23*
