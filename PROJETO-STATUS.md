@@ -125,7 +125,7 @@ Este não é só um projeto de LP. É um **sistema completo de vendas e conteúd
 - **Pasta de output:** `output/` (PNGs gerados pelo compositor-agent)
 - **Regra crítica:** julia-chief só opera com briefing da semana — obrigatório
 - **Credenciais Meta:** `config/publisher-secrets.yaml` (não vai ao GitHub)
-  - Instagram ID: `34441085755536074` (@drjuliaresende) ✅
+  - Instagram ID: `17841405614941405` (@drjuliaresende) ✅ — corrigido 2026-03-23
   - Facebook Page ID: `436558862879390` ✅
   - Token Instagram: válido ✅
   - Token Facebook: ✅ renovado 2026-03-21
