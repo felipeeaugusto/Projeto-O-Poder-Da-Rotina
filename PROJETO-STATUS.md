@@ -142,8 +142,9 @@ Este não é só um projeto de LP. É um **sistema completo de vendas e conteúd
 ## 🔄 Pendências do Projeto Completo
 
 ### 🔴 Prioridade Máxima
-1. **Criar carrossel-03** — Briefing #2: "Ter filho é lindo. É também esgotante pra caramba."
-2. **Criar carrossel/reel dos Briefings #3 a #5**
+1. **@dev — construir `content-generator.js`** — script que lê o briefing e gera os HTMLs dos slides automaticamente, para automatizar a criação dos carrosseis #3 a #5
+2. **Criar carrossel-03** — Briefing #2: "Ter filho é lindo. É também esgotante pra caramba." (após automação pronta)
+3. **Criar carrossel/reel dos Briefings #3 a #5**
 
 ### 🟡 Prioridade Alta
 4. **Sincronizar publisher-secrets.yaml** — novo token Instagram + novo page_access_token Facebook + novo ig_user_id — copiar para o outro PC via Google Drive
@@ -164,10 +165,11 @@ Este não é só um projeto de LP. É um **sistema completo de vendas e conteúd
 
 ## ➡️ Próximos Passos Priorizados
 
-1. **@analyst** — criar carrossel-03 (Briefing #2: "Ter filho é lindo. É também esgotante pra caramba.")
-2. **@analyst** — criar carrossel/reel dos Briefings #3 a #5
-3. **Felipe** — sincronizar `publisher-secrets.yaml` pro outro PC via Google Drive
-4. **Felipe** — verificar Pixel no Facebook Events Manager
+1. **@dev** — construir `content-generator.js` (automação de carrosseis a partir do briefing)
+2. **@analyst** — criar carrossel-03 (Briefing #2: "Ter filho é lindo. É também esgotante pra caramba.")
+3. **@analyst** — criar carrossel/reel dos Briefings #3 a #5
+4. **Felipe** — sincronizar `publisher-secrets.yaml` pro outro PC via Google Drive
+5. **Felipe** — verificar Pixel no Facebook Events Manager
 
 ---
 
