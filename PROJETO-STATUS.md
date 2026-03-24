@@ -326,20 +326,22 @@ Este não é só um projeto de LP. É um **sistema completo de vendas e conteúd
 - **Flag `--so-facebook` adicionada** ao publisher-agent — evita duplicação se precisar re-rodar só o Facebook
 **Parou em:** Pipeline end-to-end funcionando. Próximo: criar carrossel-03 (Briefing #2).
 
-### Sessão — 2026-03-24 (notebook)
+### Sessão — 2026-03-24 (notebook + PC casa)
 **Feito:**
 - **post-01, post-02, story-01, story-02 aprovados** por Felipe ✅
 - **P02 Social Proof descartado permanentemente** — Felipe não quer retomar esse assunto ❌
-- **Problema de sincronização resolvido** — submodule estava 6 commits atrás do GitHub; conflito no `PROJETO-STATUS.md` resolvido aceitando versão do GitHub
-- **Processo de sincronização entre PCs definido** — 5 comandos no terminal (sem alias):
+- **Problema de sincronização resolvido** — submodule estava 6 commits atrás do GitHub; conflito no `PROJETO-STATUS.md` resolvido
+- **Processo de sincronização entre PCs definido** — 5 comandos no terminal:
   1. `cd projeto00`
   2. `git pull`
   3. `cd packages\landing-page-dr-julia`
   4. `git pull origin master`
   5. `cd ..\..`
-- **git sync configurado no notebook** — alias funciona mas não será usado no PC de casa por segurança
-- **Próximo passo definido:** @dev constrói `content-generator.js` para automatizar geração de carrosseis a partir do briefing
-**Parou em:** Felipe vai para o PC de casa. Próximo: construir automação com @dev.
+- **git sync configurado no notebook** — alias disponível no notebook
+- **Protocolo "vou parar" reforçado** — Felipe deve sempre dizer "vou parar" ou "até amanhã" antes de fechar o terminal para garantir push completo
+- **Caderno revisado 4x** — corrigidos: S05/S06 rejeitados, Instagram ID, numeração pendências, tabela de decisões
+- **Pendência @dev registrada** — construir `content-generator.js` para automatizar geração de carrosseis a partir do briefing
+**Parou em:** Caderno revisado e completo. Próximo: chamar @dev para construir content-generator.js.
 
 ---
 
