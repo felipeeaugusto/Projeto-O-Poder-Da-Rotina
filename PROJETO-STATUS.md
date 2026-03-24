@@ -88,6 +88,17 @@ Este não é só um projeto de LP. É um **sistema completo de vendas e conteúd
 - 5 slides aprovados por Felipe: `squads/dr-julia-resende/carrossel-01/slide-01` a `slide-05`
 - Gerados com HTML/CSS + Playwright
 
+### Carrossel-02 — APROVADO por Felipe (2026-03-23)
+- **Tema:** "Mãe perfeita vs. mãe presente" — baseado no Briefing #1 do Squad de Mineração
+- **Referência de dados:** post finclass_grupoprimo com 271k likes (estrutura "enquanto X, Y")
+- Slide 01: hook bold escuro — "Enquanto muitas mães correm atrás da perfeição, algumas buscam a presença."
+- Slide 02: lista escura — cobranças impossíveis da "mãe perfeita"
+- Slide 03: lista papel — lista simples da "mãe presente" (bullets verdes)
+- Slide 04: frase de impacto Playfair — "Rotina não é sobre ser a mãe certa. É sobre estar lá — todos os dias."
+- Slide 05: CTA verde — "O Poder da Rotina / Link na Bio."
+- Pasta: `squads/dr-julia-resende/carrossel-02/`
+- Gerados com HTML/CSS + Playwright (render.js)
+
 ### Post e Story de Teste — CRIADOS (aguardam revisão)
 - `squads/dr-julia-resende/teste-post-story/post-01.png`
 - `squads/dr-julia-resende/teste-post-story/story-01.png`
@@ -135,15 +146,14 @@ Este não é só um projeto de LP. É um **sistema completo de vendas e conteúd
 ## 🔄 Pendências do Projeto Completo
 
 ### 🔴 Prioridade Máxima
-1. **Revisar post-01.png, post-02.png, story-01.png, story-02.png** — criados, aguardam revisão do Felipe (`squads/dr-julia-resende/teste-post-story/`)
-2. **Revisar P02 Social Proof** — `prototipo-carrosseis/estilo-p02-social-proof.png` — aguarda revisão do Felipe
-3. **Revisar estilo-s05-diagrama.png e estilo-s06-meme.png** — novos protótipos, aguardam revisão
+1. **Criar carrosséis dos Briefings #2 a #5** — mineração feita, carrossel-02 aprovado, próximos a produzir
+2. **Revisar post-01.png, post-02.png, story-01.png, story-02.png** — criados, aguardam revisão (`squads/dr-julia-resende/teste-post-story/`)
+3. **Revisar P02 Social Proof** — `prototipo-carrosseis/estilo-p02-social-proof.png` — aguarda revisão do Felipe
 
 ### 🟡 Prioridade Alta
-4. **Rodar mining completo** — scout-agent com os 30 perfis corrigidos
-5. **Primeiro teste end-to-end** — scout → analyst → briefing → julia-chief → copy → image → compositor → publisher
-6. **Renovar token Instagram** — expira a cada 60 dias sem renovação (verificar data)
-7. **DS.yaml — confirmar formatos 06 ao 15** — v4.0 tem 5 estilos, mas confirmar se os demais formatos estão corretos
+4. **Primeiro teste end-to-end** — briefing → julia-chief → copy → compositor → publisher (primeiro post real)
+5. **Renovar token Instagram** — expira a cada 60 dias sem renovação (verificar data)
+6. **DS.yaml — confirmar formatos 06 ao 15** — v4.0 tem 5 estilos, confirmar se os demais formatos estão corretos
 
 ### 🟡 Prioridade Média (LP)
 7. **Domínio próprio** — ex: `poderdarotina.com.br` — aguardar João Paulo
@@ -159,11 +169,11 @@ Este não é só um projeto de LP. É um **sistema completo de vendas e conteúd
 
 ## ➡️ Próximos Passos Priorizados
 
-1. **Atlas** — rodar mining completo dos 30 perfis via Apify (scout-agent)
-2. **Atlas** — rodar analyst-agent + briefing-agent na coleta
-3. **Teste end-to-end** — briefing → julia-chief → copy → compositor → publisher (primeiro post real)
-4. **Felipe** — revisar post-01, post-02, story-01, story-02 (`squads/dr-julia-resende/teste-post-story/`)
-5. **Felipe** — revisar P02 Social Proof (`prototipo-carrosseis/estilo-p02-social-proof.png`)
+1. **@analyst** — criar carrossel-03 (Briefing #2: "Ter filho é lindo. É também esgotante pra caramba.")
+2. **@analyst** — criar carrossel ou reel dos Briefings #3 a #5
+3. **Felipe** — revisar post-01, post-02, story-01, story-02 (`squads/dr-julia-resende/teste-post-story/`)
+4. **Felipe** — revisar P02 Social Proof (`prototipo-carrosseis/estilo-p02-social-proof.png`)
+5. **Teste end-to-end** — briefing → copy → compositor → publisher (primeiro post real publicado)
 6. **Felipe** — verificar Pixel no Facebook Events Manager
 
 ---
