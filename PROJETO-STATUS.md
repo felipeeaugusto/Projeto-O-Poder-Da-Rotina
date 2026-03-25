@@ -142,34 +142,44 @@ Este não é só um projeto de LP. É um **sistema completo de vendas e conteúd
 
 ### 🔴 Prioridade Máxima
 1. **@dev — construir `content-generator.js`** — script que lê o briefing e gera os HTMLs dos slides automaticamente, para automatizar a criação dos carrosseis #3 a #5
-2. **Recriar S05 Diagrama e S06 Meme** — rejeitados em 2026-03-23, redefinir conceitos
-3. **Criar carrossel-03** — Briefing #2: "Ter filho é lindo. É também esgotante pra caramba." (após automação pronta)
-4. **Criar carrossel/reel dos Briefings #3 a #5**
+2. **Nova rodada de mineração** — briefing de 2026-03-23 expirou em 2026-03-30; rodar scout + analyst + briefing-agent
+3. **Corrigir DS.yaml** — remover `image_tool: "ChatGPT (DALL-E)"` — DALL-E está fora de tudo; HTML/CSS + Playwright é a ferramenta para TODO tipo de conteúdo
+4. **Criar carrossel-03** — Briefing #2: "Ter filho é lindo. É também esgotante pra caramba." (após automação pronta)
+5. **Criar carrossel/reel dos Briefings #3 a #5**
 
 ### 🟡 Prioridade Alta
-5. **Sincronizar publisher-secrets.yaml** — novo token Instagram + novo page_access_token Facebook + novo ig_user_id — copiar para o outro PC via Google Drive
-6. **Renovar token Instagram** — expira a cada 60 dias (gerado ~2026-03-23, renovar antes de ~2026-05-22)
-7. **DS.yaml — confirmar formatos 06 ao 15** — v4.0 tem 5 estilos, confirmar se os demais formatos estão corretos
+6. **Rodar `hormozi-audit`** na LP atual e na oferta do ebook — identificar o que melhorar para aumentar conversão
+7. **Criar Grand Slam Offer** do ebook via `wf-grand-slam-offer` (Squad Hormozi) — transformar "ebook de R$27" em oferta irresistível
+8. **Configurar Meta Graph API + publisher-agent automático** — postar sem intervenção manual
+9. **Schedule-optimizer** — ajustar horários de publicação com base em performance real dos posts
+10. **Sincronizar publisher-secrets.yaml** — copiar para o outro PC via Google Drive
+11. **Renovar token Instagram** — expira a cada 60 dias (gerado ~2026-03-23, renovar antes de ~2026-05-22)
 
-### 🟡 Prioridade Média (LP)
-8. **Domínio próprio** — ex: `poderdarotina.com.br` — aguardar João Paulo
-9. **Verificar Pixel disparando** — confirmar no Facebook Events Manager que o PageView está chegando
-10. **Testes mobile** — verificar LP em celular real
-11. **Console zero erros** — abrir DevTools e confirmar ausência de erros JS
+### 🟡 Prioridade Média
+12. **Integrar n8n** — orquestrador de automação 24/7 (disparar scouts, gerar conteúdo, publicar no horário certo)
+13. **Integrar ClickUp** — dashboard de acompanhamento (status de cada post, calendário editorial, métricas)
+14. **Criar estrutura C-Suite de agentes** — CEO, CMO, COO, CFO, CTO, CPO, CGO como agentes IA do projeto
+15. **Criar @cpo-agent** — monitora tendências do nicho e sugere novos produtos digitais semanalmente
+16. **Adicionar Biblioteca de Anúncios do Facebook** ao scout-agent como segunda fonte de dados
+17. **Squad de Performance (Ads)** — criativos para tráfego pago usando hormozi-ads + hormozi-hooks
+18. **Domínio próprio** — ex: `poderdarotina.com.br` — aguardar João Paulo
+19. **Verificar Pixel disparando** — confirmar no Facebook Events Manager que o PageView está chegando
+20. **Testes mobile** — verificar LP em celular real
 
 ### 🟢 Prioridade Baixa
-12. **Brandbook** — documento estratégico + visual da marca. Agente: @Design:agents:design-chief + @ux-design-expert
-13. **Script Python Fase 2** — integração automática com API DALL-E (só após Fase 1 aprovada por Felipe)
+21. **Obsidian** — configurar como segundo cérebro do projeto (estratégia, aprendizados, ideias de produto)
+22. **Dashboard proprietário** — página web com métricas ao vivo (começa pelo Notion, evolui para web própria)
+23. **Brandbook** — documento estratégico + visual da marca
 
 ---
 
 ## ➡️ Próximos Passos Priorizados
 
-1. **@dev** — construir `content-generator.js` (automação de carrosseis a partir do briefing)
-2. **@analyst** — criar carrossel-03 (Briefing #2: "Ter filho é lindo. É também esgotante pra caramba.")
-3. **@analyst** — criar carrossel/reel dos Briefings #3 a #5
-4. **Felipe** — sincronizar `publisher-secrets.yaml` pro outro PC via Google Drive
-5. **Felipe** — verificar Pixel no Facebook Events Manager
+1. **@analyst** — rodar nova rodada de mineração (briefing expirado)
+2. **@dev** — construir `content-generator.js` (automação de carrosseis a partir do briefing)
+3. **@analyst / hormozi-audit** — auditar LP atual e oferta do ebook
+4. **@analyst** — criar carrossel-03 (Briefing #2: "Ter filho é lindo. É também esgotante pra caramba.")
+5. **Felipe** — sincronizar `publisher-secrets.yaml` pro outro PC via Google Drive
 
 ---
 
@@ -195,7 +205,7 @@ Este não é só um projeto de LP. É um **sistema completo de vendas e conteúd
 | Meta Pixel ID | `32651609107818251` |
 | Servidor local | `npx serve . -p 3000` (Edge bloqueava file://) |
 | Fonte do projeto | Poppins (Regular + Bold) |
-| Ferramenta de imagem | ChatGPT (DALL-E) — NUNCA misturar com outras IAs |
+| Ferramenta de imagem | ❌ DALL-E DESCARTADO para tudo — HTML/CSS + Playwright é a única ferramenta de criação visual |
 | Compositor de posts | ✅ HTML/CSS + Playwright → PNG 1080x1080 (Python/Pillow descartado) |
 | Squad | `squads/dr-julia-resende/` — 5 agentes (julia-chief, copy-agent, image-agent, approval-agent, ebook-agent) |
 | DS.yaml | `squads/dr-julia-resende/data/DR-JULIA-RESENDE-DS.yaml` v4.0 |
@@ -342,6 +352,27 @@ Este não é só um projeto de LP. É um **sistema completo de vendas e conteúd
 - **Caderno revisado 4x** — corrigidos: S05/S06 rejeitados, Instagram ID, numeração pendências, tabela de decisões
 - **Pendência @dev registrada** — construir `content-generator.js` para automatizar geração de carrosseis a partir do briefing
 **Parou em:** Caderno revisado e completo. Próximo: chamar @dev para construir content-generator.js.
+
+### Sessão — 2026-03-24 (PC casa — sessão Atlas/analyst)
+**Feito:**
+- **Elicit estratégico completo** — Felipe mapeou a visão de longo prazo do projeto:
+  - Automação 24/7: todo o pipeline (mineração → conteúdo → publicação) deve rodar sem intervenção manual
+  - DALL-E descartado para TUDO (não só carrosseis) — HTML/CSS + Playwright é a única ferramenta visual
+  - Estrutura C-Suite de agentes IA definida: CEO, CMO, COO, CFO, CTO, CPO, CGO
+  - n8n como orquestrador de automação, ClickUp como dashboard de acompanhamento, Obsidian como segundo cérebro
+  - Biblioteca de Anúncios do Facebook a ser adicionada ao scout-agent
+  - Squad de Performance (tráfego pago) a ser criado com hormozi-ads + hormozi-hooks
+  - @cpo-agent para monitorar tendências e sugerir novos produtos semanalmente
+  - Horários de publicação ideais mapeados: feed 6-8h / 12-13h / 20-22h, stories 7-9h / 19-21h
+- **Correção importante:** Squad de Mineração JÁ está operacional — briefing-semanal-2026-03-23.md existe com 69 posts coletados de 23 perfis ✅
+- **Squad Hormozi integrado ao projeto** — 246 arquivos copiados de `C:/Downloads/hormozi` → `squads/hormozi/`
+  - 15 agentes especializados na metodologia Alex Hormozi ($100M Offers, $100M Leads)
+  - Inclui: hormozi-chief, hormozi-offers, hormozi-ads, hormozi-hooks, hormozi-copy, hormozi-launch, hormozi-scale + mais 8
+  - 9 workflows: wf-grand-slam-offer, wf-paid-ads-campaign, wf-full-launch-sequence, etc.
+  - 55 tasks, 45 checklists, 17 DNA files
+- **Decisão de produto registrada:** ebook de R$27 tem viabilidade real no nicho de maternidade; R$52k/semana é atingível com tráfego pago + oferta bem estruturada
+- **S05 Diagrama e S06 Meme removidos das pendências** — Felipe não quer retomar
+**Parou em:** Squad Hormozi integrado. Próximo: hormozi-audit na LP + construir content-generator.js.
 
 ---
 
