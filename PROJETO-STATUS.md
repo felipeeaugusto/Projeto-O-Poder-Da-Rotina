@@ -39,9 +39,9 @@ Este não é só um projeto de LP. É um **sistema completo de vendas e conteúd
 ### Hero Section
 - Layout clássico LP: texto à esquerda, foto à direita
 - Foto da Dra. Julia segurando o ebook (`assets/images/09.png` + `09.webp`)
-- Headline: *"7 Minutos por Dia para Transformar o Caos em Paz"*
+- Headline: *"7 Minutos por Dia: O Método que Vai Salvar Sua Sanidade, Acabar com as Birras e Devolver a Paz da Sua Família"* ✅ aprovada 2026-03-25
 - Subheadline explicando o método
-- Botão CTA: "QUERO TRANSFORMAR MINHA FAMÍLIA AGORA"
+- Botão CTA: "SIM, EU PRECISO DISSO AGORA →" ✅ aprovado 2026-03-25
 - Trust badges: Acesso imediato / Garantia de 14 dias / Funciona mesmo com crianças agitadas
 - Tag verde: "Mais de 15.000 mães brasileiras transformadas"
 
@@ -148,7 +148,12 @@ Este não é só um projeto de LP. É um **sistema completo de vendas e conteúd
 5. **Criar carrossel/reel dos Briefings #3 a #5**
 
 ### 🟡 Prioridade Alta
-6. **Rodar `hormozi-audit`** na LP atual e na oferta do ebook — identificar o que melhorar para aumentar conversão
+6. **LP — Pendências do hormozi-audit** (workflow correto com agentes certos):
+   - **@hormozi-copy** — escrever copy: seção "Antes e Depois", seção "Para Quem É / Não É", Value Stack dos bônus
+   - **@hormozi-offers** — definir estratégia das 2 ofertas (R$10 vs R$27 na mesma página)
+   - **@dev** — implementar o copy no HTML/CSS após aprovação
+   - **@dev** — corrigir links quebrados (Política de Privacidade e Termos de Uso no footer)
+   - **@dev** — adicionar selos de segurança visuais próximos aos CTAs
 7. **Criar Grand Slam Offer** do ebook via `wf-grand-slam-offer` (Squad Hormozi) — transformar "ebook de R$27" em oferta irresistível
 8. **Configurar Meta Graph API + publisher-agent automático** — postar sem intervenção manual
 9. **Schedule-optimizer** — ajustar horários de publicação com base em performance real dos posts

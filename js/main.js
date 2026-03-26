@@ -37,7 +37,7 @@
       '.faq__item',
       '.cta-final__title',
       '.cta-final__subtitle',
-      '.countdown'
+      '.cta-final .countdown'
     ];
 
     animTargets.forEach(function (selector) {
@@ -110,34 +110,55 @@
       sessionStorage.setItem(KEY, endTime);
     } else {
       endTime = parseInt(endTime, 10);
+      // Bug fix: se o tempo já expirou (sessão antiga), reinicia o timer
+      if (endTime <= Date.now()) {
+        endTime = Date.now() + DURATION * 1000;
+        sessionStorage.setItem(KEY, endTime);
+      }
     }
+
+    var ticker = null;
+    var heroBox     = document.getElementById('countdown-hero');
+    var heroDisplay = document.getElementById('countdown-hero-display');
 
     function updateDisplay() {
       var remaining = Math.max(0, Math.floor((endTime - Date.now()) / 1000));
       var mm = String(Math.floor(remaining / 60)).padStart(2, '0');
       var ss = String(remaining % 60).padStart(2, '0');
-      var displays = document.querySelectorAll('.countdown-display');
-      var labels = document.querySelectorAll('.countdown__label');
+      var timeStr = mm + ':' + ss;
 
-      displays.forEach(function (el) {
-        el.textContent = mm + ':' + ss;
+      // Atualiza o hero (se ainda visivel)
+      if (heroDisplay) heroDisplay.textContent = timeStr;
+
+      // Atualiza o countdown do CTA final (exclui o hero pelo id)
+      document.querySelectorAll('.countdown-display').forEach(function (el) {
+        if (el.id !== 'countdown-hero-display') el.textContent = timeStr;
       });
 
-      // Quando chegar a 0 — muda a mensagem de urgência
       if (remaining === 0) {
-        labels.forEach(function (el) {
-          el.textContent = 'Oferta especial — garanta o seu antes que encerre!';
+        clearInterval(ticker);
+
+        // Esconde o hero countdown inteiro
+        if (heroBox) heroBox.style.display = 'none';
+
+        // Atualiza mensagem no countdown do final
+        document.querySelectorAll('.countdown__label').forEach(function (el) {
+          if (el.id !== 'countdown-hero-display') {
+            el.textContent = 'Oferta especial — garanta o seu antes que encerre!';
+          }
         });
-        displays.forEach(function (el) {
-          el.style.fontSize = '1.2rem';
-          el.style.letterSpacing = '0';
-          el.textContent = 'Ainda disponivel por tempo limitado';
+        document.querySelectorAll('.countdown-display').forEach(function (el) {
+          if (el.id !== 'countdown-hero-display') {
+            el.style.fontSize = '1.2rem';
+            el.style.letterSpacing = '0';
+            el.textContent = 'Ainda disponivel por tempo limitado';
+          }
         });
       }
     }
 
     updateDisplay();
-    setInterval(updateDisplay, 1000);
+    ticker = setInterval(updateDisplay, 1000);
   }
 
   // ============================================================
