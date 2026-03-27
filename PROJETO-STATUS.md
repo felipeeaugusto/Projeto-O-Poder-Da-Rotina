@@ -37,27 +37,28 @@
 8. **@dev** — corrigir DS.yaml (remover image_tool DALL-E) — consistência da spec visual do projeto
 9. **@hormozi-copy** — escrever seções "Antes e Depois", "Para Quem E / Nao E", Value Stack dos bônus — aumenta conversão da LP diretamente
 10. **@hormozi-offers** — definir estratégia das 2 ofertas (R$10 vs R$27 na mesma página) — clareza na proposta de valor ao visitante
-11. **@dev** — implementar copy no HTML/CSS após aprovação — finaliza versão 2 da LP
+11. **@dev** — remover números fabricados do HTML da LP (Harvard, USP, "15.000 mães", "3.000 famílias", "20 anos de pesquisa") — esses números foram inventados e estão proibidos pelo caderno; manter compromete a credibilidade do projeto
+12. **@dev** — implementar copy no HTML/CSS após aprovação — finaliza versão 2 da LP
 
 ### Pode deixar pra depois
-12. **@dev** — corrigir links quebrados no footer (Política de Privacidade e Termos de Uso) — credibilidade legal da LP
-13. **@dev** — adicionar selos de segurança visuais próximos aos CTAs — aumenta confiança do visitante
-14. **@hormozi-offers** — criar Grand Slam Offer do ebook via wf-grand-slam-offer — maximiza valor percebido e justifica preço
-15. **publisher-agent** — configurar Meta Graph API + posting automático — elimina publicação manual
-16. **Felipe** — sincronizar publisher-secrets.yaml pro outro PC via Google Drive — alinhamento operacional entre PCs
-17. **Felipe** — renovar token Instagram antes de 2026-05-22 — manutenção preventiva
-18. **@dev/@devops** — integrar n8n — orquestrador de automação 24/7 para todo o pipeline
-19. **@dev/@devops** — integrar ClickUp — dashboard de acompanhamento do projeto
-20. **@dev** — schedule-optimizer — ajustar horários de publicação com base em performance real dos posts
-21. **@dev** — adicionar Biblioteca de Anúncios do Facebook ao scout-agent como segunda fonte de dados
-22. **Felipe** — domínio próprio (ex: poderdarotina.com.br) — aguardar João Paulo
-23. **@dev** — verificar Pixel disparando no Facebook Events Manager — confirmação de rastreamento
-24. **@dev** — testes mobile na LP — verificar em celular real
-25. **@aiox-master/@dev** — criar estrutura C-Suite de agentes IA (CEO, CMO, COO, CFO, CTO, CPO, CGO)
-26. **@aiox-master/@dev** — criar @cpo-agent — monitora tendências do nicho e sugere novos produtos semanalmente
-27. **@devops/@dev** — Obsidian como segundo cérebro do projeto
-28. **@dev** — dashboard proprietário de métricas ao vivo
-29. **@dev** — brandbook estratégico e visual
+13. **@dev** — corrigir links quebrados no footer (Política de Privacidade e Termos de Uso) — credibilidade legal da LP
+14. **@dev** — adicionar selos de segurança visuais próximos aos CTAs — aumenta confiança do visitante
+15. **@hormozi-offers** — criar Grand Slam Offer do ebook via wf-grand-slam-offer — maximiza valor percebido e justifica preço
+16. **publisher-agent** — configurar Meta Graph API + posting automático — elimina publicação manual
+17. **Felipe** — sincronizar publisher-secrets.yaml pro outro PC via Google Drive — alinhamento operacional entre PCs
+18. **Felipe** — renovar token Instagram antes de 2026-05-22 — manutenção preventiva
+19. **@dev/@devops** — integrar n8n — orquestrador de automação 24/7 para todo o pipeline
+20. **@dev/@devops** — integrar ClickUp — dashboard de acompanhamento do projeto
+21. **@dev** — schedule-optimizer — ajustar horários de publicação com base em performance real dos posts
+22. **@dev** — adicionar Biblioteca de Anúncios do Facebook ao scout-agent como segunda fonte de dados
+23. **Felipe** — domínio próprio (ex: poderdarotina.com.br) — aguardar João Paulo
+24. **@dev** — verificar Pixel disparando no Facebook Events Manager — confirmação de rastreamento
+25. **@dev** — testes mobile na LP — verificar em celular real
+26. **@aiox-master/@dev** — criar estrutura C-Suite de agentes IA (CEO, CMO, COO, CFO, CTO, CPO, CGO)
+27. **@aiox-master/@dev** — criar @cpo-agent — monitora tendências do nicho e sugere novos produtos semanalmente
+28. **@devops/@dev** — Obsidian como segundo cérebro do projeto
+29. **@dev** — dashboard proprietário de métricas ao vivo
+30. **@dev** — brandbook estratégico e visual
 
 ---
 
@@ -67,23 +68,33 @@
 ### SESSAO — 27/03/2026
 
 **O QUE FOI FEITO:**
-- BLOCO 0-G implementado no CLAUDE.md — reativação automática de agente pos-compactação, evita que o Claude base assuma o controle sem retomar o agente correto
+- BLOCO 0-G implementado — reativação automática de agente pós-compactação, evita que o Claude base assuma sem retomar o agente correto
 - BLOCO 0-H implementado — protocolo de atualização segura do AIOX
 - BLOCO 0-I criado e reforçado (2x) — nenhum agente executa trabalho de outro agente, sem exceção, sem urgência como justificativa
-- BLOCO 0-J criado — silêncio do orquestrador após agente especializado
-- Customizações 12 a 15 salvas no MANUAL.md — rastreabilidade das regras do sistema
-- "15.000 maes" identificado como número fabricado — PROIBIDO em ads, LP e criativos
-- 15 criativos de anúncio pago gerados via fluxo completo: @hormozi-hooks (5 hooks) + @hormozi-ads (conceitos) + @hormozi-copy (copy) + compositor-agent (15 PNGs em squads/dr-julia-resende/criativos-ads/)
-- Customização 16 implementada — BLOCO 1-A do @analyst com numeração global, impacto por item, data da última sessão e seção de pendências nao relevantes
+- BLOCO 0-J criado — silêncio do orquestrador após agente especializado, evita confusão de identidade
+- BLOCO 0-K criado — auditoria obrigatória antes de qualquer handoff de agente, evita perder contexto
+- BLOCO 0-L criado — proibido inventar problemas sem agente especializado como fonte, elimina trabalho fantasma
+- BLOCO 0-F estendido — retomada após interrupção agora mostra PAROU EM + próximo passo sugerido
+- BLOCO 2-B criado — "mais tarde" = registro imediato no caderno, evita sumiço de tarefas entre sessões
+- BLOCO 3 reescrito — auditoria antes de salvar + agente ativo salvo no PAROU EM + push obrigatório sem pedir permissão
+- BLOCO 0-G corrigido — prioridade: .current-agent primeiro (compactação mid-session), caderno segundo (fallback cross-PC)
+- BLOCO 1-A atualizado — todos os blocos com cores+numeração global+@agente+impacto + seção "🔧 Implementações da última sessão"
+- "15.000 maes" e demais números fabricados identificados — PROIBIDOS em ads, LP e criativos
+- 15 criativos de anúncio pago gerados via fluxo completo (5 hooks × 3 formatos = 15 PNGs)
 - Caderno migrado para novo formato de 3 blocos (PENDENCIAS ATUAIS / ULTIMAS 3 SESSOES / DECISOES IMPORTANTES)
+- Items #5-7 adicionados ao caderno: product-content-agent + Guia 7 Minutos + Desafio 21 Dias
+- Item #11 adicionado ao caderno: @dev remover números fabricados do HTML da LP
+- Customizações 12 a 23 salvas no MANUAL.md — rastreabilidade completa das regras do sistema
 
 **O QUE O FELIPE PEDIU:**
-- Corrigir todos os erros sistêmicos (BLOCO 0-I e 0-J) antes de dormir
-- 15 criativos nos 3 formatos prontos para apresentar ao patrao (Joao Paulo)
-- Implementar formato específico de ativação do @analyst (BLOCO 1-A) com numeração e impacto
-- Migrar PROJETO-STATUS.md para estrutura de 3 blocos com pendências numeradas
+- Mapear TODAS as pendências existentes (handoffs, commits, GitHub, caderno, subfolders)
+- Corrigir todos os erros sistêmicos de agentes (BLOCOs 0-I, 0-J, 0-K, 0-L)
+- BLOCO 1-A com todos os blocos organizados por cores + agente por item + numeração global + seção de implementações
+- BLOCO 3 com auditoria obrigatória antes de salvar + push sempre
+- BLOCO 0-G com prioridade correta (.current-agent primeiro)
+- Adicionar pendências faltantes no caderno (product-content-agent, números falsos da LP)
 
-**PAROU EM:** Customização 16 implementada. Caderno migrado para novo formato. Proximo: rodar nova rodada de mineração com @analyst.
+**PAROU EM:** BLOCOs 0-F/0-G/0-K/0-L/1-A/2-B/3 implementados. Customizações 17-23 salvas. Proximo: rodar nova rodada de mineração com @analyst (briefing expira 2026-03-30). | Agente ativo: aiox-master
 
 ---
 
