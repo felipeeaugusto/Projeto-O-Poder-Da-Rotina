@@ -31,30 +31,33 @@
 ### Prioridade Normal
 3. **compositor-agent** — criar carrossel-03 — Briefing #2: "Ter filho é lindo. E também esgotante pra caramba." (após mineração nova) — avança calendário de conteúdo
 4. **compositor-agent** — criar carrosseis dos Briefings #3 a #5 — completa ciclo do briefing e gera estoque de conteúdo
-5. **@dev** — corrigir DS.yaml (remover image_tool DALL-E) — consistência da spec visual do projeto
-6. **@hormozi-copy** — escrever seções "Antes e Depois", "Para Quem E / Nao E", Value Stack dos bônus — aumenta conversão da LP diretamente
-7. **@hormozi-offers** — definir estratégia das 2 ofertas (R$10 vs R$27 na mesma página) — clareza na proposta de valor ao visitante
-8. **@dev** — implementar copy no HTML/CSS após aprovação — finaliza versão 2 da LP
+5. **@aiox-master** — criar `product-content-agent` no squad dr-julia-resende — agente necessário para escrever o Guia 7 Minutos e o Desafio 21 Dias (conteúdo que alinha o ebook com o que a LP promete)
+6. **product-content-agent** — escrever Guia de Implementação 7 Minutos — documento novo do combo do ebook, prescrito pelo @hormozi-audit para corrigir mismatch ebook/LP
+7. **product-content-agent** — escrever Desafio 21 Dias — documento novo do combo do ebook, prescrito pelo @hormozi-audit para corrigir mismatch ebook/LP
+8. **@dev** — corrigir DS.yaml (remover image_tool DALL-E) — consistência da spec visual do projeto
+9. **@hormozi-copy** — escrever seções "Antes e Depois", "Para Quem E / Nao E", Value Stack dos bônus — aumenta conversão da LP diretamente
+10. **@hormozi-offers** — definir estratégia das 2 ofertas (R$10 vs R$27 na mesma página) — clareza na proposta de valor ao visitante
+11. **@dev** — implementar copy no HTML/CSS após aprovação — finaliza versão 2 da LP
 
 ### Pode deixar pra depois
-9. **@dev** — corrigir links quebrados no footer (Política de Privacidade e Termos de Uso) — credibilidade legal da LP
-10. **@dev** — adicionar selos de segurança visuais próximos aos CTAs — aumenta confiança do visitante
-11. **@hormozi-offers** — criar Grand Slam Offer do ebook via wf-grand-slam-offer — maximiza valor percebido e justifica preço
-12. **publisher-agent** — configurar Meta Graph API + posting automático — elimina publicação manual
-13. **Felipe** — sincronizar publisher-secrets.yaml pro outro PC via Google Drive — alinhamento operacional entre PCs
-14. **Felipe** — renovar token Instagram antes de 2026-05-22 — manutenção preventiva
-15. **@dev/@devops** — integrar n8n — orquestrador de automação 24/7 para todo o pipeline
-16. **@dev/@devops** — integrar ClickUp — dashboard de acompanhamento do projeto
-17. **@dev** — schedule-optimizer — ajustar horários de publicação com base em performance real dos posts
-18. **@dev** — adicionar Biblioteca de Anúncios do Facebook ao scout-agent como segunda fonte de dados
-19. **Felipe** — domínio próprio (ex: poderdarotina.com.br) — aguardar João Paulo
-20. **@dev** — verificar Pixel disparando no Facebook Events Manager — confirmação de rastreamento
-21. **@dev** — testes mobile na LP — verificar em celular real
-22. **@aiox-master/@dev** — criar estrutura C-Suite de agentes IA (CEO, CMO, COO, CFO, CTO, CPO, CGO)
-23. **@aiox-master/@dev** — criar @cpo-agent — monitora tendências do nicho e sugere novos produtos semanalmente
-24. **@devops/@dev** — Obsidian como segundo cérebro do projeto
-25. **@dev** — dashboard proprietário de métricas ao vivo
-26. **@dev** — brandbook estratégico e visual
+12. **@dev** — corrigir links quebrados no footer (Política de Privacidade e Termos de Uso) — credibilidade legal da LP
+13. **@dev** — adicionar selos de segurança visuais próximos aos CTAs — aumenta confiança do visitante
+14. **@hormozi-offers** — criar Grand Slam Offer do ebook via wf-grand-slam-offer — maximiza valor percebido e justifica preço
+15. **publisher-agent** — configurar Meta Graph API + posting automático — elimina publicação manual
+16. **Felipe** — sincronizar publisher-secrets.yaml pro outro PC via Google Drive — alinhamento operacional entre PCs
+17. **Felipe** — renovar token Instagram antes de 2026-05-22 — manutenção preventiva
+18. **@dev/@devops** — integrar n8n — orquestrador de automação 24/7 para todo o pipeline
+19. **@dev/@devops** — integrar ClickUp — dashboard de acompanhamento do projeto
+20. **@dev** — schedule-optimizer — ajustar horários de publicação com base em performance real dos posts
+21. **@dev** — adicionar Biblioteca de Anúncios do Facebook ao scout-agent como segunda fonte de dados
+22. **Felipe** — domínio próprio (ex: poderdarotina.com.br) — aguardar João Paulo
+23. **@dev** — verificar Pixel disparando no Facebook Events Manager — confirmação de rastreamento
+24. **@dev** — testes mobile na LP — verificar em celular real
+25. **@aiox-master/@dev** — criar estrutura C-Suite de agentes IA (CEO, CMO, COO, CFO, CTO, CPO, CGO)
+26. **@aiox-master/@dev** — criar @cpo-agent — monitora tendências do nicho e sugere novos produtos semanalmente
+27. **@devops/@dev** — Obsidian como segundo cérebro do projeto
+28. **@dev** — dashboard proprietário de métricas ao vivo
+29. **@dev** — brandbook estratégico e visual
 
 ---
 
