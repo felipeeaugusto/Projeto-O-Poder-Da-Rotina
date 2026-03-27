@@ -176,6 +176,9 @@ Este não é só um projeto de LP. É um **sistema completo de vendas e conteúd
 22. **Dashboard proprietário** — página web com métricas ao vivo (começa pelo Notion, evolui para web própria)
 23. **Brandbook** — documento estratégico + visual da marca
 
+### ✅ Concluído nesta sessão
+- ~~17. **Squad de Performance (Ads)**~~ — **FEITO** — 15 criativos de anúncio pago gerados (5 ângulos × 3 formatos) via fluxo completo @hormozi-hooks → @hormozi-ads → @hormozi-copy → compositor-agent. Aprovados para primeiro teste (2026-03-27).
+
 ---
 
 ## ➡️ Próximos Passos Priorizados
@@ -226,6 +229,9 @@ Este não é só um projeto de LP. É um **sistema completo de vendas e conteúd
 | *waves | Usar sempre que houver stories paralelas — Felipe quer isso em todo o projeto |
 | Estilo visual dos posts | **Estilo Academia Lendária** — tipografia forte, fundo escuro, accent verde, prova social. Posts com ilustração clipart rejeitados. |
 | Carrossel-01 | ✅ 5 slides aprovados (`carrossel-01/slide-01` a `slide-05`) |
+| "15.000 mães" | ❌ PROIBIDO em qualquer anúncio, criativo ou LP — número fabricado sem base real |
+| Criativos de ads | ✅ 15 PNGs gerados em `squads/dr-julia-resende/criativos-ads/` — 5 ângulos × 3 formatos (quadrado, vertical, horizontal) |
+| Fluxo de ads validado | @hormozi-hooks → @hormozi-ads → @hormozi-copy → compositor-agent — fluxo oficial para criativos de anúncio |
 | Estilos visuais aprovados | S01, S03, S04 (carrossel) + P01 Manifesto (post) + ST01 Direta (story) |
 | DS.yaml versão | v4.0 — cada formato tem estilo exclusivo |
 | Posts VE/QC/MT (1ª rodada) | ❌ Rejeitados ("resultado porco"). Nova ferramenta HTML/CSS definida. |
@@ -381,4 +387,28 @@ Este não é só um projeto de LP. É um **sistema completo de vendas e conteúd
 
 ---
 
-*Atualizado por: Atlas (@analyst) — 2026-03-24*
+### Sessão — 2026-03-27
+
+**O QUE FOI FEITO:**
+- BLOCO 0-G implementado no CLAUDE.md — reativação automática de agente pós-compactação, evita que o Claude base assuma o controle sem retomar o agente correto
+- BLOCO 0-H implementado — protocolo de atualização segura do AIOX (v2.1.0 → v5.0.0 pendente análise separada)
+- BLOCO 0-I criado e reforçado (2x) — nenhum agente executa trabalho de outro agente, sem exceção, sem urgência como justificativa
+- BLOCO 0-J criado — silêncio do orquestrador após agente especializado; Orion não pode aparecer no mesmo bloco de resposta do agente
+- Customizações 12 a 15 salvas no MANUAL.md
+- "15.000 mães" identificado como número fabricado — PROIBIDO em ads, LP e criativos
+- **15 criativos de anúncio pago gerados** — fluxo completo executado pela primeira vez corretamente:
+  - @hormozi-hooks: 5 hooks (dor, resultado, mecanismo, previsibilidade, oferta)
+  - @hormozi-ads: conceitos visuais de ad pago (fundo claro, hierarquia, tratamentos por criativo)
+  - @hormozi-copy: copy adaptada para voz da Dra. Julia
+  - compositor-agent: 15 PNGs renderizados em `squads/dr-julia-resende/criativos-ads/`
+
+**O QUE O FELIPE PEDIU:**
+- Corrigir todos os erros sistêmicos (BLOCO 0-I e 0-J) antes de dormir
+- 15 criativos nos 3 formatos prontos para apresentar ao patrão (João Paulo)
+- Seguir o fluxo oficial: @hormozi-hooks → @hormozi-ads → @hormozi-copy → compositor-agent
+
+**PAROU EM:** 15 criativos aprovados para primeiro teste. Felipe vai dormir.
+
+---
+
+*Atualizado por: Orion (@aiox-master) — 2026-03-27*
