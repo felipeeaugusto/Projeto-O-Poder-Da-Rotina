@@ -3,6 +3,23 @@
 
 ---
 
+### SESSAO — 24/03/2026 (notebook + PC casa)
+
+**O QUE FOI FEITO:**
+- post-01, post-02, story-01, story-02 aprovados por Felipe
+- P02 Social Proof descartado permanentemente — Felipe nao quer retomar
+- Problema de sincronização entre PCs resolvido — processo de sync de 5 comandos definido
+- git sync configurado no notebook como alias
+- Pendência @dev registrada — construir content-generator.js para automatizar carrosseis a partir do briefing
+
+**O QUE O FELIPE PEDIU:**
+- Corrigir sincronização entre PCs
+- Registrar P02 como descartado permanentemente
+
+**PAROU EM:** Caderno revisado e completo. Proximo: chamar @dev para construir content-generator.js.
+
+---
+
 ### SESSAO — 23/03/2026 (parte 2)
 
 **O QUE FOI FEITO:**

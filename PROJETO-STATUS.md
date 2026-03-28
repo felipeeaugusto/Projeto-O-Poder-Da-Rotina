@@ -114,20 +114,17 @@
 
 ---
 
-### SESSAO — 24/03/2026 (notebook + PC casa)
+### SESSAO — 27/03/2026 (continuação — compactação)
 
 **O QUE FOI FEITO:**
-- post-01, post-02, story-01, story-02 aprovados por Felipe
-- P02 Social Proof descartado permanentemente — Felipe nao quer retomar
-- Problema de sincronização entre PCs resolvido — processo de sync de 5 comandos definido
-- git sync configurado no notebook como alias
-- Pendência @dev registrada — construir content-generator.js para automatizar carrosseis a partir do briefing
+- Recuperação pós-compactação via BLOCO 0-G v2 — leitura do resumo da compactação e comparação com caderno
+- 2 itens ausentes formalizados no caderno: Customização 26 + deleção da pasta hooks-backup
+- Commit + push realizados — caderno alinhado com o GitHub
 
 **O QUE O FELIPE PEDIU:**
-- Corrigir sincronização entre PCs
-- Registrar P02 como descartado permanentemente
+- Confirmar que nada foi perdido após compactação
 
-**PAROU EM:** Caderno revisado e completo. Proximo: chamar @dev para construir content-generator.js.
+**PAROU EM:** Sessão encerrada. Proximo: rodar nova rodada de mineração com @analyst (briefing expira 2026-03-30). | Agente ativo: aiox-master
 
 ---
 
