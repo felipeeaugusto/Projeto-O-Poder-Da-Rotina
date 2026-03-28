@@ -120,12 +120,14 @@
 **O QUE FOI FEITO:**
 - Recuperação pós-compactação via BLOCO 0-G v2 — leitura do resumo da compactação e comparação com caderno
 - 2 itens ausentes formalizados no caderno: Customização 26 + deleção da pasta hooks-backup
-- Commit + push realizados — caderno alinhado com o GitHub
+- BLOCO 0-G PASSO 3 corrigido — "ESTAVA EM" agora usa o resumo da compactação como fonte primária (não o caderno); Customização 25 no MANUAL atualizada
+- Auditoria final da sessão (169 mensagens lidas) — nada perdido
 
 **O QUE O FELIPE PEDIU:**
 - Confirmar que nada foi perdido após compactação
+- Corrigir BLOCO 0-G PASSO 3: fonte do "ESTAVA EM" deve ser o resumo da compactação, não o caderno
 
-**PAROU EM:** Sessão encerrada. Proximo: rodar nova rodada de mineração com @analyst (briefing expira 2026-03-30). | Agente ativo: aiox-master
+**PAROU EM:** Sessão encerrada. Auditoria final completa. Proximo: rodar nova rodada de mineração com @analyst (briefing expira 2026-03-30). | Agente ativo: aiox-master
 
 ---
 
