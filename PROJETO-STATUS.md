@@ -85,6 +85,7 @@
 - Customizações 12 a 25 salvas no MANUAL.md — rastreabilidade completa das regras do sistema
 - Customização 26 salva no MANUAL.md — BLOCO 0-F v2 com formato completo (lista numerada de itens da interrupção com ✅/❌ + retorno ao fluxo ativo, não ao #1 do caderno)
 - Pasta .claude/hooks-backup-20260327/ deletada — limpeza pós-update AIOX v5.0.x bem-sucedido
+- BLOCO 0-G PASSO 3 corrigido — fonte do "ESTAVA EM" era o caderno (errado); agora usa o resumo da compactação como fonte primária e caderno como fallback apenas; Customização 25 no MANUAL atualizada
 
 **O QUE O FELIPE PEDIU:**
 - Mapear TODAS as pendências existentes e corrigir todos os erros sistêmicos de agentes
