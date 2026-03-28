@@ -87,6 +87,7 @@
 - Pasta .claude/hooks-backup-20260327/ deletada — limpeza pós-update AIOX v5.0.x bem-sucedido
 - Entradas 27/03 (principal + continuação) mescladas em uma só — elimina ambiguidade de "sessão mais recente"
 - Auditoria final da sessão (169 mensagens lidas) — nada perdido
+- Customizações 24/25/26 reordenadas no MANUAL.md (correção cosmética de ordem numérica) — consistência do documento
 
 **O QUE O FELIPE PEDIU:**
 - Mapear TODAS as pendências existentes e corrigir todos os erros sistêmicos de agentes
@@ -100,6 +101,7 @@
 - Adicionar seção "🗣️ O que Felipe pediu" ao BLOCO 1-A do @analyst
 - Mesclar as duas entradas do 27/03 em uma só no caderno
 - Confirmar que nada foi perdido após compactação (auditoria de 169 mensagens)
+- Corrigir ordem das Customizações 24/25/26 no MANUAL.md (cosmético)
 
 **PAROU EM:** Sessão encerrada. Auditoria final completa. Proximo: rodar nova rodada de mineração com @analyst (briefing expira 2026-03-30). | Agente ativo: aiox-master
 
