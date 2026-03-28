@@ -83,6 +83,8 @@
 - 15 criativos de anúncio pago gerados via fluxo completo (5 hooks × 3 formatos = 15 PNGs)
 - Caderno migrado para novo formato de 3 blocos + items #5-7 e #11 adicionados
 - Customizações 12 a 25 salvas no MANUAL.md — rastreabilidade completa das regras do sistema
+- Customização 26 salva no MANUAL.md — BLOCO 0-F v2 com formato completo (lista numerada de itens da interrupção com ✅/❌ + retorno ao fluxo ativo, não ao #1 do caderno)
+- Pasta .claude/hooks-backup-20260327/ deletada — limpeza pós-update AIOX v5.0.x bem-sucedido
 
 **O QUE O FELIPE PEDIU:**
 - Mapear TODAS as pendências existentes e corrigir todos os erros sistêmicos de agentes
