@@ -69,32 +69,31 @@
 
 **O QUE FOI FEITO:**
 - BLOCO 0-G implementado — reativação automática de agente pós-compactação, evita que o Claude base assuma sem retomar o agente correto
-- BLOCO 0-H implementado — protocolo de atualização segura do AIOX
-- BLOCO 0-I criado e reforçado (2x) — nenhum agente executa trabalho de outro agente, sem exceção, sem urgência como justificativa
+- BLOCO 0-G v2 — agora lê o resumo da compactação e recupera itens não salvos, zero furos entre sessões
+- BLOCO 0-H executado — verificação AIOX: wrappers v5.0.x adicionados, settings.json atualizado, core-config 2.1.0→2.2.0
+- BLOCO 0-I criado e reforçado (2x) — nenhum agente executa trabalho de outro agente, sem exceção
 - BLOCO 0-J criado — silêncio do orquestrador após agente especializado, evita confusão de identidade
 - BLOCO 0-K criado — auditoria obrigatória antes de qualquer handoff de agente, evita perder contexto
-- BLOCO 0-L criado — proibido inventar problemas sem agente especializado como fonte, elimina trabalho fantasma
-- BLOCO 0-F estendido — retomada após interrupção agora mostra PAROU EM + próximo passo sugerido
+- BLOCO 0-L criado — proibido inventar problemas sem agente especializado como fonte
+- BLOCO 0-F v2 — retomada lista TODOS os itens pedidos na interrupção com status ✅/❌ + retorna ao fluxo ativo
 - BLOCO 2-B criado — "mais tarde" = registro imediato no caderno, evita sumiço de tarefas entre sessões
-- BLOCO 3 reescrito — auditoria antes de salvar + agente ativo salvo no PAROU EM + push obrigatório sem pedir permissão
-- BLOCO 0-G corrigido — prioridade: .current-agent primeiro (compactação mid-session), caderno segundo (fallback cross-PC)
-- BLOCO 1-A atualizado — todos os blocos com cores+numeração global+@agente+impacto + seção "🔧 Implementações da última sessão"
-- "15.000 maes" e demais números fabricados identificados — PROIBIDOS em ads, LP e criativos
+- BLOCO 3 reescrito — auditoria integral da sessão (leitura completa do .jsonl) + push obrigatório sem pedir permissão
+- BLOCO 1-A v2 — todos os blocos com cores+numeração global+@agente+impacto + seção "🔧 Implementações da última sessão"
+- "15.000 maes" e demais números fabricados PROIBIDOS — item #11 adicionado ao caderno para @dev remover do HTML
 - 15 criativos de anúncio pago gerados via fluxo completo (5 hooks × 3 formatos = 15 PNGs)
-- Caderno migrado para novo formato de 3 blocos (PENDENCIAS ATUAIS / ULTIMAS 3 SESSOES / DECISOES IMPORTANTES)
-- Items #5-7 adicionados ao caderno: product-content-agent + Guia 7 Minutos + Desafio 21 Dias
-- Item #11 adicionado ao caderno: @dev remover números fabricados do HTML da LP
-- Customizações 12 a 23 salvas no MANUAL.md — rastreabilidade completa das regras do sistema
+- Caderno migrado para novo formato de 3 blocos + items #5-7 e #11 adicionados
+- Customizações 12 a 25 salvas no MANUAL.md — rastreabilidade completa das regras do sistema
 
 **O QUE O FELIPE PEDIU:**
-- Mapear TODAS as pendências existentes (handoffs, commits, GitHub, caderno, subfolders)
-- Corrigir todos os erros sistêmicos de agentes (BLOCOs 0-I, 0-J, 0-K, 0-L)
+- Mapear TODAS as pendências existentes e corrigir todos os erros sistêmicos de agentes
 - BLOCO 1-A com todos os blocos organizados por cores + agente por item + numeração global + seção de implementações
-- BLOCO 3 com auditoria obrigatória antes de salvar + push sempre
-- BLOCO 0-G com prioridade correta (.current-agent primeiro)
+- BLOCO 3 com auditoria integral da sessão (.jsonl completo) + push obrigatório sempre
+- BLOCO 0-G v2: ler resumo da compactação e recuperar itens não salvos automaticamente
+- BLOCO 0-F v2: listar todos os itens da interrupção numerados com status + retornar ao fluxo ativo
+- Executar BLOCO 0-H (atualização AIOX) — wrappers v5.0.x aplicados
 - Adicionar pendências faltantes no caderno (product-content-agent, números falsos da LP)
 
-**PAROU EM:** BLOCOs 0-F/0-G/0-K/0-L/1-A/2-B/3 implementados. Customizações 17-23 salvas. Proximo: rodar nova rodada de mineração com @analyst (briefing expira 2026-03-30). | Agente ativo: aiox-master
+**PAROU EM:** Sessão encerrada. Customizações 12-25 implementadas e salvas. Proximo: rodar nova rodada de mineração com @analyst (briefing expira 2026-03-30). | Agente ativo: aiox-master
 
 ---
 
