@@ -30,38 +30,37 @@
 
 ### Prioridade Normal
 3. **Felipe** — adicionar JULIA_VOICE_ID e GOOGLE_VEO3_API_KEY ao publisher-secrets.yaml — habilita o pipeline do video-agent (sem essas chaves o agente não consegue gerar nem áudio nem vídeo)
-4. **@aiox-master/@dev** — criar slash command `/dr-julia-resende:agents:video-agent` em `.claude/commands/dr-julia-resende/agents/video-agent.md` — permite ativar o video-agent via comando
-5. **video-agent** — executar pipeline com os 4 roteiros aprovados (ElevenLabs → Veo3 → MP4 9:16) — gera os primeiros vídeos da Dra. Julia para Reels/Stories/Facebook
-6. **compositor-agent** — criar carrossel-03 — Briefing #2: "Ter filho é lindo. E também esgotante pra caramba." (após mineração nova) — avança calendário de conteúdo
-7. **compositor-agent** — criar carrosseis dos Briefings #3 a #5 — completa ciclo do briefing e gera estoque de conteúdo
-8. **@aiox-master** — criar `product-content-agent` no squad dr-julia-resende — agente necessário para escrever o Guia 7 Minutos e o Desafio 21 Dias (conteúdo que alinha o ebook com o que a LP promete)
-9. **product-content-agent** — escrever Guia de Implementação 7 Minutos — documento novo do combo do ebook, prescrito pelo @hormozi-audit para corrigir mismatch ebook/LP
-10. **product-content-agent** — escrever Desafio 21 Dias — documento novo do combo do ebook, prescrito pelo @hormozi-audit para corrigir mismatch ebook/LP
-11. **@dev** — corrigir DS.yaml (remover image_tool DALL-E) — consistência da spec visual do projeto
-12. **@hormozi-copy** — escrever seções "Antes e Depois", "Para Quem E / Nao E", Value Stack dos bônus — aumenta conversão da LP diretamente
-13. **@hormozi-offers** — definir estratégia das 2 ofertas (R$10 vs R$27 na mesma página) — clareza na proposta de valor ao visitante
-14. **@dev** — remover números fabricados do HTML da LP (Harvard, USP, "15.000 mães", "3.000 famílias", "20 anos de pesquisa") — esses números foram inventados e estão proibidos pelo caderno; manter compromete a credibilidade do projeto
-15. **@dev** — implementar copy no HTML/CSS após aprovação — finaliza versão 2 da LP
+4. **video-agent** — executar pipeline com os 4 roteiros aprovados (ElevenLabs → Veo3 → MP4 9:16) — gera os primeiros vídeos da Dra. Julia para Reels/Stories/Facebook; roteiros em `squads/dr-julia-resende/output/roteiros-video-2026-03-28.md`
+5. **compositor-agent** — criar carrossel-03 — Briefing #2: "Ter filho é lindo. E também esgotante pra caramba." (após mineração nova) — avança calendário de conteúdo
+6. **compositor-agent** — criar carrosseis dos Briefings #3 a #5 — completa ciclo do briefing e gera estoque de conteúdo
+7. **@aiox-master** — criar `product-content-agent` no squad dr-julia-resende — agente necessário para escrever o Guia 7 Minutos e o Desafio 21 Dias (conteúdo que alinha o ebook com o que a LP promete)
+8. **product-content-agent** — escrever Guia de Implementação 7 Minutos — documento novo do combo do ebook, prescrito pelo @hormozi-audit para corrigir mismatch ebook/LP
+9. **product-content-agent** — escrever Desafio 21 Dias — documento novo do combo do ebook, prescrito pelo @hormozi-audit para corrigir mismatch ebook/LP
+10. **@dev** — corrigir DS.yaml (remover image_tool DALL-E) — consistência da spec visual do projeto
+11. **@hormozi-copy** — escrever seções "Antes e Depois", "Para Quem E / Nao E", Value Stack dos bônus — aumenta conversão da LP diretamente
+12. **@hormozi-offers** — definir estratégia das 2 ofertas (R$10 vs R$27 na mesma página) — clareza na proposta de valor ao visitante
+13. **@dev** — remover números fabricados do HTML da LP (Harvard, USP, "15.000 mães", "3.000 famílias", "20 anos de pesquisa") — esses números foram inventados e estão proibidos pelo caderno; manter compromete a credibilidade do projeto
+14. **@dev** — implementar copy no HTML/CSS após aprovação — finaliza versão 2 da LP
 
 ### Pode deixar pra depois
-16. **@dev** — corrigir links quebrados no footer (Política de Privacidade e Termos de Uso) — credibilidade legal da LP
-17. **@dev** — adicionar selos de segurança visuais próximos aos CTAs — aumenta confiança do visitante
-18. **@hormozi-offers** — criar Grand Slam Offer do ebook via wf-grand-slam-offer — maximiza valor percebido e justifica preço
-19. **publisher-agent** — configurar Meta Graph API + posting automático — elimina publicação manual
-20. **Felipe** — sincronizar publisher-secrets.yaml pro outro PC via Google Drive — alinhamento operacional entre PCs
-21. **Felipe** — renovar token Instagram antes de 2026-05-22 — manutenção preventiva
-22. **@dev/@devops** — integrar n8n — orquestrador de automação 24/7 para todo o pipeline
-23. **@dev/@devops** — integrar ClickUp — dashboard de acompanhamento do projeto
-24. **@dev** — schedule-optimizer — ajustar horários de publicação com base em performance real dos posts
-25. **@dev** — adicionar Biblioteca de Anúncios do Facebook ao scout-agent como segunda fonte de dados
-26. **Felipe** — domínio próprio (ex: poderdarotina.com.br) — aguardar João Paulo
-27. **@dev** — verificar Pixel disparando no Facebook Events Manager — confirmação de rastreamento
-28. **@dev** — testes mobile na LP — verificar em celular real
-29. **@aiox-master/@dev** — criar estrutura C-Suite de agentes IA (CEO, CMO, COO, CFO, CTO, CPO, CGO)
-30. **@aiox-master/@dev** — criar @cpo-agent — monitora tendências do nicho e sugere novos produtos semanalmente
-31. **@devops/@dev** — Obsidian como segundo cérebro do projeto
-32. **@dev** — dashboard proprietário de métricas ao vivo
-33. **@dev** — brandbook estratégico e visual
+15. **@dev** — corrigir links quebrados no footer (Política de Privacidade e Termos de Uso) — credibilidade legal da LP
+16. **@dev** — adicionar selos de segurança visuais próximos aos CTAs — aumenta confiança do visitante
+17. **@hormozi-offers** — criar Grand Slam Offer do ebook via wf-grand-slam-offer — maximiza valor percebido e justifica preço
+18. **publisher-agent** — configurar Meta Graph API + posting automático — elimina publicação manual
+19. **Felipe** — sincronizar publisher-secrets.yaml pro outro PC via Google Drive — alinhamento operacional entre PCs
+20. **Felipe** — renovar token Instagram antes de 2026-05-22 — manutenção preventiva
+21. **@dev/@devops** — integrar n8n — orquestrador de automação 24/7 para todo o pipeline
+22. **@dev/@devops** — integrar ClickUp — dashboard de acompanhamento do projeto
+23. **@dev** — schedule-optimizer — ajustar horários de publicação com base em performance real dos posts
+24. **@dev** — adicionar Biblioteca de Anúncios do Facebook ao scout-agent como segunda fonte de dados
+25. **Felipe** — domínio próprio (ex: poderdarotina.com.br) — aguardar João Paulo
+26. **@dev** — verificar Pixel disparando no Facebook Events Manager — confirmação de rastreamento
+27. **@dev** — testes mobile na LP — verificar em celular real
+28. **@aiox-master/@dev** — criar estrutura C-Suite de agentes IA (CEO, CMO, COO, CFO, CTO, CPO, CGO)
+29. **@aiox-master/@dev** — criar @cpo-agent — monitora tendências do nicho e sugere novos produtos semanalmente
+30. **@devops/@dev** — Obsidian como segundo cérebro do projeto
+31. **@dev** — dashboard proprietário de métricas ao vivo
+32. **@dev** — brandbook estratégico e visual
 
 ---
 
@@ -78,6 +77,8 @@
 - Auditoria sessão crashada (50511a30) executada — todos os 5 commits estavam no GitHub, nada perdido no crash
 - video-agent.md commitado (c7cf855) — BLOCO 0-M regularizado
 - BLOCO 0-G executado — 5 itens da sessão compactada identificados e registrados no caderno
+- `roteiros-video-2026-03-28.md` salvo em `squads/dr-julia-resende/output/` e commitado (`8fcac45`) — 4 roteiros completos com versão @hormozi-ads + @hormozi-copy, prontos para o video-agent executar
+- Slash command `/dr-julia-resende:agents:video-agent` criado em `.claude/commands/dr-julia-resende/agents/video-agent.md` e commitado (`a233dc4`) — video-agent agora ativável via comando
 
 **O QUE O FELIPE PEDIU:**
 - Criativo de vídeo urgente para Instagram Reels/Stories e Facebook
