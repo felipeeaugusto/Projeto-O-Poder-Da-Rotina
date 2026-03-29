@@ -3,6 +3,21 @@
 
 ---
 
+### SESSAO — 24/03/2026 (PC casa — sessao Atlas/@analyst)
+
+**O QUE FOI FEITO:**
+- Elicit estratégico completo — Felipe mapeou a visão de longo prazo do projeto (automação 24/7, DALL-E descartado para tudo, C-Suite de agentes IA, n8n, ClickUp, Obsidian, @cpo-agent)
+- Squad Hormozi integrado ao projeto — 246 arquivos, 15 agentes especializados, 9 workflows, 55 tasks, 45 checklists
+- Decisão de produto registrada — ebook R$27 tem viabilidade real no nicho; R$52k/semana atingível com tráfego pago
+
+**O QUE O FELIPE PEDIU:**
+- Mapeamento da visão de longo prazo via *elicit
+- Integrar Squad Hormozi ao projeto
+
+**PAROU EM:** Squad Hormozi integrado. Proximo: hormozi-audit na LP + construir content-generator.js.
+
+---
+
 ### SESSAO — 24/03/2026 (notebook + PC casa)
 
 **O QUE FOI FEITO:**
