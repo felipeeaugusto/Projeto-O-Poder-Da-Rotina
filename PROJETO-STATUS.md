@@ -65,6 +65,18 @@
 ## ULTIMAS 3 SESSOES
 > Rotativo — ao adicionar nova sessão, mover a mais antiga para HISTORICO-SESSOES.md.
 
+### SESSAO — 30/03/2026
+
+**O QUE FOI FEITO:**
+- publisher-secrets.yaml sincronizado do PC casa para o notebook — copiado de Downloads para `squads/dr-julia-resende/config/` e arquivo original apagado; credenciais do video-agent e publisher-agent atualizadas
+
+**O QUE O FELIPE PEDIU:**
+- Sincronizar publisher-secrets.yaml atualizado do PC casa para o notebook
+
+**PAROU EM:** Sincronização concluída. Próximo: executar mineração mensal 01/04/2026 (pendência #1 — amanhã). | Agente ativo: analyst
+
+---
+
 ### SESSAO — 29/03/2026
 
 **O QUE FOI FEITO:**
@@ -109,48 +121,6 @@
 - Reforçar BLOCO 1-A para proibir explicitamente sumarização de qualquer seção
 
 **PAROU EM:** Sessão encerrada. Customização 28 implementada. Próximo: @analyst — rodar nova rodada de mineração (briefing expira 2026-03-30 — URGENTE). | Agente ativo: aiox-master
-
----
-
-### SESSAO — 27/03/2026
-
-**O QUE FOI FEITO:**
-- BLOCO 0-G implementado — reativação automática de agente pós-compactação, evita que o Claude base assuma sem retomar o agente correto
-- BLOCO 0-G v2 — agora lê o resumo da compactação e recupera itens não salvos, zero furos entre sessões
-- BLOCO 0-G PASSO 3 corrigido — fonte do "ESTAVA EM" era o caderno (errado); agora usa o resumo da compactação como fonte primária e caderno como fallback apenas; Customização 25 atualizada
-- BLOCO 0-H executado — verificação AIOX: wrappers v5.0.x adicionados, settings.json atualizado, core-config 2.1.0→2.2.0
-- BLOCO 0-I criado e reforçado (2x) — nenhum agente executa trabalho de outro agente, sem exceção
-- BLOCO 0-J criado — silêncio do orquestrador após agente especializado, evita confusão de identidade
-- BLOCO 0-K criado — auditoria obrigatória antes de qualquer handoff de agente, evita perder contexto
-- BLOCO 0-L criado — proibido inventar problemas sem agente especializado como fonte
-- BLOCO 0-F v2 — retomada lista TODOS os itens pedidos na interrupção com status ✅/❌ + retorna ao fluxo ativo
-- BLOCO 2-B criado — "mais tarde" = registro imediato no caderno, evita sumiço de tarefas entre sessões
-- BLOCO 3 reescrito — auditoria integral da sessão (leitura completa do .jsonl) + push obrigatório sem pedir permissão
-- BLOCO 1-A v2 — todos os blocos com cores+numeração global+@agente+impacto + seção "🔧 Implementações" + seção "🗣️ O que Felipe pediu"
-- "15.000 maes" e demais números fabricados PROIBIDOS — item #11 adicionado ao caderno para @dev remover do HTML
-- 15 criativos de anúncio pago gerados via fluxo completo (5 hooks × 3 formatos = 15 PNGs)
-- Caderno migrado para novo formato de 3 blocos + items #5-7 e #11 adicionados
-- Customizações 12 a 27 salvas no MANUAL.md — rastreabilidade completa das regras do sistema
-- Pasta .claude/hooks-backup-20260327/ deletada — limpeza pós-update AIOX v5.0.x bem-sucedido
-- Entradas 27/03 (principal + continuação) mescladas em uma só — elimina ambiguidade de "sessão mais recente"
-- Auditoria final da sessão (169 mensagens lidas) — nada perdido
-- Customizações 24/25/26 reordenadas no MANUAL.md (correção cosmética de ordem numérica) — consistência do documento
-
-**O QUE O FELIPE PEDIU:**
-- Mapear TODAS as pendências existentes e corrigir todos os erros sistêmicos de agentes
-- BLOCO 1-A com todos os blocos organizados por cores + agente por item + numeração global + seção de implementações
-- BLOCO 3 com auditoria integral da sessão (.jsonl completo) + push obrigatório sempre
-- BLOCO 0-G v2: ler resumo da compactação e recuperar itens não salvos automaticamente
-- BLOCO 0-G PASSO 3: "ESTAVA EM" deve vir do resumo da compactação, não do caderno
-- BLOCO 0-F v2: listar todos os itens da interrupção numerados com status + retornar ao fluxo ativo
-- Executar BLOCO 0-H (atualização AIOX) — wrappers v5.0.x aplicados
-- Adicionar pendências faltantes no caderno (product-content-agent, números falsos da LP)
-- Adicionar seção "🗣️ O que Felipe pediu" ao BLOCO 1-A do @analyst
-- Mesclar as duas entradas do 27/03 em uma só no caderno
-- Confirmar que nada foi perdido após compactação (auditoria de 169 mensagens)
-- Corrigir ordem das Customizações 24/25/26 no MANUAL.md (cosmético)
-
-**PAROU EM:** Sessão encerrada. Auditoria final completa. Proximo: rodar nova rodada de mineração com @analyst (briefing expira 2026-03-30). | Agente ativo: aiox-master
 
 ---
 
