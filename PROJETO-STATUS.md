@@ -46,20 +46,19 @@
 15. **@dev** — adicionar selos de segurança visuais próximos aos CTAs — aumenta confiança do visitante
 16. **@hormozi-offers** — criar Grand Slam Offer do ebook via wf-grand-slam-offer — maximiza valor percebido e justifica preço
 17. **publisher-agent** — configurar Meta Graph API + posting automático — elimina publicação manual
-18. **Felipe** — sincronizar publisher-secrets.yaml pro outro PC via Google Drive — alinhamento operacional entre PCs
-19. **Felipe** — renovar token Instagram antes de 2026-05-22 — manutenção preventiva
-20. **@dev/@devops** — integrar n8n — orquestrador de automação 24/7 para todo o pipeline
-21. **@dev/@devops** — integrar ClickUp — dashboard de acompanhamento do projeto
-22. **@dev** — schedule-optimizer — ajustar horários de publicação com base em performance real dos posts
-23. **@aiox-master** — adicionar Biblioteca de Anúncios do Facebook ao scout-agent como segunda fonte de dados (modificação de definição de agente)
-24. **Felipe** — domínio próprio (ex: poderdarotina.com.br) — aguardar João Paulo
-25. **@dev** — verificar Pixel disparando no Facebook Events Manager — confirmação de rastreamento
-26. **@dev** — testes mobile na LP — verificar em celular real
-27. **@aiox-master** — criar estrutura C-Suite de agentes IA (CEO, CMO, COO, CFO, CTO, CPO, CGO)
-28. **@aiox-master** — criar @cpo-agent — monitora tendências do nicho e sugere novos produtos semanalmente
-29. **@devops/@dev** — Obsidian como segundo cérebro do projeto
-30. **@dev** — dashboard proprietário de métricas ao vivo
-31. **@dev** — brandbook estratégico e visual
+18. **Felipe** — renovar token Instagram antes de 2026-05-22 — manutenção preventiva
+19. **@dev/@devops** — integrar n8n — orquestrador de automação 24/7 para todo o pipeline
+20. **@dev/@devops** — integrar ClickUp — dashboard de acompanhamento do projeto
+21. **@dev** — schedule-optimizer — ajustar horários de publicação com base em performance real dos posts
+22. **@aiox-master** — adicionar Biblioteca de Anúncios do Facebook ao scout-agent como segunda fonte de dados (modificação de definição de agente)
+23. **Felipe** — domínio próprio (ex: poderdarotina.com.br) — aguardar João Paulo
+24. **@dev** — verificar Pixel disparando no Facebook Events Manager — confirmação de rastreamento
+25. **@dev** — testes mobile na LP — verificar em celular real
+26. **@aiox-master** — criar estrutura C-Suite de agentes IA (CEO, CMO, COO, CFO, CTO, CPO, CGO)
+27. **@aiox-master** — criar @cpo-agent — monitora tendências do nicho e sugere novos produtos semanalmente
+28. **@devops/@dev** — Obsidian como segundo cérebro do projeto
+29. **@dev** — dashboard proprietário de métricas ao vivo
+30. **@dev** — brandbook estratégico e visual
 
 ---
 
