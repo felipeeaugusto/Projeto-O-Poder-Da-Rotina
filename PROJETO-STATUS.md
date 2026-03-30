@@ -26,39 +26,37 @@
 
 ### Prioridade Maxima
 1. **scout-agent** — executar coleta mensal 01/04/2026 (50 posts/perfil, 30 perfis) → briefing-agent gera 4 briefings semanais de uma vez para cobrir o mês de abril inteiro — sem isso, julia-chief trava e nenhum conteúdo é produzido
-2. **@dev** — construir content-generator.js — automatiza geração de HTMLs dos slides a partir do briefing, elimina trabalho manual nos carrosseis #3 a #5
 
 ### Prioridade Normal
-3. **video-agent** — executar pipeline com os 4 roteiros aprovados (ElevenLabs → Veo3 → MP4 9:16) — gera os primeiros vídeos da Dra. Julia para Reels/Stories/Facebook; roteiros em `squads/dr-julia-resende/output/roteiros-video-2026-03-28.md`
-4. **compositor-agent** — criar carrossel-03 — Briefing #2: "Ter filho é lindo. E também esgotante pra caramba." (após mineração nova) — avança calendário de conteúdo
-5. **compositor-agent** — criar carrosseis dos Briefings #3 a #5 — completa ciclo do briefing e gera estoque de conteúdo
-6. **@aiox-master** — criar `product-content-agent` no squad dr-julia-resende — agente necessário para escrever o Guia 7 Minutos e o Desafio 21 Dias (conteúdo que alinha o ebook com o que a LP promete)
-7. **product-content-agent** — escrever Guia de Implementação 7 Minutos — documento novo do combo do ebook, prescrito pelo @hormozi-audit para corrigir mismatch ebook/LP
-8. **product-content-agent** — escrever Desafio 21 Dias — documento novo do combo do ebook, prescrito pelo @hormozi-audit para corrigir mismatch ebook/LP
-9. **@dev** — corrigir DS.yaml (remover image_tool DALL-E) — consistência da spec visual do projeto
-10. **@hormozi-copy** — escrever seções "Antes e Depois", "Para Quem E / Nao E", Value Stack dos bônus — aumenta conversão da LP diretamente
-11. **@hormozi-offers** — definir estratégia das 2 ofertas (R$10 vs R$27 na mesma página) — clareza na proposta de valor ao visitante
-12. **@dev** — remover números fabricados do HTML da LP (Harvard, USP, "15.000 mães", "3.000 famílias", "20 anos de pesquisa") — esses números foram inventados e estão proibidos pelo caderno; manter compromete a credibilidade do projeto
-13. **@dev** — implementar copy no HTML/CSS após aprovação — finaliza versão 2 da LP
+2. **video-agent** — executar pipeline com os 4 roteiros aprovados (ElevenLabs → Veo3 → MP4 9:16) — gera os primeiros vídeos da Dra. Julia para Reels/Stories/Facebook; roteiros em `squads/dr-julia-resende/output/roteiros-video-2026-03-28.md`
+3. **compositor-agent** — criar carrosseis dos Briefings #3 a #5 — completa ciclo do briefing e gera estoque de conteúdo (content-generator.js já pronto — só rodar)
+4. **@aiox-master** — criar `product-content-agent` no squad dr-julia-resende — agente necessário para escrever o Guia 7 Minutos e o Desafio 21 Dias (conteúdo que alinha o ebook com o que a LP promete)
+5. **product-content-agent** — escrever Guia de Implementação 7 Minutos — documento novo do combo do ebook, prescrito pelo @hormozi-audit para corrigir mismatch ebook/LP
+6. **product-content-agent** — escrever Desafio 21 Dias — documento novo do combo do ebook, prescrito pelo @hormozi-audit para corrigir mismatch ebook/LP
+7. **@dev** — corrigir DS.yaml (remover image_tool DALL-E) — consistência da spec visual do projeto
+8. **@hormozi-copy** — escrever seções "Antes e Depois", "Para Quem E / Nao E", Value Stack dos bônus — aumenta conversão da LP diretamente
+9. **@hormozi-offers** — definir estratégia das 2 ofertas (R$10 vs R$27 na mesma página) — clareza na proposta de valor ao visitante
+10. **@dev** — remover números fabricados do HTML da LP (Harvard, USP, "15.000 mães", "3.000 famílias", "20 anos de pesquisa") — esses números foram inventados e estão proibidos pelo caderno; manter compromete a credibilidade do projeto
+11. **@dev** — implementar copy no HTML/CSS após aprovação — finaliza versão 2 da LP
 
 ### Pode deixar pra depois
-14. **@dev** — corrigir links quebrados no footer (Política de Privacidade e Termos de Uso) — credibilidade legal da LP
-15. **@dev** — adicionar selos de segurança visuais próximos aos CTAs — aumenta confiança do visitante
-16. **@hormozi-offers** — criar Grand Slam Offer do ebook via wf-grand-slam-offer — maximiza valor percebido e justifica preço
-17. **publisher-agent** — configurar Meta Graph API + posting automático — elimina publicação manual
-18. **Felipe** — renovar token Instagram antes de 2026-05-22 — manutenção preventiva
-19. **@dev/@devops** — integrar n8n — orquestrador de automação 24/7 para todo o pipeline
-20. **@dev/@devops** — integrar ClickUp — dashboard de acompanhamento do projeto
-21. **@dev** — schedule-optimizer — ajustar horários de publicação com base em performance real dos posts
-22. **@aiox-master** — adicionar Biblioteca de Anúncios do Facebook ao scout-agent como segunda fonte de dados (modificação de definição de agente)
-23. **Felipe** — domínio próprio (ex: poderdarotina.com.br) — aguardar João Paulo
-24. **@dev** — verificar Pixel disparando no Facebook Events Manager — confirmação de rastreamento
-25. **@dev** — testes mobile na LP — verificar em celular real
-26. **@aiox-master** — criar estrutura C-Suite de agentes IA (CEO, CMO, COO, CFO, CTO, CPO, CGO)
-27. **@aiox-master** — criar @cpo-agent — monitora tendências do nicho e sugere novos produtos semanalmente
-28. **@devops/@dev** — Obsidian como segundo cérebro do projeto
-29. **@dev** — dashboard proprietário de métricas ao vivo
-30. **@dev** — brandbook estratégico e visual
+12. **@dev** — corrigir links quebrados no footer (Política de Privacidade e Termos de Uso) — credibilidade legal da LP
+13. **@dev** — adicionar selos de segurança visuais próximos aos CTAs — aumenta confiança do visitante
+14. **@hormozi-offers** — criar Grand Slam Offer do ebook via wf-grand-slam-offer — maximiza valor percebido e justifica preço
+15. **publisher-agent** — configurar Meta Graph API + posting automático — elimina publicação manual
+16. **Felipe** — renovar token Instagram antes de 2026-05-22 — manutenção preventiva
+17. **@dev/@devops** — integrar n8n — orquestrador de automação 24/7 para todo o pipeline
+18. **@dev/@devops** — integrar ClickUp — dashboard de acompanhamento do projeto
+19. **@dev** — schedule-optimizer — ajustar horários de publicação com base em performance real dos posts
+20. **@aiox-master** — adicionar Biblioteca de Anúncios do Facebook ao scout-agent como segunda fonte de dados (modificação de definição de agente)
+21. **Felipe** — domínio próprio (ex: poderdarotina.com.br) — aguardar João Paulo
+22. **@dev** — verificar Pixel disparando no Facebook Events Manager — confirmação de rastreamento
+23. **@dev** — testes mobile na LP — verificar em celular real
+24. **@aiox-master** — criar estrutura C-Suite de agentes IA (CEO, CMO, COO, CFO, CTO, CPO, CGO)
+25. **@aiox-master** — criar @cpo-agent — monitora tendências do nicho e sugere novos produtos semanalmente
+26. **@devops/@dev** — Obsidian como segundo cérebro do projeto
+27. **@dev** — dashboard proprietário de métricas ao vivo
+28. **@dev** — brandbook estratégico e visual
 
 ---
 
@@ -69,11 +67,20 @@
 
 **O QUE FOI FEITO:**
 - publisher-secrets.yaml sincronizado do PC casa para o notebook — copiado de Downloads para `squads/dr-julia-resende/config/` e arquivo original apagado; credenciais do video-agent e publisher-agent atualizadas
+- content-generator.js construído em `squads/dr-julia-resende/assets/` — ferramenta reutilizável que lê config.json e gera HTMLs dos slides + render.js + manifesto.json; elimina trabalho manual em todos os carrosseis futuros
+- carrossel-03/config.json criado e preenchido pelo copy-agent com copy real do Briefing #2 ("Ter filho é lindo. É também esgotante pra caramba.") — 5 slides: hook, lista-escura, lista-clara, reflexao, cta
+- carrossel-03: 5 PNGs gerados pelo compositor-agent (slide-01 a slide-05, 54KB–124KB) e aprovados por Felipe — pipeline content-generator.js completo e funcional
+- BLOCO 0-N implementado (Customização 30) — agentes devem identificar quem produz o input de qualquer ferramenta antes de dizer "você preenche"; previne delegação errada no lado do input
+- BLOCO 0-O implementado (Customização 31) — agentes devem verificar agent-authority.md antes de indicar qual agente executa o próximo passo; previne delegação errada no lado do output
 
 **O QUE O FELIPE PEDIU:**
 - Sincronizar publisher-secrets.yaml atualizado do PC casa para o notebook
+- Verificar se os itens #2 (content-generator.js), #4 (carrossel-03) e #5 (carrosseis #3-#5) estavam relacionados
+- Construir content-generator.js e testar pipeline end-to-end
+- Criar carrossel-03 com copy real do Briefing #2
+- Implementar BLOCO 0-N e BLOCO 0-O como regras permanentes para todos os agentes
 
-**PAROU EM:** Sincronização concluída. Próximo: executar mineração mensal 01/04/2026 (pendência #1 — amanhã). | Agente ativo: analyst
+**PAROU EM:** carrossel-03 aprovado e commitado. Pendências #2 e #4 removidas do caderno (28 pendências restantes). | Agente ativo: compositor-agent
 
 ---
 
