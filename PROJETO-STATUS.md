@@ -77,14 +77,21 @@
 - BLOCO 0-G executado — 5 itens da sessão compactada identificados e registrados no caderno
 - `roteiros-video-2026-03-28.md` salvo em `squads/dr-julia-resende/output/` e commitado (`8fcac45`) — 4 roteiros completos com versão @hormozi-ads + @hormozi-copy, prontos para o video-agent executar
 - Slash command `/dr-julia-resende:agents:video-agent` criado em `.claude/commands/dr-julia-resende/agents/video-agent.md` e commitado (`a233dc4`) — video-agent agora ativável via comando
+- ELEVENLABS_API_KEY e JULIA_VOICE_ID corretamente separados no publisher-secrets.yaml — fix crítico: chave de API (`sk_c71167...`) e ID da voz (`bMQVOFw0g6ACPbiM5XqE`) são campos distintos; confusão teria causado ERRO 401 no video-agent
+- GOOGLE_VEO3_API_KEY adicionado ao publisher-secrets.yaml — terceira credencial necessária para o pipeline de vídeo
+- JULIA_VOICE_ID `bMQVOFw0g6ACPbiM5XqE` obtido via chamada direta à API ElevenLabs (PowerShell listou vozes clonadas, encontrou "Dra. Julia")
+- video-agent.md: path do secrets_file corrigido (`data/` → `config/`) — commit 3a66bac — sem esta correção o video-agent não encontraria as credenciais
+- publisher-secrets.yaml sincronizado no Google Drive por Felipe — pendência #18 concluída
+- Caderno renumerado: pendências #3 (API keys) e #18 (Google Drive) removidas → 30 itens
 
 **O QUE O FELIPE PEDIU:**
 - Criativo de vídeo urgente para Instagram Reels/Stories e Facebook
 - Fluxo @hormozi-hooks → @hormozi-ads → @hormozi-copy para gerar roteiros de vídeo
 - Criar video-agent com ElevenLabs + Google Veo3 usando squad-creator-premium
 - Auditar sessão crashada para verificar se nada foi perdido
+- Verificar se publisher-secrets.yaml estava no PC casa (estava — Google Drive sincronizado)
 
-**PAROU EM:** BLOCO 3 executado. Próximo: Felipe adiciona JULIA_VOICE_ID + GOOGLE_VEO3_API_KEY ao publisher-secrets.yaml → executar pipeline video-agent com os 4 roteiros. | Agente ativo: aiox-master
+**PAROU EM:** Todas as credenciais do video-agent prontas e corrigidas. Próximo: executar pipeline video-agent com os 4 roteiros aprovados (pendência #3). | Agente ativo: analyst
 
 ---
 
