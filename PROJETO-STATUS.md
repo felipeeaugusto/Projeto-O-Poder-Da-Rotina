@@ -33,7 +33,7 @@
 2. **@dev** — adicionar templates `post-unico` (P01 Manifesto, 1080×1080) e `story` (ST01 Direta, 1080×1920) ao content-generator.js — pipeline julia-chief precisa desses templates para automatizar geração de todos os 3 formatos; interrompido na sessão 31/03
 3. **@aiox-master** — atualizar julia-chief.md: handoff `image-agent` → `compositor-agent` — image-agent usa DALL-E (descartado permanentemente); referência errada quebra o pipeline de conteúdo
 4. **@aiox-master** — salvar BLOCO 0-Q no MANUAL.md (Customização 32) — rastreabilidade permanente da regra de gate obrigatório do julia-chief
-5. **video-agent** — executar pipeline com os 4 roteiros aprovados (ElevenLabs → Veo3 → MP4 9:16) — gera os primeiros vídeos da Dra. Julia para Reels/Stories/Facebook; roteiros em `squads/dr-julia-resende/output/roteiros-video-2026-03-28.md`
+5. **video-agent** — executar pipeline com os 4 roteiros aprovados (ElevenLabs → Veo3 → MP4 9:16) — BLOQUEADO: ElevenLabs quota esgotada (20 créditos restantes, precisa ~3.500) + Veo3 requer whitelist (Veo2 não faz lip-sync); script video-agent.js pronto (commit e2ae474); roteiros em `squads/dr-julia-resende/output/roteiros-video-2026-03-28.md`
 6. **compositor-agent** — criar carrosseis dos Briefings #3 a #5 — completa ciclo do briefing e gera estoque de conteúdo (content-generator.js já pronto — só rodar)
 7. **@aiox-master** — criar `product-content-agent` no squad dr-julia-resende — agente necessário para escrever o Guia 7 Minutos e o Desafio 21 Dias (conteúdo que alinha o ebook com o que a LP promete)
 8. **product-content-agent** — escrever Guia de Implementação 7 Minutos — documento novo do combo do ebook, prescrito pelo @hormozi-audit para corrigir mismatch ebook/LP
@@ -78,12 +78,19 @@
 - JC008 adicionado ao julia-chief.md — obriga leitura do content-state.json antes de decidir formato; enforcement da regra de alternância carrossel→post-único
 - JC009 adicionado ao julia-chief.md — approval gate com preview visual obrigatório antes de qualquer publicação
 - content-state.json criado em squads/dr-julia-resende/data/ — rastreia último formato publicado, posição no ciclo, fila de publicação; source of truth para julia-chief
+- video-agent.js criado (704 linhas, commit e2ae474) — script Node.js completo: ElevenLabs TTS → Cloudinary (URL pública) → Google Veo3 → download MP4 9:16; dry-run confirmado para R01, R02, R04
+- Bug YAML parser corrigido no video-agent.js — regex `[a-zA-Z_]+` não capturava GOOGLE_VEO3_API_KEY (dígito "3"); corrigido para `[a-zA-Z_][a-zA-Z0-9_]*`
+- ElevenLabs quota esgotada descoberta — chave sk_c71167d... tem apenas 20 créditos; 4 roteiros precisam ~3.500 créditos; bloqueio de produção confirmado
+- Google Veo3 inacessível confirmado — chave válida mas veo-3.0-generate-preview requer whitelist; veo-2.0-generate-001 disponível mas sem audio_uri (lip-sync impossível)
+- Artlist pesquisado como alternativa — API developer.artlist.io cobre apenas música; ferramentas de IA (TTS, vídeo) são web-only sem API pública
 
 **O QUE O FELIPE PEDIU:**
 - Re-gerar slides do carrossel-03 com safe zone correta (texto estava cortado no grid)
 - Legenda aprovada para carrossel-03
 - Solução definitiva para que 2 carrosseis seguidos nunca mais aconteçam no feed
 - Explicação da mensagem "Large CLAUDE.md will impact performance" — decidiu aceitar por enquanto
+- Explicação detalhada dos 4 roteiros (duração, falas, créditos por plataforma, trilha sonora)
+- Pesquisa se Artlist tem API (120K créditos/mês) para substituir ElevenLabs + Veo3
 
 **PAROU EM:** @dev interrompido antes de adicionar templates post-unico e story ao content-generator.js. | Agente ativo: aiox-master
 
