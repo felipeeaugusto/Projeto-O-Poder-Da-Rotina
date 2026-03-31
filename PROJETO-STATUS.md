@@ -33,7 +33,7 @@
 2. **@dev** — adicionar templates `post-unico` (P01 Manifesto, 1080×1080) e `story` (ST01 Direta, 1080×1920) ao content-generator.js — pipeline julia-chief precisa desses templates para automatizar geração de todos os 3 formatos; interrompido na sessão 31/03
 3. **@aiox-master** — atualizar julia-chief.md: handoff `image-agent` → `compositor-agent` — image-agent usa DALL-E (descartado permanentemente); referência errada quebra o pipeline de conteúdo
 4. **@aiox-master** — salvar BLOCO 0-Q no MANUAL.md (Customização 32) — rastreabilidade permanente da regra de gate obrigatório do julia-chief
-5. **video-agent** — executar pipeline com os 4 roteiros aprovados (ElevenLabs → Veo3 → MP4 9:16) — BLOQUEADO: ElevenLabs quota esgotada (20 créditos restantes, precisa ~3.500) + Veo3 requer whitelist (Veo2 não faz lip-sync); script video-agent.js pronto (commit e2ae474); roteiros em `squads/dr-julia-resende/output/roteiros-video-2026-03-28.md`
+5. **@dev** — reescrever `video-agent.js` para usar Vertex AI (substituir AI Studio) — endpoint `us-central1-aiplatform.googleapis.com`, auth via `vertex-ai-key.json` (Service Account JWT→Bearer), foto da Julia como base64, 8 clips × 8s para cobrir 59s do R01, polling via `fetchPredictOperation`; ElevenLabs OK (100k créditos/mês Creator), Vertex AI OK (vídeo de teste gerado com foto da Julia); roteiros em `squads/dr-julia-resende/output/roteiros-video-2026-03-28.md`
 6. **compositor-agent** — criar carrosseis dos Briefings #3 a #5 — completa ciclo do briefing e gera estoque de conteúdo (content-generator.js já pronto — só rodar)
 7. **@aiox-master** — criar `product-content-agent` no squad dr-julia-resende — agente necessário para escrever o Guia 7 Minutos e o Desafio 21 Dias (conteúdo que alinha o ebook com o que a LP promete)
 8. **product-content-agent** — escrever Guia de Implementação 7 Minutos — documento novo do combo do ebook, prescrito pelo @hormozi-audit para corrigir mismatch ebook/LP
@@ -80,19 +80,27 @@
 - content-state.json criado em squads/dr-julia-resende/data/ — rastreia último formato publicado, posição no ciclo, fila de publicação; source of truth para julia-chief
 - video-agent.js criado (704 linhas, commit e2ae474) — script Node.js completo: ElevenLabs TTS → Cloudinary (URL pública) → Google Veo3 → download MP4 9:16; dry-run confirmado para R01, R02, R04
 - Bug YAML parser corrigido no video-agent.js — regex `[a-zA-Z_]+` não capturava GOOGLE_VEO3_API_KEY (dígito "3"); corrigido para `[a-zA-Z_][a-zA-Z0-9_]*`
-- ElevenLabs quota esgotada descoberta — chave sk_c71167d... tem apenas 20 créditos; 4 roteiros precisam ~3.500 créditos; bloqueio de produção confirmado
-- Google Veo3 inacessível confirmado — chave válida mas veo-3.0-generate-preview requer whitelist; veo-2.0-generate-001 disponível mas sem audio_uri (lip-sync impossível)
+- ElevenLabs quota esgotada descoberta — chave sk_c71167d... tinha apenas 20 créditos; resolvido na mesma sessão (créditos do plano Creator 100k/mês restaurados)
+- Google Veo3 via AI Studio descartado — requer whitelist + não suporta audio_uri nem image input; substituído por Vertex AI
 - Artlist pesquisado como alternativa — API developer.artlist.io cobre apenas música; ferramentas de IA (TTS, vídeo) são web-only sem API pública
+- Cloudinary bug corrigido no video-agent.js — `resource_type` removido dos parâmetros de assinatura; Cloudinary assina apenas `timestamp`; upload confirmado funcionando (URL pública gerada)
+- ElevenLabs desbloqueado — plano Creator confirmado: 100k créditos/mês; bloqueio de produção resolvido
+- Vertex AI setup completo — `vertex-ai-key.json` salvo em `squads/dr-julia-resende/config/`; Service Account `video-agent@gen-lang-client-0541444185.iam.gserviceaccount.com`; Vertex AI API ativada; autenticação JWT→Bearer token confirmada funcionando
+- Vídeo de teste Vertex AI Veo3 gerado — `squads/dr-julia-resende/output/videos/teste-julia-vertex-2026-03-31.mp4` (3.935 KB, 8s, 9:16) com foto da Dra. Julia como referência; pipeline image-to-video funcional; lip-sync possível via Vertex AI
+- CLAUDE.md reestruturado — 61.3k → 47.5k chars; BLOCO 0-Q movido para `squads/dr-julia-resende/CLAUDE.md`; seções AIOX-managed removidas; commit `refactor: CLAUDE.md 61k→47k`
 
 **O QUE O FELIPE PEDIU:**
 - Re-gerar slides do carrossel-03 com safe zone correta (texto estava cortado no grid)
 - Legenda aprovada para carrossel-03
 - Solução definitiva para que 2 carrosseis seguidos nunca mais aconteçam no feed
-- Explicação da mensagem "Large CLAUDE.md will impact performance" — decidiu aceitar por enquanto
+- Explicação da mensagem "Large CLAUDE.md will impact performance"
 - Explicação detalhada dos 4 roteiros (duração, falas, créditos por plataforma, trilha sonora)
 - Pesquisa se Artlist tem API (120K créditos/mês) para substituir ElevenLabs + Veo3
+- Verificar plano ElevenLabs via Playwright — confirmado Creator plan 100k créditos/mês
+- Configurar Vertex AI para substituir AI Studio (foto da Julia como referência de vídeo com lip-sync)
+- Reduzir CLAUDE.md via estrutura hierárquica para resolver lentidão e compactação frequente
 
-**PAROU EM:** @dev interrompido antes de adicionar templates post-unico e story ao content-generator.js. | Agente ativo: aiox-master
+**PAROU EM:** video-agent.js precisa de reescrita para Vertex AI (8 clips × 8s para R01) — bloqueios resolvidos, pronto para @dev implementar | Agente ativo: aiox-master
 
 ---
 
@@ -171,7 +179,9 @@
 | Briefing semanal | OBRIGATORIO para julia-chief — sem briefing, julia-chief nao opera (heurística JC007) |
 | Apify | Token configurado — mineração mensal no 1o de cada mes (créditos renovam), 50 posts/perfil |
 | Estratégia Apify free | 1 coleta mensal no 1o de cada mês (50 posts/perfil × 30 perfis) → briefing-agent gera 4 briefings semanais de uma vez sem repetição de temas — cobre o mês inteiro. Confirmado: Opção A. Não pagar Apify. |
-| Cloudinary | dvxe4ijzt — upload temporário para URL publica (~5s) |
+| Cloudinary | dvxe4ijzt — upload temporário para URL publica (~5s) — bug de assinatura corrigido (resource_type não entra na assinatura) |
+| Vertex AI | Substituiu AI Studio para geração de vídeo — endpoint `us-central1-aiplatform.googleapis.com`, modelo `veo-3.0-generate-001`, Service Account em `config/vertex-ai-key.json`, projeto `gen-lang-client-0541444185`; suporta image input + lip-sync (AI Studio não suportava) |
+| ElevenLabs | Plano Creator — 100k créditos/mês; desbloqueado em 31/03/2026 |
 | Token Instagram | Valido — expira ~2026-05-22 (renovar antes) |
 | Token Facebook Page | Renovado 2026-03-21 |
 | publisher-secrets.yaml | Gitignored — Felipe sincroniza via Google Drive entre PCs |
