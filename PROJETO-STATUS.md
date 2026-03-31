@@ -89,6 +89,14 @@
 - Vídeo de teste Vertex AI Veo3 gerado — `squads/dr-julia-resende/output/videos/teste-julia-vertex-2026-03-31.mp4` (3.935 KB, 8s, 9:16) com foto da Dra. Julia como referência; pipeline image-to-video funcional; lip-sync possível via Vertex AI
 - CLAUDE.md reestruturado — 61.3k → 47.5k chars; BLOCO 0-Q movido para `squads/dr-julia-resende/CLAUDE.md`; seções AIOX-managed removidas; commit `refactor: CLAUDE.md 61k→47k`
 
+- @dev investigou API Vertex AI Veo3 — encontrou 3 bugs no request de teste: (1) campo `image` errado → usar `referenceImages[0]` com `referenceType: "asset"`; (2) `durationSeconds: 8` (number) → deve ser `"8"` (string); (3) aspectRatio ignorado por consequência do bug 1
+- Confirmado: Veo3 NÃO tem parâmetro audioUrl/audio_uri para lip-sync — gera próprio áudio com `generateAudio: true`
+- SyncLabs (sync.so) identificado como solução para lip-sync frame-perfeito — API REST, ~$3/vídeo de 59s (modelo lipsync-2), SDK Node.js oficial
+- ElevenLabs e SyncLabs são empresas separadas — ElevenLabs não adquiriu o SyncLabs
+- veo-3.0-generate-001 será removido em 30/06/2026 — modelo atual é veo-3.1-generate-001
+- Pipeline completo mapeado: ElevenLabs MP3 → Veo3 clips (8×8s) → FFmpeg (concatenar) → SyncLabs (lip-sync) → MP4 final 9:16
+- Duas decisões pendentes de Felipe antes de @dev reescrever video-agent.js: (1) usar SyncLabs ou FFmpeg simples? (2) migrar para veo-3.1 agora ou depois?
+
 **O QUE O FELIPE PEDIU:**
 - Re-gerar slides do carrossel-03 com safe zone correta (texto estava cortado no grid)
 - Legenda aprovada para carrossel-03
@@ -99,8 +107,13 @@
 - Verificar plano ElevenLabs via Playwright — confirmado Creator plan 100k créditos/mês
 - Configurar Vertex AI para substituir AI Studio (foto da Julia como referência de vídeo com lip-sync)
 - Reduzir CLAUDE.md via estrutura hierárquica para resolver lentidão e compactação frequente
+- Investigar se Veo3 aceita audioUrl para lip-sync real (respondido: não aceita)
+- Investigar bugs no vídeo de teste (6s, quadrado, fundo branco) — respondido: 3 bugs encontrados
+- Explicar o que é FFmpeg
+- Explicar como funciona o sync.so passo a passo
+- Verificar se ElevenLabs tem o SyncLabs integrado (respondido: são empresas separadas)
 
-**PAROU EM:** video-agent.js precisa de reescrita para Vertex AI (8 clips × 8s para R01) — bloqueios resolvidos, pronto para @dev implementar | Agente ativo: aiox-master
+**PAROU EM:** aguardando 2 decisões de Felipe (SyncLabs sim/não + Veo3.1 agora/depois) para @dev reescrever video-agent.js | Agente ativo: aiox-master
 
 ---
 
