@@ -3,6 +3,23 @@
 
 ---
 
+### SESSAO — 28/03/2026
+
+**O QUE FOI FEITO:**
+- Customizações 24/25/26 reordenadas no MANUAL.md — ordem numérica correta, consistência do documento
+- Identificado que @analyst truncava 🗣️ (6/12 itens), 🔧 (21→3 linhas) e ⚫ (13-30 em 1 linha) ao ativar no PC casa
+- BLOCO 1-A reforçado — PROIBIÇÃO ABSOLUTA DE RESUMIR adicionada às REGRAS INEGOCIÁVEIS — elimina truncação das seções no @analyst
+- Customização 28 salva no MANUAL.md — rastreabilidade da proibição de resumir
+
+**O QUE O FELIPE PEDIU:**
+- Corrigir ordem das Customizações 24/25/26 no MANUAL.md (cosmético)
+- Testou @analyst no PC casa e identificou 3 violações de completude
+- Reforçar BLOCO 1-A para proibir explicitamente sumarização de qualquer seção
+
+**PAROU EM:** Sessão encerrada. Customização 28 implementada. Próximo: @analyst — rodar nova rodada de mineração (briefing expira 2026-03-30 — URGENTE). | Agente ativo: aiox-master
+
+---
+
 ### SESSAO — 27/03/2026
 
 **O QUE FOI FEITO:**

@@ -30,16 +30,19 @@
 3. **publisher-agent** — publicar Post Único (após aprovação do Felipe) → publicar carrossel-03 em sequência (já pronto em `carrossel-03/`, legenda no `publish-config.json`)
 
 ### Prioridade Normal
-2. **video-agent** — executar pipeline com os 4 roteiros aprovados (ElevenLabs → Veo3 → MP4 9:16) — gera os primeiros vídeos da Dra. Julia para Reels/Stories/Facebook; roteiros em `squads/dr-julia-resende/output/roteiros-video-2026-03-28.md`
-3. **compositor-agent** — criar carrosseis dos Briefings #3 a #5 — completa ciclo do briefing e gera estoque de conteúdo (content-generator.js já pronto — só rodar)
-4. **@aiox-master** — criar `product-content-agent` no squad dr-julia-resende — agente necessário para escrever o Guia 7 Minutos e o Desafio 21 Dias (conteúdo que alinha o ebook com o que a LP promete)
-5. **product-content-agent** — escrever Guia de Implementação 7 Minutos — documento novo do combo do ebook, prescrito pelo @hormozi-audit para corrigir mismatch ebook/LP
-6. **product-content-agent** — escrever Desafio 21 Dias — documento novo do combo do ebook, prescrito pelo @hormozi-audit para corrigir mismatch ebook/LP
-7. **@dev** — corrigir DS.yaml (remover image_tool DALL-E) — consistência da spec visual do projeto
-8. **@hormozi-copy** — escrever seções "Antes e Depois", "Para Quem E / Nao E", Value Stack dos bônus — aumenta conversão da LP diretamente
-9. **@hormozi-offers** — definir estratégia das 2 ofertas (R$10 vs R$27 na mesma página) — clareza na proposta de valor ao visitante
-10. **@dev** — remover números fabricados do HTML da LP (Harvard, USP, "15.000 mães", "3.000 famílias", "20 anos de pesquisa") — esses números foram inventados e estão proibidos pelo caderno; manter compromete a credibilidade do projeto
-11. **@dev** — implementar copy no HTML/CSS após aprovação — finaliza versão 2 da LP
+2. **@dev** — adicionar templates `post-unico` (P01 Manifesto, 1080×1080) e `story` (ST01 Direta, 1080×1920) ao content-generator.js — pipeline julia-chief precisa desses templates para automatizar geração de todos os 3 formatos; interrompido na sessão 31/03
+3. **@aiox-master** — atualizar julia-chief.md: handoff `image-agent` → `compositor-agent` — image-agent usa DALL-E (descartado permanentemente); referência errada quebra o pipeline de conteúdo
+4. **@aiox-master** — salvar BLOCO 0-Q no MANUAL.md (Customização 32) — rastreabilidade permanente da regra de gate obrigatório do julia-chief
+5. **video-agent** — executar pipeline com os 4 roteiros aprovados (ElevenLabs → Veo3 → MP4 9:16) — gera os primeiros vídeos da Dra. Julia para Reels/Stories/Facebook; roteiros em `squads/dr-julia-resende/output/roteiros-video-2026-03-28.md`
+6. **compositor-agent** — criar carrosseis dos Briefings #3 a #5 — completa ciclo do briefing e gera estoque de conteúdo (content-generator.js já pronto — só rodar)
+7. **@aiox-master** — criar `product-content-agent` no squad dr-julia-resende — agente necessário para escrever o Guia 7 Minutos e o Desafio 21 Dias (conteúdo que alinha o ebook com o que a LP promete)
+8. **product-content-agent** — escrever Guia de Implementação 7 Minutos — documento novo do combo do ebook, prescrito pelo @hormozi-audit para corrigir mismatch ebook/LP
+9. **product-content-agent** — escrever Desafio 21 Dias — documento novo do combo do ebook, prescrito pelo @hormozi-audit para corrigir mismatch ebook/LP
+10. **@dev** — corrigir DS.yaml (remover image_tool DALL-E) — consistência da spec visual do projeto
+11. **@hormozi-copy** — escrever seções "Antes e Depois", "Para Quem E / Nao E", Value Stack dos bônus — aumenta conversão da LP diretamente
+12. **@hormozi-offers** — definir estratégia das 2 ofertas (R$10 vs R$27 na mesma página) — clareza na proposta de valor ao visitante
+13. **@dev** — remover números fabricados do HTML da LP (Harvard, USP, "15.000 mães", "3.000 famílias", "20 anos de pesquisa") — esses números foram inventados e estão proibidos pelo caderno; manter compromete a credibilidade do projeto
+14. **@dev** — implementar copy no HTML/CSS após aprovação — finaliza versão 2 da LP
 
 ### Pode deixar pra depois
 12. **@dev** — corrigir links quebrados no footer (Política de Privacidade e Termos de Uso) — credibilidade legal da LP
@@ -64,6 +67,27 @@
 
 ## ULTIMAS 3 SESSOES
 > Rotativo — ao adicionar nova sessão, mover a mais antiga para HISTORICO-SESSOES.md.
+
+### SESSAO — 31/03/2026
+
+**O QUE FOI FEITO:**
+- safe zone Instagram aplicada ao content-generator.js — padding esquerdo 110px→160px, direito 90px→130px, dots e handle ajustados; previne corte de texto no grid do Instagram
+- carrossel-03: 5 PNGs re-gerados com safe zone correta — slide-01.png "Ter filho é lindo." agora aparece completo, sem corte
+- copy-agent escreveu legenda para carrossel-03 — campo caption preenchido em publish-config.json seguindo Voice DNA da Dra. Julia
+- BLOCO 0-Q implementado (Customização 32) — gate obrigatório: nenhum conteúdo para @drjuliaresende pode ser gerado sem julia-chief ter sido ativado primeiro e definido formato/pilar/visual/grade
+- JC008 adicionado ao julia-chief.md — obriga leitura do content-state.json antes de decidir formato; enforcement da regra de alternância carrossel→post-único
+- JC009 adicionado ao julia-chief.md — approval gate com preview visual obrigatório antes de qualquer publicação
+- content-state.json criado em squads/dr-julia-resende/data/ — rastreia último formato publicado, posição no ciclo, fila de publicação; source of truth para julia-chief
+
+**O QUE O FELIPE PEDIU:**
+- Re-gerar slides do carrossel-03 com safe zone correta (texto estava cortado no grid)
+- Legenda aprovada para carrossel-03
+- Solução definitiva para que 2 carrosseis seguidos nunca mais aconteçam no feed
+- Explicação da mensagem "Large CLAUDE.md will impact performance" — decidiu aceitar por enquanto
+
+**PAROU EM:** @dev interrompido antes de adicionar templates post-unico e story ao content-generator.js. | Agente ativo: aiox-master
+
+---
 
 ### SESSAO — 30/03/2026
 
@@ -113,23 +137,6 @@
 - Verificar se publisher-secrets.yaml estava no PC casa (estava — Google Drive sincronizado)
 
 **PAROU EM:** Todas as credenciais do video-agent prontas e corrigidas. Próximo: executar pipeline video-agent com os 4 roteiros aprovados (pendência #3). | Agente ativo: analyst
-
----
-
-### SESSAO — 28/03/2026
-
-**O QUE FOI FEITO:**
-- Customizações 24/25/26 reordenadas no MANUAL.md — ordem numérica correta, consistência do documento
-- Identificado que @analyst truncava 🗣️ (6/12 itens), 🔧 (21→3 linhas) e ⚫ (13-30 em 1 linha) ao ativar no PC casa
-- BLOCO 1-A reforçado — PROIBIÇÃO ABSOLUTA DE RESUMIR adicionada às REGRAS INEGOCIÁVEIS — elimina truncação das seções no @analyst
-- Customização 28 salva no MANUAL.md — rastreabilidade da proibição de resumir
-
-**O QUE O FELIPE PEDIU:**
-- Corrigir ordem das Customizações 24/25/26 no MANUAL.md (cosmético)
-- Testou @analyst no PC casa e identificou 3 violações de completude
-- Reforçar BLOCO 1-A para proibir explicitamente sumarização de qualquer seção
-
-**PAROU EM:** Sessão encerrada. Customização 28 implementada. Próximo: @analyst — rodar nova rodada de mineração (briefing expira 2026-03-30 — URGENTE). | Agente ativo: aiox-master
 
 ---
 
