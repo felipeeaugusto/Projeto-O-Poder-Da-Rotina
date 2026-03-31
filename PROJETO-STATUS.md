@@ -26,6 +26,8 @@
 
 ### Prioridade Maxima
 1. **scout-agent** — executar coleta mensal 01/04/2026 (50 posts/perfil, 30 perfis) → briefing-agent gera 4 briefings semanais de uma vez para cobrir o mês de abril inteiro — sem isso, julia-chief trava e nenhum conteúdo é produzido
+2. **julia-chief → compositor-agent** — criar Post Único ANTES do carrossel-03 — feed não pode ter 2 carrosseis seguidos; julia-chief define formato/pilar/visual via lógica de alternância (JC001–JC003)
+3. **publisher-agent** — publicar Post Único (após aprovação do Felipe) → publicar carrossel-03 em sequência (já pronto em `carrossel-03/`, legenda no `publish-config.json`)
 
 ### Prioridade Normal
 2. **video-agent** — executar pipeline com os 4 roteiros aprovados (ElevenLabs → Veo3 → MP4 9:16) — gera os primeiros vídeos da Dra. Julia para Reels/Stories/Facebook; roteiros em `squads/dr-julia-resende/output/roteiros-video-2026-03-28.md`
