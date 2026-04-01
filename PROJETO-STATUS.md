@@ -33,7 +33,10 @@
 2. **@dev** — adicionar templates `post-unico` (P01 Manifesto, 1080×1080) e `story` (ST01 Direta, 1080×1920) ao content-generator.js — pipeline julia-chief precisa desses templates para automatizar geração de todos os 3 formatos; interrompido na sessão 31/03
 3. **@aiox-master** — atualizar julia-chief.md: handoff `image-agent` → `compositor-agent` — image-agent usa DALL-E (descartado permanentemente); referência errada quebra o pipeline de conteúdo
 4. **@aiox-master** — salvar BLOCO 0-Q no MANUAL.md (Customização 32) — rastreabilidade permanente da regra de gate obrigatório do julia-chief
-5. **@dev** — reescrever `video-agent.js` para usar Vertex AI (substituir AI Studio) — endpoint `us-central1-aiplatform.googleapis.com`, auth via `vertex-ai-key.json` (Service Account JWT→Bearer), foto da Julia como base64, 8 clips × 8s para cobrir 59s do R01, polling via `fetchPredictOperation`; ElevenLabs OK (100k créditos/mês Creator), Vertex AI OK (vídeo de teste gerado com foto da Julia); roteiros em `squads/dr-julia-resende/output/roteiros-video-2026-03-28.md`
+5. **@dev** — reescrever `video-agent.js` — pipeline reformulado: SyncLabs descartado (sem orçamento); novo fluxo: Gemini API (imagens) → aprovação Felipe → Artlist Kling 3.0 manual (único passo manual) → FFmpeg assembly automatizado → approval-agent → publisher-agent; aguarda criação de video-prompt-agent e video-assembly-agent antes de implementar; Vertex AI OK + ElevenLabs OK (ambos já configurados)
+5b. **@aiox-master** — criar video-prompt-agent — gera 8 prompts de imagem (Gemini API) + 8 prompts de animação com nome de arquivo de cada imagem aprovada; squad a definir (Dr. Julia ou Hormozi?)
+5c. **@aiox-master** — criar video-assembly-agent — FFmpeg: concatena 8 clips animados + trilha ElevenLabs + voz Julia (ID `bMQVOFw0g6ACPbiM5XqE`) + legendas sincronizadas → MP4 9:16 → approval-agent → publisher-agent
+5d. **Felipe** — decidir squad do video-prompt-agent: Dr. Julia ou Hormozi? — define onde o agente será criado e qual squad gerencia o pipeline de Reels
 6. **compositor-agent** — criar carrosseis dos Briefings #3 a #5 — completa ciclo do briefing e gera estoque de conteúdo (content-generator.js já pronto — só rodar)
 7. **@aiox-master** — criar `product-content-agent` no squad dr-julia-resende — agente necessário para escrever o Guia 7 Minutos e o Desafio 21 Dias (conteúdo que alinha o ebook com o que a LP promete)
 8. **product-content-agent** — escrever Guia de Implementação 7 Minutos — documento novo do combo do ebook, prescrito pelo @hormozi-audit para corrigir mismatch ebook/LP
@@ -67,6 +70,28 @@
 
 ## ULTIMAS 3 SESSOES
 > Rotativo — ao adicionar nova sessão, mover a mais antiga para HISTORICO-SESSOES.md.
+
+### SESSAO — 01/04/2026
+
+**O QUE FOI FEITO:**
+- Tabela de créditos Artlist mapeada — Veo 3.1 (1200c/8s, 4K + áudio), Veo 3.1 Fast (700c/8s), Kling 3.0/03 (1050c/15s, 1080p + áudio), Edição Kling 03 (1800c/10s), Controle Movimento Kling 3.0 (2100c/30s)
+- SyncLabs e HeyGen descartados definitivamente — sem orçamento; pipeline de Reels reformulado
+- Kling 3.0/03 identificado como modelo mais eficiente: 70 créditos/segundo, 4 clips × 15s = 60s, ~28 vídeos completos/mês com 120k créditos do Artlist
+- Novo pipeline de Reels mapeado: Gemini API (imagens automáticas) → aprovação Felipe → prompts animação (agente) → Artlist Kling manual (único passo manual) → FFmpeg assembly automatizado → approval-agent + Felipe → publisher-agent
+- FFmpeg identificado como substituto gratuito do CapCut API: concatena clips + trilha ElevenLabs + voz Julia + legendas sincronizadas → sem custo extra
+- 2 novos agentes necessários mapeados: video-prompt-agent (prompts imagem + animação) e video-assembly-agent (montagem FFmpeg)
+
+**O QUE O FELIPE PEDIU:**
+- Alternativa ao SyncLabs/HeyGen (sem orçamento no momento)
+- Aproveitar 120k créditos/mês do Artlist (pago até novembro 2026)
+- Pipeline com única etapa manual: rodar prompts de animação no Artlist
+- Aprovação do Felipe + approval-agent antes de publicar qualquer Reel
+- Imagens automatizadas via Gemini API (Nano Banana 2 Pro)
+- ElevenLabs para voz Julia + trilha sonora; legendas sincronizadas com a fala no vídeo final
+
+**PAROU EM:** 2 perguntas em aberto: (1) squad do video-prompt-agent (Dr. Julia ou Hormozi?); (2) formato dos prompts de imagem (Gemini API-ready ou ChatGPT manual?) | Agente ativo: analyst
+
+---
 
 ### SESSAO — 31/03/2026
 
@@ -135,36 +160,6 @@
 - Implementar BLOCO 0-N e BLOCO 0-O como regras permanentes para todos os agentes
 
 **PAROU EM:** carrossel-03 aprovado e commitado. Pendências #2 e #4 removidas do caderno (28 pendências restantes). | Agente ativo: compositor-agent
-
----
-
-### SESSAO — 29/03/2026
-
-**O QUE FOI FEITO:**
-- Customização 29 (BLOCO 0-M) implementada — commit 2ed4d44 — todo arquivo gerado deve ser commitado imediatamente, evita perda de outputs entre PCs
-- Fluxo completo @hormozi-hooks → @hormozi-ads → @hormozi-copy executado — 4 roteiros de vídeo gerados adaptados para voz da Dra. Julia (contraintuitivo, prova social, autoridade, pergunta direta)
-- video-agent.md criado em squads/dr-julia-resende/agents/ — pipeline ElevenLabs + Google Veo3, 4 etapas, 8 heurísticas, handoff para publisher-agent após aprovação manual
-- squad-creator-premium v3.0.0 confirmado já instalado em squads/squad-creator/ (sem necessidade de nova instalação)
-- Auditoria sessão crashada (50511a30) executada — todos os 5 commits estavam no GitHub, nada perdido no crash
-- video-agent.md commitado (c7cf855) — BLOCO 0-M regularizado
-- BLOCO 0-G executado — 5 itens da sessão compactada identificados e registrados no caderno
-- `roteiros-video-2026-03-28.md` salvo em `squads/dr-julia-resende/output/` e commitado (`8fcac45`) — 4 roteiros completos com versão @hormozi-ads + @hormozi-copy, prontos para o video-agent executar
-- Slash command `/dr-julia-resende:agents:video-agent` criado em `.claude/commands/dr-julia-resende/agents/video-agent.md` e commitado (`a233dc4`) — video-agent agora ativável via comando
-- ELEVENLABS_API_KEY e JULIA_VOICE_ID corretamente separados no publisher-secrets.yaml — fix crítico: chave de API (`sk_c71167...`) e ID da voz (`bMQVOFw0g6ACPbiM5XqE`) são campos distintos; confusão teria causado ERRO 401 no video-agent
-- GOOGLE_VEO3_API_KEY adicionado ao publisher-secrets.yaml — terceira credencial necessária para o pipeline de vídeo
-- JULIA_VOICE_ID `bMQVOFw0g6ACPbiM5XqE` obtido via chamada direta à API ElevenLabs (PowerShell listou vozes clonadas, encontrou "Dra. Julia")
-- video-agent.md: path do secrets_file corrigido (`data/` → `config/`) — commit 3a66bac — sem esta correção o video-agent não encontraria as credenciais
-- publisher-secrets.yaml sincronizado no Google Drive por Felipe — pendência #18 concluída
-- Caderno renumerado: pendências #3 (API keys) e #18 (Google Drive) removidas → 30 itens
-
-**O QUE O FELIPE PEDIU:**
-- Criativo de vídeo urgente para Instagram Reels/Stories e Facebook
-- Fluxo @hormozi-hooks → @hormozi-ads → @hormozi-copy para gerar roteiros de vídeo
-- Criar video-agent com ElevenLabs + Google Veo3 usando squad-creator-premium
-- Auditar sessão crashada para verificar se nada foi perdido
-- Verificar se publisher-secrets.yaml estava no PC casa (estava — Google Drive sincronizado)
-
-**PAROU EM:** Todas as credenciais do video-agent prontas e corrigidas. Próximo: executar pipeline video-agent com os 4 roteiros aprovados (pendência #3). | Agente ativo: analyst
 
 ---
 
