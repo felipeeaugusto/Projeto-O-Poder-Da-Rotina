@@ -37,6 +37,7 @@
 5b. **@aiox-master** — criar video-prompt-agent — gera 8 prompts de imagem (Gemini API) + 8 prompts de animação com nome de arquivo de cada imagem aprovada; squad a definir (Dr. Julia ou Hormozi?)
 5c. **@aiox-master** — criar video-assembly-agent — FFmpeg: concatena 8 clips animados + trilha ElevenLabs + voz Julia (ID `bMQVOFw0g6ACPbiM5XqE`) + legendas sincronizadas → MP4 9:16 → approval-agent → publisher-agent
 5d. **Felipe** — decidir squad do video-prompt-agent: Dr. Julia ou Hormozi? — define onde o agente será criado e qual squad gerencia o pipeline de Reels
+5e. **@aiox-master** — criar video-review-agent — analisa Reels de referência via Gemini API, extrai padrões visuais (timing, corte, movimento, ritmo) que calibram os prompts do video-prompt-agent; fontes: Apify (30 perfis Instagram) + Ads Paro
 6. **compositor-agent** — criar carrosseis dos Briefings #3 a #5 — completa ciclo do briefing e gera estoque de conteúdo (content-generator.js já pronto — só rodar)
 7. **@aiox-master** — criar `product-content-agent` no squad dr-julia-resende — agente necessário para escrever o Guia 7 Minutos e o Desafio 21 Dias (conteúdo que alinha o ebook com o que a LP promete)
 8. **product-content-agent** — escrever Guia de Implementação 7 Minutos — documento novo do combo do ebook, prescrito pelo @hormozi-audit para corrigir mismatch ebook/LP
@@ -80,8 +81,17 @@
 - Novo pipeline de Reels mapeado: Gemini API (imagens automáticas) → aprovação Felipe → prompts animação (agente) → Artlist Kling manual (único passo manual) → FFmpeg assembly automatizado → approval-agent + Felipe → publisher-agent
 - FFmpeg identificado como substituto gratuito do CapCut API: concatena clips + trilha ElevenLabs + voz Julia + legendas sincronizadas → sem custo extra
 - 2 novos agentes necessários mapeados: video-prompt-agent (prompts imagem + animação) e video-assembly-agent (montagem FFmpeg)
+- Decisão arquitetural do pipeline de Reels: Felipe aprova prompts ANTES do Kling rodar (não clips depois) — garante eficiência dos 120k créditos Artlist; toda a inteligência fica na fase de prompt
+- video-review-agent identificado: analisa Reels de referência via Gemini para extrair padrões visuais → calibra prompts do video-prompt-agent → Kling acerta na 1ª tentativa
+- Ads Paro identificado como fonte primária de criativos de referência (plataforma do João Paulo — criativos Meta Ads ativos de qualquer nicho); além dos 30 perfis do Instagram
+- Playwright MCP instalado em ~/.claude.json — msedge + perfil real do Edge (C:\Users\Felipe Augusto\AppData\Local\Microsoft\Edge\User Data); reiniciar Claude Code para ativar
 
 **O QUE O FELIPE PEDIU:**
+- Analisar se existe agente que consegue assistir vídeo — respondido: não existe nativamente; Gemini API (já configurada) consegue via upload
+- Análise de Reels de referência para calibrar prompts (não revisão de clips gerados)
+- Explicação de como a Ads Paro se encaixa no pipeline de referências
+- Acesso à Ads Paro via Playwright — MCP não estava instalado; @devops instalou
+- Playwright MCP configurado com perfil real do Edge (login salvo)
 - Alternativa ao SyncLabs/HeyGen (sem orçamento no momento)
 - Aproveitar 120k créditos/mês do Artlist (pago até novembro 2026)
 - Pipeline com única etapa manual: rodar prompts de animação no Artlist
@@ -89,7 +99,7 @@
 - Imagens automatizadas via Gemini API (Nano Banana 2 Pro)
 - ElevenLabs para voz Julia + trilha sonora; legendas sincronizadas com a fala no vídeo final
 
-**PAROU EM:** 2 perguntas em aberto: (1) squad do video-prompt-agent (Dr. Julia ou Hormozi?); (2) formato dos prompts de imagem (Gemini API-ready ou ChatGPT manual?) | Agente ativo: analyst
+**PAROU EM:** Playwright MCP instalado — fechar Edge + reiniciar Claude Code → @analyst acessa Ads Paro e estuda a plataforma para mapear integração com pipeline de Reels | Agente ativo: analyst
 
 ---
 
@@ -194,6 +204,9 @@
 | Token Facebook Page | Renovado 2026-03-21 |
 | publisher-secrets.yaml | Gitignored — Felipe sincroniza via Google Drive entre PCs |
 | Proxima mineração | 01/04/2026 (créditos Apify renovam no 1o de cada mes) |
+| Pipeline Reels — aprovação | Felipe aprova PROMPTS (imagem + animação) antes do Kling rodar — não clips depois; garante eficiência dos 120k créditos Artlist |
+| Ads Paro | Plataforma paga do João Paulo — pesquisa criativos Meta Ads ativos de qualquer nicho; fonte primária para video-review-agent além dos 30 perfis Instagram |
+| Playwright MCP | Instalado em ~/.claude.json — msedge + perfil real do Edge; reiniciar Claude Code para ativar; fechar Edge antes de usar |
 | *waves | Usar sempre que houver stories paralelas |
 | Squad de Mineracao | 5 agentes em squads/dr-julia-resende/agents/: scout, analyst-mineracao, briefing, compositor, publisher |
 | Squad Hormozi | 15 agentes em squads/hormozi/ — metodologia Alex Hormozi completa |
