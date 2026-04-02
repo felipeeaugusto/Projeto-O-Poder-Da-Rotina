@@ -3,6 +3,27 @@
 
 ---
 
+### SESSAO — 30/03/2026
+
+**O QUE FOI FEITO:**
+- publisher-secrets.yaml sincronizado do PC casa para o notebook — copiado de Downloads para `squads/dr-julia-resende/config/` e arquivo original apagado; credenciais do video-agent e publisher-agent atualizadas
+- content-generator.js construído em `squads/dr-julia-resende/assets/` — ferramenta reutilizável que lê config.json e gera HTMLs dos slides + render.js + manifesto.json; elimina trabalho manual em todos os carrosseis futuros
+- carrossel-03/config.json criado e preenchido pelo copy-agent com copy real do Briefing #2 ("Ter filho é lindo. É também esgotante pra caramba.") — 5 slides: hook, lista-escura, lista-clara, reflexao, cta
+- carrossel-03: 5 PNGs gerados pelo compositor-agent (slide-01 a slide-05, 54KB–124KB) e aprovados por Felipe — pipeline content-generator.js completo e funcional
+- BLOCO 0-N implementado (Customização 30) — agentes devem identificar quem produz o input de qualquer ferramenta antes de dizer "você preenche"; previne delegação errada no lado do input
+- BLOCO 0-O implementado (Customização 31) — agentes devem verificar agent-authority.md antes de indicar qual agente executa o próximo passo; previne delegação errada no lado do output
+
+**O QUE O FELIPE PEDIU:**
+- Sincronizar publisher-secrets.yaml atualizado do PC casa para o notebook
+- Verificar se os itens #2 (content-generator.js), #4 (carrossel-03) e #5 (carrosseis #3-#5) estavam relacionados
+- Construir content-generator.js e testar pipeline end-to-end
+- Criar carrossel-03 com copy real do Briefing #2
+- Implementar BLOCO 0-N e BLOCO 0-O como regras permanentes para todos os agentes
+
+**PAROU EM:** carrossel-03 aprovado e commitado. Pendências #2 e #4 removidas do caderno (28 pendências restantes). | Agente ativo: compositor-agent
+
+---
+
 ### SESSAO — 29/03/2026
 
 **O QUE FOI FEITO:**

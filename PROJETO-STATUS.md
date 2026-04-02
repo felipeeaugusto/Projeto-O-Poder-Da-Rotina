@@ -30,9 +30,10 @@
 3. **publisher-agent** — publicar Post Único (após aprovação do Felipe) → publicar carrossel-03 em sequência (já pronto em `carrossel-03/`, legenda no `publish-config.json`)
 
 ### Prioridade Normal
-2. **@dev** — adicionar templates `post-unico` (P01 Manifesto, 1080×1080) e `story` (ST01 Direta, 1080×1920) ao content-generator.js — pipeline julia-chief precisa desses templates para automatizar geração de todos os 3 formatos; interrompido na sessão 31/03
-3. **@aiox-master** — atualizar julia-chief.md: handoff `image-agent` → `compositor-agent` — image-agent usa DALL-E (descartado permanentemente); referência errada quebra o pipeline de conteúdo
-4. **@aiox-master** — salvar BLOCO 0-Q no MANUAL.md (Customização 32) — rastreabilidade permanente da regra de gate obrigatório do julia-chief
+2. **@devops** — reconectar Playwright MCP (desconectou após erro da sessão 02/04 — processo Node.js do MCP foi encerrado acidentalmente; necessário para todas as sessões futuras com Playwright)
+3. **@dev** — adicionar templates `post-unico` (P01 Manifesto, 1080×1080) e `story` (ST01 Direta, 1080×1920) ao content-generator.js — pipeline julia-chief precisa desses templates para automatizar geração de todos os 3 formatos; interrompido na sessão 31/03
+4. **@aiox-master** — atualizar julia-chief.md: handoff `image-agent` → `compositor-agent` — image-agent usa DALL-E (descartado permanentemente); referência errada quebra o pipeline de conteúdo
+5. **@aiox-master** — salvar BLOCO 0-Q no MANUAL.md (Customização 32) — rastreabilidade permanente da regra de gate obrigatório do julia-chief
 5. **@dev** — reescrever `video-agent.js` — pipeline reformulado: SyncLabs descartado (sem orçamento); novo fluxo: Gemini API (imagens) → aprovação Felipe → Artlist Kling 3.0 manual (único passo manual) → FFmpeg assembly automatizado → approval-agent → publisher-agent; aguarda criação de video-prompt-agent e video-assembly-agent antes de implementar; Vertex AI OK + ElevenLabs OK (ambos já configurados)
 5b. **@aiox-master** — criar video-prompt-agent — gera 8 prompts de imagem (Gemini API) + 8 prompts de animação com nome de arquivo de cada imagem aprovada; squad a definir (Dr. Julia ou Hormozi?)
 5c. **@aiox-master** — criar video-assembly-agent — FFmpeg: concatena 8 clips animados + trilha ElevenLabs + voz Julia (ID `bMQVOFw0g6ACPbiM5XqE`) + legendas sincronizadas → MP4 9:16 → approval-agent → publisher-agent
@@ -49,7 +50,9 @@
 14. **@dev** — implementar copy no HTML/CSS após aprovação — finaliza versão 2 da LP
 
 ### Pode deixar pra depois
-12. **@dev** — corrigir links quebrados no footer (Política de Privacidade e Termos de Uso) — credibilidade legal da LP
+12. **@aiox-master** — criar video-review-agent (Playwright + Ads Paro + Meta Ad Library) — coleta criativos pagos do nicho maternidade/BR para calibrar prompts do Kling; só entra quando João Paulo quiser rodar tráfego pago
+13. **@aiox-master** — criar traffic-agent + performance-agent (Meta Ads Manager + métricas de campanha) — necessários para pipeline de tráfego pago completo; futuro
+14. **@dev** — corrigir links quebrados no footer (Política de Privacidade e Termos de Uso) — credibilidade legal da LP
 13. **@dev** — adicionar selos de segurança visuais próximos aos CTAs — aumenta confiança do visitante
 14. **@hormozi-offers** — criar Grand Slam Offer do ebook via wf-grand-slam-offer — maximiza valor percebido e justifica preço
 15. **publisher-agent** — configurar Meta Graph API + posting automático — elimina publicação manual
@@ -71,6 +74,30 @@
 
 ## ULTIMAS 3 SESSOES
 > Rotativo — ao adicionar nova sessão, mover a mais antiga para HISTORICO-SESSOES.md.
+
+### SESSAO — 02/04/2026
+
+**O QUE FOI FEITO:**
+- Ads Paro explorado completamente via Playwright — filtros mapeados: Categories (22 nichos), Media (Video/Image), Country, Sort By (Date found/Last seen/Ads Number), Platform (e-commerce: Shopify/ShopBase/etc), Pixels, Total ads (1-1000); seções: Trending=Hot Ads, Ad Library, Saved Ads
+- URLs de vídeo do Ads Paro confirmadas como diretas — DigitalOcean Spaces (.mp4 assinado 8h), baixáveis sem bloqueio
+- Desafio 1 RESOLVIDO — Meta Ad Library: vídeos são baixáveis diretamente via `.src` do elemento `<video>` (fbcdn.net CDN); script capturou 28 URLs .mp4 em 1 carregamento sem nenhum bloqueio
+- Desafio 2 PARCIAL — Meta Ad Library não aceita ordenação por data via URL (`sort_data[mode]=creation_time` ignorado); solução: extrair campo "Iniciou a exibição em" de cada card e ordenar por data mais antiga
+- Nano Banana Pro identificado — Google DeepMind Gemini 3 Pro Image: 4K, texto legível em PT, consistência de personagem, integração nativa com Veo 3.1; modelo correto para geração de imagens do pipeline de Reels
+- Clareza estratégica definida — Ads Paro = tráfego pago (quando João Paulo quiser rodar ads); Mineração Apify = conteúdo orgânico (pipeline já existente)
+- Pipeline completo de tráfego pago mapeado: Ads Paro → Meta Ad Library (longevidade) → Gemini analisa → @hormozi-ads → video-prompt-agent → Nano Banana Pro/Kling → traffic-agent → performance-agent
+- ⚠️ Playwright MCP desconectado por erro do agente (processo Node.js encerrado acidentalmente); solução temporária: script Node.js direto rodou Playwright sem MCP
+
+**O QUE O FELIPE PEDIU:**
+- Explorar Ads Paro por inteiro via Playwright
+- Entender se vídeos da Meta Ad Library são baixáveis (respondido: sim, diretamente)
+- Pesquisar o modelo "Nano Banana Pro" (respondido: Gemini 3 Pro Image do Google DeepMind)
+- Mapear pipeline completo que o patrão descreveu (Ads Paro → Meta Ad Library → análise → criativos)
+- Testar os 2 desafios técnicos da Meta Ad Library (testado: ambos resolvidos/mapeados)
+- Clareza sobre Ads Paro: para Ads ou conteúdo? (respondido: para Ads; orgânico usa mineração)
+
+**PAROU EM:** Clareza estratégica definida. Playwright MCP desconectado (pendência @devops). Próximo: mapear agentes do pipeline de Reels (video-prompt-agent + video-assembly-agent) | Agente ativo: analyst
+
+---
 
 ### SESSAO — 01/04/2026
 
@@ -149,27 +176,6 @@
 - Verificar se ElevenLabs tem o SyncLabs integrado (respondido: são empresas separadas)
 
 **PAROU EM:** aguardando 2 decisões de Felipe (SyncLabs sim/não + Veo3.1 agora/depois) para @dev reescrever video-agent.js | Agente ativo: aiox-master
-
----
-
-### SESSAO — 30/03/2026
-
-**O QUE FOI FEITO:**
-- publisher-secrets.yaml sincronizado do PC casa para o notebook — copiado de Downloads para `squads/dr-julia-resende/config/` e arquivo original apagado; credenciais do video-agent e publisher-agent atualizadas
-- content-generator.js construído em `squads/dr-julia-resende/assets/` — ferramenta reutilizável que lê config.json e gera HTMLs dos slides + render.js + manifesto.json; elimina trabalho manual em todos os carrosseis futuros
-- carrossel-03/config.json criado e preenchido pelo copy-agent com copy real do Briefing #2 ("Ter filho é lindo. É também esgotante pra caramba.") — 5 slides: hook, lista-escura, lista-clara, reflexao, cta
-- carrossel-03: 5 PNGs gerados pelo compositor-agent (slide-01 a slide-05, 54KB–124KB) e aprovados por Felipe — pipeline content-generator.js completo e funcional
-- BLOCO 0-N implementado (Customização 30) — agentes devem identificar quem produz o input de qualquer ferramenta antes de dizer "você preenche"; previne delegação errada no lado do input
-- BLOCO 0-O implementado (Customização 31) — agentes devem verificar agent-authority.md antes de indicar qual agente executa o próximo passo; previne delegação errada no lado do output
-
-**O QUE O FELIPE PEDIU:**
-- Sincronizar publisher-secrets.yaml atualizado do PC casa para o notebook
-- Verificar se os itens #2 (content-generator.js), #4 (carrossel-03) e #5 (carrosseis #3-#5) estavam relacionados
-- Construir content-generator.js e testar pipeline end-to-end
-- Criar carrossel-03 com copy real do Briefing #2
-- Implementar BLOCO 0-N e BLOCO 0-O como regras permanentes para todos os agentes
-
-**PAROU EM:** carrossel-03 aprovado e commitado. Pendências #2 e #4 removidas do caderno (28 pendências restantes). | Agente ativo: compositor-agent
 
 ---
 
