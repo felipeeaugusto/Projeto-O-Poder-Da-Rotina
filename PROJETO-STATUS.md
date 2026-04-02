@@ -25,9 +25,10 @@
 > 1 bloco único — sempre sobrescreve o anterior, nunca acumula.
 
 ### Prioridade Maxima
-1. **scout-agent** — executar coleta mensal 01/04/2026 (50 posts/perfil, 30 perfis) → briefing-agent gera 4 briefings semanais de uma vez para cobrir o mês de abril inteiro — sem isso, julia-chief trava e nenhum conteúdo é produzido
-2. **julia-chief → compositor-agent** — criar Post Único ANTES do carrossel-03 — feed não pode ter 2 carrosseis seguidos; julia-chief define formato/pilar/visual via lógica de alternância (JC001–JC003)
-3. **publisher-agent** — publicar Post Único (após aprovação do Felipe) → publicar carrossel-03 em sequência (já pronto em `carrossel-03/`, legenda no `publish-config.json`)
+1. **analyst-agent-mineracao** — analisar coleta-2026-04-02.json (320 posts) → extrair padrões, hooks, estruturas, pilares — sem isso, briefing-agent não tem input e julia-chief trava
+2. **briefing-agent** — gerar 4 briefings semanais de abril/2026 com base na análise do analyst-agent-mineracao — cobre o mês inteiro, desbloqueia julia-chief para criação do 1º Reel
+3. **julia-chief → compositor-agent** — criar Post Único ANTES do carrossel-03 — feed não pode ter 2 carrosseis seguidos; julia-chief define formato/pilar/visual via lógica de alternância (JC001–JC003)
+4. **publisher-agent** — publicar Post Único (após aprovação do Felipe) → publicar carrossel-03 em sequência (já pronto em `carrossel-03/`, legenda no `publish-config.json`)
 
 ### Prioridade Normal
 2. **@devops** — reconectar Playwright MCP (desconectou após erro da sessão 02/04 — processo Node.js do MCP foi encerrado acidentalmente; necessário para todas as sessões futuras com Playwright)
@@ -86,6 +87,11 @@
 - Clareza estratégica definida — Ads Paro = tráfego pago (quando João Paulo quiser rodar ads); Mineração Apify = conteúdo orgânico (pipeline já existente)
 - Pipeline completo de tráfego pago mapeado: Ads Paro → Meta Ad Library (longevidade) → Gemini analisa → @hormozi-ads → video-prompt-agent → Nano Banana Pro/Kling → traffic-agent → performance-agent
 - ⚠️ Playwright MCP desconectado por erro do agente (processo Node.js encerrado acidentalmente); solução temporária: script Node.js direto rodou Playwright sem MCP
+- apify-scraper.js criado em squads/dr-julia-resende/assets/ — resolve dependência técnica do scout-agent para Apify sem MCP; lê perfis dinamicamente do YAML; implementa SC001-SC004
+- publisher-secrets.yaml atualizado — Apify token conta 2 (apify_api_9EHpR...) substituiu conta 1 (limite mensal excedido em 02/04)
+- coleta-2026-04-02.json gerado e commitado — 1054 posts brutos, 65 duplicados removidos, 320 posts filtrados, 26/29 perfis, run_id jbntAbmhEcsFls1DG — coleta mensal abril/2026 CONCLUÍDA
+- .mcp.json criado — Apify MCP configurado via npx @apify/actors-mcp-server para futuras sessões; .gitignore atualizado com .mcp.json
+- Pendência #1 CONCLUÍDA — coleta mensal de abril/2026 executada pelo scout-agent; desbloqueado para briefing-agent gerar 4 briefings semanais
 
 **O QUE O FELIPE PEDIU:**
 - Explorar Ads Paro por inteiro via Playwright
@@ -94,8 +100,11 @@
 - Mapear pipeline completo que o patrão descreveu (Ads Paro → Meta Ad Library → análise → criativos)
 - Testar os 2 desafios técnicos da Meta Ad Library (testado: ambos resolvidos/mapeados)
 - Clareza sobre Ads Paro: para Ads ou conteúdo? (respondido: para Ads; orgânico usa mineração)
+- Resolver problema do docker-gateway MCP não disponível nesta sessão (resolvido: apify-scraper.js via REST API)
+- Executar coleta mensal de abril/2026 (concluído: 320 posts, 26/29 perfis)
+- Qual próximo passo para criação do Reel? (respondido: analyst-agent-mineracao → briefing-agent → julia-chief → pipeline de vídeo)
 
-**PAROU EM:** Clareza estratégica definida. Playwright MCP desconectado (pendência @devops). Próximo: mapear agentes do pipeline de Reels (video-prompt-agent + video-assembly-agent) | Agente ativo: analyst
+**PAROU EM:** Coleta abril/2026 concluída. Próximo: analyst-agent-mineracao analisa coleta-2026-04-02.json (320 posts) → briefing-agent → julia-chief | Agente ativo: aiox-master
 
 ---
 
