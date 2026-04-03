@@ -25,7 +25,8 @@
 > 1 bloco único — sempre sobrescreve o anterior, nunca acumula.
 
 ### Prioridade Maxima
-1. **julia-chief** — ativar com briefing-semana-01-abril-2026.md para definir o primeiro Reel de abril: formato/pilar/visual/posição na grade — BLOCO 0-Q: obrigatório antes de qualquer geração de conteúdo
+1. **video-prompt-agent FASE 2** — gerar 8 imagens PNG do Reel R01 "Telas e Crianças Pequenas"; rodar `node squads/dr-julia-resende/assets/generate-reel-images.js` usando GOOGLE_VEO3_API_KEY (trocar no script); cota diária da chave Veo3 resetou — aguardar meia-noite horário Google; prompts-animacao.md já prontos em output/reels/2026-04-02/
+2. **julia-chief** — ativar com briefing-semana-01-abril-2026.md para definir o primeiro Reel de abril: formato/pilar/visual/posição na grade — BLOCO 0-Q: obrigatório antes de qualquer geração de conteúdo
 2. **julia-chief → compositor-agent** — criar Post Único ANTES do carrossel-03 — feed não pode ter 2 carrosseis seguidos; julia-chief define formato/pilar/visual via lógica de alternância (JC001–JC003)
 3. **publisher-agent** — publicar Post Único (após aprovação do Felipe) → publicar carrossel-03 em sequência (já pronto em `carrossel-03/`, legenda no `publish-config.json`)
 
@@ -112,7 +113,20 @@
   - briefing-semana-04-abril-2026.md (22–30/04) — Filho atípico / Tabela telas / Saúde como investimento / 2 anos jornada / 3 hábitos simples
 - Pipeline de mineração abril/2026 CONCLUÍDO: scout-agent ✅ → analyst-agent-mineracao ✅ → briefing-agent ✅
 
-**PAROU EM:** Pipeline de mineração abril/2026 concluído. Próximo: julia-chief com briefing-semana-01-abril-2026.md para definir 1º Reel | Agente ativo: aiox-master
+- video-prompt-agent criado — squads/dr-julia-resende/agents/video-prompt-agent.md; gera prompts de imagem (Gemini/Imagen) + prompts de animação Kling 3.0 para Reels; inclui heurísticas VP001-VP005 e modelo Nano Banana Pro (gemini-3-pro-image-preview)
+- video-review-agent criado — squads/dr-julia-resende/agents/video-review-agent.md; analisa Reels de referência via Gemini File API; extraiu padrões do vídeo VIDEO-2025-11-18 de Felipe
+- Reel R01 "Telas e Crianças Pequenas" pipeline completo: julia-chief ✅ → hormozi-hooks (Hook A aprovado) ✅ → script-agent (roteiro 8 cenas aprovado, 40-45s) ✅ → video-prompt-agent FASE 1 (8 prompts de imagem aprovados) ✅
+- ebook-capa-poder-da-rotina.png criado em squads/dr-julia-resende/assets/ — cópia de packages/landing-page-dr-julia/assets/images/05.png; usado como reference_image na CENA 8 do Reel
+- generate-reel-images.js criado em squads/dr-julia-resende/assets/ — script FASE 2: gera 8 PNGs via Gemini API + escreve prompts-animacao.md; suporte a reference_image para CENA 8; lê GOOGLE_AI_STUDIO_KEY (→ trocar para GOOGLE_VEO3_API_KEY)
+- prompts-animacao.md gerado em squads/dr-julia-resende/output/reels/2026-04-02/ — 8 prompts Kling 3.0 prontos para Felipe rodar manualmente no Artlist
+- FASE 2 bloqueada — Veo3 key TEM acesso a gemini-3-pro-image-preview (confirmado: 429 "quota exceeded" ≠ limit:0) mas cota diária esgotada; Vertex AI billing desabilitado; Imagen exige plano pago; aguardar reset da cota da chave Veo3 (meia-noite horário Google)
+
+**O QUE O FELIPE PEDIU:**
+- (continuação da sessão do dia — ver primeiro bloco "O QUE O FELIPE PEDIU" acima)
+- Confirmar se chave Veo3 funciona para imagens (respondido: sim, gemini-3-pro-image-preview acessível, mas cota do dia esgotada)
+- Esclarecimento sobre Nano Banana Pro = gemini-3-pro-image-preview (confirmado)
+
+**PAROU EM:** FASE 2 video-prompt-agent bloqueada — Veo3 key quota diária esgotada; amanhã: rodar generate-reel-images.js trocando GOOGLE_AI_STUDIO_KEY por GOOGLE_VEO3_API_KEY → gera 8 PNGs → Felipe aprova → prompts-animacao.md já prontos → Felipe roda Kling 3.0 no Artlist | Agente ativo: video-prompt-agent
 
 ---
 
