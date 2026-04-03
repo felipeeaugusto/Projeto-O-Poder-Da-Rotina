@@ -25,10 +25,9 @@
 > 1 bloco único — sempre sobrescreve o anterior, nunca acumula.
 
 ### Prioridade Maxima
-1. **analyst-agent-mineracao** — analisar coleta-2026-04-02.json (320 posts) → extrair padrões, hooks, estruturas, pilares — sem isso, briefing-agent não tem input e julia-chief trava
-2. **briefing-agent** — gerar 4 briefings semanais de abril/2026 com base na análise do analyst-agent-mineracao — cobre o mês inteiro, desbloqueia julia-chief para criação do 1º Reel
-3. **julia-chief → compositor-agent** — criar Post Único ANTES do carrossel-03 — feed não pode ter 2 carrosseis seguidos; julia-chief define formato/pilar/visual via lógica de alternância (JC001–JC003)
-4. **publisher-agent** — publicar Post Único (após aprovação do Felipe) → publicar carrossel-03 em sequência (já pronto em `carrossel-03/`, legenda no `publish-config.json`)
+1. **julia-chief** — ativar com briefing-semana-01-abril-2026.md para definir o primeiro Reel de abril: formato/pilar/visual/posição na grade — BLOCO 0-Q: obrigatório antes de qualquer geração de conteúdo
+2. **julia-chief → compositor-agent** — criar Post Único ANTES do carrossel-03 — feed não pode ter 2 carrosseis seguidos; julia-chief define formato/pilar/visual via lógica de alternância (JC001–JC003)
+3. **publisher-agent** — publicar Post Único (após aprovação do Felipe) → publicar carrossel-03 em sequência (já pronto em `carrossel-03/`, legenda no `publish-config.json`)
 
 ### Prioridade Normal
 2. **@devops** — reconectar Playwright MCP (desconectou após erro da sessão 02/04 — processo Node.js do MCP foi encerrado acidentalmente; necessário para todas as sessões futuras com Playwright)
@@ -104,7 +103,16 @@
 - Executar coleta mensal de abril/2026 (concluído: 320 posts, 26/29 perfis)
 - Qual próximo passo para criação do Reel? (respondido: analyst-agent-mineracao → briefing-agent → julia-chief → pipeline de vídeo)
 
-**PAROU EM:** Coleta abril/2026 concluída. Próximo: analyst-agent-mineracao analisa coleta-2026-04-02.json (320 posts) → briefing-agent → julia-chief | Agente ativo: aiox-master
+- run-analyst-mineracao.js criado em squads/dr-julia-resende/assets/ — implementa Método Subido de Mineração 1.0 completo com heurísticas AN001-AN004; lê coleta-2026-04-02.json e gera analise-2026-04-02.json
+- analise-2026-04-02.json gerado — 320 posts processados, 0 erros; top ângulos: baixa_relevância(224), organização_do_lar(31), maternidade_real(25), rotina_familiar(19); top gatilhos: curiosidade(167), urgência(76)
+- 4 briefings semanais de abril/2026 gerados (20 temas únicos sem repetição, BR004+BR005 ✅):
+  - briefing-semana-01-abril-2026.md (01–07/04) — Telas cérebro / Energia gestação / Autoridade×autoritarismo / Valorizar presente / Rotina autocuidado
+  - briefing-semana-02-abril-2026.md (08–14/04) — Mãe que se abandonou / Escola+transtorno / Vitamina desconhecida / Mães fazem / Autismo
+  - briefing-semana-03-abril-2026.md (15–21/04) — Pré-diabetes silencioso / Mãe cuidadora / Humor margarina / GLP-1 / Pai e parenting
+  - briefing-semana-04-abril-2026.md (22–30/04) — Filho atípico / Tabela telas / Saúde como investimento / 2 anos jornada / 3 hábitos simples
+- Pipeline de mineração abril/2026 CONCLUÍDO: scout-agent ✅ → analyst-agent-mineracao ✅ → briefing-agent ✅
+
+**PAROU EM:** Pipeline de mineração abril/2026 concluído. Próximo: julia-chief com briefing-semana-01-abril-2026.md para definir 1º Reel | Agente ativo: aiox-master
 
 ---
 
