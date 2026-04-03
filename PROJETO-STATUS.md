@@ -25,8 +25,8 @@
 > 1 bloco único — sempre sobrescreve o anterior, nunca acumula.
 
 ### Prioridade Maxima
-1. **video-prompt-agent FASE 2** — gerar 8 imagens PNG do Reel R01 "Telas e Crianças Pequenas"; rodar `node squads/dr-julia-resende/assets/generate-reel-images.js` usando GOOGLE_VEO3_API_KEY (trocar no script); cota diária da chave Veo3 resetou — aguardar meia-noite horário Google; prompts-animacao.md já prontos em output/reels/2026-04-02/
-2. **julia-chief** — ativar com briefing-semana-01-abril-2026.md para definir o primeiro Reel de abril: formato/pilar/visual/posição na grade — BLOCO 0-Q: obrigatório antes de qualquer geração de conteúdo
+0. **URGENTE — Felipe DEVE revogar chave AIzaSyB2ldwoSpGxon--EK75lohgFWnuZzUU1jE** no Google AI Studio (aistudio.google.com → API Keys → revogar) — estava hardcoded no commit c54bab4; GitHub detectou e enviou alerta; fix de código feito (ea77d29), mas a chave continua válida até ser revogada manualmente
+1. **video-prompt-agent FASE 2** — gerar 8 imagens PNG do Reel R01 "Telas e Crianças Pequenas"; rodar `node squads/dr-julia-resende/assets/generate-reel-images.js` com GOOGLE_VEO3_API_KEY (chave Veo3 do publisher-secrets.yaml); cota diária reseta meia-noite; prompts-animacao.md prontos em output/reels/2026-04-02/; após geração: commitar os 8 PNGs reais
 2. **julia-chief → compositor-agent** — criar Post Único ANTES do carrossel-03 — feed não pode ter 2 carrosseis seguidos; julia-chief define formato/pilar/visual via lógica de alternância (JC001–JC003)
 3. **publisher-agent** — publicar Post Único (após aprovação do Felipe) → publicar carrossel-03 em sequência (já pronto em `carrossel-03/`, legenda no `publish-config.json`)
 
@@ -126,7 +126,13 @@
 - Confirmar se chave Veo3 funciona para imagens (respondido: sim, gemini-3-pro-image-preview acessível, mas cota do dia esgotada)
 - Esclarecimento sobre Nano Banana Pro = gemini-3-pro-image-preview (confirmado)
 
-**PAROU EM:** FASE 2 video-prompt-agent bloqueada — Veo3 key quota diária esgotada; amanhã: rodar generate-reel-images.js trocando GOOGLE_AI_STUDIO_KEY por GOOGLE_VEO3_API_KEY → gera 8 PNGs → Felipe aprova → prompts-animacao.md já prontos → Felipe roda Kling 3.0 no Artlist | Agente ativo: video-prompt-agent
+- BLOCO 0-R criado — proíbe agentes de decompor tarefa fora do escopo ou orquestrar pipeline; BLOCO 0-C expandido para fluxos condicionais (Customizações 34 e 35)
+- approval-agent.md corrigido — handoff image-agent→compositor-agent; AP003 condicional explícito
+- API key AIzaSyB2ldwoSpGxon--EK75lohgFWnuZzUU1jE exposta no commit c54bab4 — GitHub enviou alerta; fix: analyze-video.js agora lê de publisher-secrets.yaml (ea77d29); chave ainda precisa ser revogada manualmente
+- video-prompt-agent slash command commitado — .claude/commands/dr-julia-resende/agents/video-prompt-agent.md
+- generate-reel-images.js atualizado e commitado — usa GOOGLE_AI_STUDIO_KEY (trocar por GOOGLE_VEO3_API_KEY na próxima sessão)
+
+**PAROU EM:** FASE 2 bloqueada — cota diária Gemini/Veo3 esgotada; na próxima sessão: (1) Felipe revoga chave exposta no Google AI Studio, (2) rodar `node squads/dr-julia-resende/assets/generate-reel-images.js` com GOOGLE_VEO3_API_KEY após reset da cota | Agente ativo: aiox-master
 
 ---
 
