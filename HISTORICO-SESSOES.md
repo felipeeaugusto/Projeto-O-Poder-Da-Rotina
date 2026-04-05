@@ -3,6 +3,53 @@
 
 ---
 
+### SESSAO — 31/03/2026
+
+**O QUE FOI FEITO:**
+- safe zone Instagram aplicada ao content-generator.js — padding esquerdo 110px→160px, direito 90px→130px, dots e handle ajustados; previne corte de texto no grid do Instagram
+- carrossel-03: 5 PNGs re-gerados com safe zone correta — slide-01.png "Ter filho é lindo." agora aparece completo, sem corte
+- copy-agent escreveu legenda para carrossel-03 — campo caption preenchido em publish-config.json seguindo Voice DNA da Dra. Julia
+- BLOCO 0-Q implementado (Customização 32) — gate obrigatório: nenhum conteúdo para @drjuliaresende pode ser gerado sem julia-chief ter sido ativado primeiro e definido formato/pilar/visual/grade
+- JC008 adicionado ao julia-chief.md — obriga leitura do content-state.json antes de decidir formato; enforcement da regra de alternância carrossel→post-único
+- JC009 adicionado ao julia-chief.md — approval gate com preview visual obrigatório antes de qualquer publicação
+- content-state.json criado em squads/dr-julia-resende/data/ — rastreia último formato publicado, posição no ciclo, fila de publicação; source of truth para julia-chief
+- video-agent.js criado (704 linhas, commit e2ae474) — script Node.js completo: ElevenLabs TTS → Cloudinary (URL pública) → Google Veo3 → download MP4 9:16; dry-run confirmado para R01, R02, R04
+- Bug YAML parser corrigido no video-agent.js — regex `[a-zA-Z_]+` não capturava GOOGLE_VEO3_API_KEY (dígito "3"); corrigido para `[a-zA-Z_][a-zA-Z0-9_]*`
+- ElevenLabs quota esgotada descoberta — chave sk_c71167d... tinha apenas 20 créditos; resolvido na mesma sessão (créditos do plano Creator 100k/mês restaurados)
+- Google Veo3 via AI Studio descartado — requer whitelist + não suporta audio_uri nem image input; substituído por Vertex AI
+- Artlist pesquisado como alternativa — API developer.artlist.io cobre apenas música; ferramentas de IA (TTS, vídeo) são web-only sem API pública
+- Cloudinary bug corrigido no video-agent.js — `resource_type` removido dos parâmetros de assinatura; Cloudinary assina apenas `timestamp`; upload confirmado funcionando (URL pública gerada)
+- ElevenLabs desbloqueado — plano Creator confirmado: 100k créditos/mês; bloqueio de produção resolvido
+- Vertex AI setup completo — `vertex-ai-key.json` salvo em `squads/dr-julia-resende/config/`; Service Account `video-agent@gen-lang-client-0541444185.iam.gserviceaccount.com`; Vertex AI API ativada; autenticação JWT→Bearer token confirmada funcionando
+- Vídeo de teste Vertex AI Veo3 gerado — `squads/dr-julia-resende/output/videos/teste-julia-vertex-2026-03-31.mp4` (3.935 KB, 8s, 9:16) com foto da Dra. Julia como referência; pipeline image-to-video funcional; lip-sync possível via Vertex AI
+- CLAUDE.md reestruturado — 61.3k → 47.5k chars; BLOCO 0-Q movido para `squads/dr-julia-resende/CLAUDE.md`; seções AIOX-managed removidas; commit `refactor: CLAUDE.md 61k→47k`
+- @dev investigou API Vertex AI Veo3 — encontrou 3 bugs no request de teste: (1) campo `image` errado → usar `referenceImages[0]` com `referenceType: "asset"`; (2) `durationSeconds: 8` (number) → deve ser `"8"` (string); (3) aspectRatio ignorado por consequência do bug 1
+- Confirmado: Veo3 NÃO tem parâmetro audioUrl/audio_uri para lip-sync — gera próprio áudio com `generateAudio: true`
+- SyncLabs (sync.so) identificado como solução para lip-sync frame-perfeito — API REST, ~$3/vídeo de 59s (modelo lipsync-2), SDK Node.js oficial
+- ElevenLabs e SyncLabs são empresas separadas — ElevenLabs não adquiriu o SyncLabs
+- veo-3.0-generate-001 será removido em 30/06/2026 — modelo atual é veo-3.1-generate-001
+- Pipeline completo mapeado: ElevenLabs MP3 → Veo3 clips (8×8s) → FFmpeg (concatenar) → SyncLabs (lip-sync) → MP4 final 9:16
+- Duas decisões pendentes de Felipe antes de @dev reescrever video-agent.js: (1) usar SyncLabs ou FFmpeg simples? (2) migrar para veo-3.1 agora ou depois?
+
+**O QUE O FELIPE PEDIU:**
+- Re-gerar slides do carrossel-03 com safe zone correta (texto estava cortado no grid)
+- Legenda aprovada para carrossel-03
+- Solução definitiva para que 2 carrosseis seguidos nunca mais aconteçam no feed
+- Explicação da mensagem "Large CLAUDE.md will impact performance"
+- Explicação detalhada dos 4 roteiros (duração, falas, créditos por plataforma, trilha sonora)
+- Pesquisa se Artlist tem API (120K créditos/mês) para substituir ElevenLabs + Veo3
+- Verificar plano ElevenLabs via Playwright — confirmado Creator plan 100k créditos/mês
+- Configurar Vertex AI para substituir AI Studio (foto da Julia como referência de vídeo com lip-sync)
+- Reduzir CLAUDE.md via estrutura hierárquica para resolver lentidão e compactação frequente
+- Investigar se Veo3 aceita audioUrl para lip-sync real (respondido: não aceita)
+- Investigar bugs no vídeo de teste (6s, quadrado, fundo branco) — respondido: 3 bugs encontrados
+- Explicar o que é FFmpeg e como funciona o sync.so passo a passo
+- Verificar se ElevenLabs tem o SyncLabs integrado (respondido: são empresas separadas)
+
+**PAROU EM:** aguardando 2 decisões de Felipe (SyncLabs sim/não + Veo3.1 agora/depois) para @dev reescrever video-agent.js | Agente ativo: aiox-master
+
+---
+
 ### SESSAO — 30/03/2026
 
 **O QUE FOI FEITO:**
