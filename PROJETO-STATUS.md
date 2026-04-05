@@ -26,9 +26,10 @@
 
 ### Prioridade Maxima
 0. **URGENTE — Felipe DEVE revogar chave AIzaSyB2ldwoSpGxon--EK75lohgFWnuZzUU1jE** no Google AI Studio (aistudio.google.com → API Keys → revogar) — estava hardcoded no commit c54bab4; GitHub detectou e enviou alerta; fix de código feito (ea77d29), mas a chave continua válida até ser revogada manualmente
-1. **Felipe** — gerar fala.mp3 no site ElevenLabs (elevenlabs.io → Speech Synthesis → voz Dra. Julia) e salvar em `squads/dr-julia-resende/output/reels/2026-04-02/fala.mp3` — texto entregue pelo script-agent (roteiro v2 fluido); cota da chave API esgotada (372 créditos restantes vs 491 necessários)
+1. ✅ ~~Felipe gerar fala.mp3~~ — **CONCLUÍDO**: áudio do roteiro v2 gerado pelo Felipe via MiniMax; arquivo salvo como `Seu_filho_no_celular_você_perc_Essence_MiniMax_02_HD_...mp3` (1.3 MB) em `squads/dr-julia-resende/output/reels/2026-04-02/`; commitado na auditoria de 05/04
 2. **Felipe** — decidir sobre animações das cenas 02 e 03 (Veo 3.1 Fast anima os sujeitos independente do prompt para rostos expressivos): opções: (A) Kling 3.0, (B) aceitar movimento sutil, (C) trocar as imagens
-3. **Felipe** — gerar clips no Artlist Veo 3.1 Fast usando prompts "Camera slowly zooms in..." do `prompts-animacao-v2.md`; salvar como clip-01.mp4 a clip-11.mp4 (skip clip-09 — imagem estática) em `squads/dr-julia-resende/output/reels/2026-04-02/`; aguarda decisão sobre cenas 02/03 primeiro
+3. ✅ ~~Felipe gerar clips no Artlist~~ — **CONCLUÍDO**: clip-01 a clip-12 (sem clip-09) gerados por Felipe e salvos na pasta; commitados na auditoria de 05/04; ⚠️ clip-12 é extra (roteiro tem 11 cenas, clip-09 é imagem estática = 10 clips esperados); video-assembly-agent precisa verificar o mapeamento cena↔clip na próxima sessão
+4. **video-assembly-agent** — montar Reel R01 final com: clips (clip-01 a clip-12 menos clip-09) + áudio v2 MiniMax (`Seu_filho_no_celular...mp3`) + cena-09 como imagem estática + trilha sonora (trilha.mp3) + legendas sincronizadas; resultado: reel-R01-final.mp4
 4. **julia-chief → compositor-agent** — criar Post Único ANTES do carrossel-03 — feed não pode ter 2 carrosseis seguidos; julia-chief define formato/pilar/visual via lógica de alternância (JC001–JC003)
 5. **publisher-agent** — publicar Post Único (após aprovação do Felipe) → publicar carrossel-03 em sequência (já pronto em `carrossel-03/`, legenda no `publish-config.json`)
 
