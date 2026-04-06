@@ -27,9 +27,9 @@
 ### Prioridade Maxima
 0. **URGENTE — Felipe DEVE revogar chave AIzaSyB2ldwoSpGxon--EK75lohgFWnuZzUU1jE** no Google AI Studio (aistudio.google.com → API Keys → revogar) — estava hardcoded no commit c54bab4; GitHub detectou e enviou alerta; fix de código feito (ea77d29), mas a chave continua válida até ser revogada manualmente
 1. ✅ ~~Felipe gerar fala.mp3~~ — **CONCLUÍDO**: áudio do roteiro v2 gerado pelo Felipe via MiniMax; arquivo salvo como `Seu_filho_no_celular_você_perc_Essence_MiniMax_02_HD_...mp3` (1.3 MB) em `squads/dr-julia-resende/output/reels/2026-04-02/`; commitado na auditoria de 05/04
-2. **Felipe** — decidir sobre animações das cenas 02 e 03 (Veo 3.1 Fast anima os sujeitos independente do prompt para rostos expressivos): opções: (A) Kling 3.0, (B) aceitar movimento sutil, (C) trocar as imagens
+2. ✅ ~~Felipe decidir sobre animações das cenas 02 e 03~~ — **CONCLUÍDO**: Veo 3.1 Fast usado em todas as 11 cenas; voz gerada no Artlist (ElevenLabs sem créditos); montagem sendo feita no CapCut no PC casa
 3. ✅ ~~Felipe gerar clips no Artlist~~ — **CONCLUÍDO**: clip-01 a clip-12 (sem clip-09) gerados por Felipe e salvos na pasta; commitados na auditoria de 05/04; ⚠️ clip-12 é extra (roteiro tem 11 cenas, clip-09 é imagem estática = 10 clips esperados); video-assembly-agent precisa verificar o mapeamento cena↔clip na próxima sessão
-4. **video-assembly-agent** — montar Reel R01 final com: clips (clip-01 a clip-12 menos clip-09) + áudio v2 MiniMax (`Seu_filho_no_celular...mp3`) + cena-09 como imagem estática + trilha sonora (trilha.mp3) + legendas sincronizadas; resultado: reel-R01-final.mp4
+4. **Felipe** — finalizar montagem do Reel R01 no CapCut (PC casa) — video-assembly-agent dispensado para este reel; montagem manual com clips Veo 3.1 Fast (11 cenas) + voz Artlist + trilha + legendas
 4. **julia-chief → compositor-agent** — criar Post Único ANTES do carrossel-03 — feed não pode ter 2 carrosseis seguidos; julia-chief define formato/pilar/visual via lógica de alternância (JC001–JC003)
 5. **publisher-agent** — publicar Post Único (após aprovação do Felipe) → publicar carrossel-03 em sequência (já pronto em `carrossel-03/`, legenda no `publish-config.json`)
 
@@ -44,9 +44,9 @@
 5d. **Felipe** — decidir squad do video-prompt-agent: Dr. Julia ou Hormozi? — define onde o agente será criado e qual squad gerencia o pipeline de Reels
 5e. **@aiox-master** — criar video-review-agent — analisa Reels de referência via Gemini API, extrai padrões visuais (timing, corte, movimento, ritmo) que calibram os prompts do video-prompt-agent; fontes: Apify (30 perfis Instagram) + Ads Paro
 6. **compositor-agent** — criar carrosseis dos Briefings #3 a #5 — completa ciclo do briefing e gera estoque de conteúdo (content-generator.js já pronto — só rodar)
-7. **@aiox-master** — criar `product-content-agent` no squad dr-julia-resende — agente necessário para escrever o Guia 7 Minutos e o Desafio 21 Dias (conteúdo que alinha o ebook com o que a LP promete)
-8. **product-content-agent** — escrever Guia de Implementação 7 Minutos — documento novo do combo do ebook, prescrito pelo @hormozi-audit para corrigir mismatch ebook/LP
-9. **product-content-agent** — escrever Desafio 21 Dias — documento novo do combo do ebook, prescrito pelo @hormozi-audit para corrigir mismatch ebook/LP
+7. ✅ ~~@aiox-master — criar `product-content-agent`~~ — **CONCLUÍDO**: agente criado em `squads/dr-julia-resende/agents/product-content-agent.md` + slash command + registrado no agent-authority.md
+8. ✅ ~~product-content-agent — escrever Guia de Implementação 7 Minutos~~ — **CONCLUÍDO**: aprovado por Felipe 06/04/2026 — `squads/dr-julia-resende/output/produto/guia-implementacao-7-minutos.md`
+9. ✅ ~~product-content-agent — escrever Desafio 21 Dias~~ — **CONCLUÍDO**: aprovado por Felipe 06/04/2026 — `squads/dr-julia-resende/output/produto/desafio-21-dias.md`
 10. **@dev** — corrigir DS.yaml (remover image_tool DALL-E) — consistência da spec visual do projeto
 11. **@hormozi-copy** — escrever seções "Antes e Depois", "Para Quem E / Nao E", Value Stack dos bônus — aumenta conversão da LP diretamente
 12. **@hormozi-offers** — definir estratégia das 2 ofertas (R$10 vs R$27 na mesma página) — clareza na proposta de valor ao visitante
@@ -78,6 +78,19 @@
 
 ## ULTIMAS 3 SESSOES
 > Rotativo — ao adicionar nova sessão, mover a mais antiga para HISTORICO-SESSOES.md.
+
+### SESSAO — 06/04/2026
+
+**O QUE FOI FEITO:**
+- Pendências do Reel R01 atualizadas — voz gerada no Artlist (ElevenLabs sem créditos disponíveis); Veo 3.1 Fast usado em todas as 11 cenas; montagem sendo feita no CapCut no PC casa
+- video-assembly-agent dispensado para o Reel R01 — CapCut substitui a montagem automatizada por FFmpeg neste reel
+
+**O QUE O FELIPE PEDIU:**
+- Atualizar caderno com novo status do Reel R01: voz Artlist, clips Veo 3.1 Fast nas 11 cenas, montagem CapCut
+
+**PAROU EM:** Reel R01 em montagem no CapCut (PC casa) | Agente ativo: analyst
+
+---
 
 ### SESSAO — 04/04/2026
 
