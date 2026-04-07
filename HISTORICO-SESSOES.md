@@ -312,3 +312,34 @@
 - Atlas leu handoffs v4 a v7 + yaml e mapeou o projeto completo
 
 **PAROU EM:** Felipe foi para casa (braco doendo).
+
+---
+
+### SESSAO — 01/04/2026
+
+**O QUE FOI FEITO:**
+- Tabela de créditos Artlist mapeada — Veo 3.1 (1200c/8s, 4K + áudio), Veo 3.1 Fast (700c/8s), Kling 3.0/03 (1050c/15s, 1080p + áudio), Edição Kling 03 (1800c/10s), Controle Movimento Kling 3.0 (2100c/30s)
+- SyncLabs e HeyGen descartados definitivamente — sem orçamento; pipeline de Reels reformulado
+- Kling 3.0/03 identificado como modelo mais eficiente: 70 créditos/segundo, 4 clips × 15s = 60s, ~28 vídeos completos/mês com 120k créditos do Artlist
+- Novo pipeline de Reels mapeado: Gemini API (imagens automáticas) → aprovação Felipe → prompts animação (agente) → Artlist Kling manual (único passo manual) → FFmpeg assembly automatizado → approval-agent + Felipe → publisher-agent
+- FFmpeg identificado como substituto gratuito do CapCut API: concatena clips + trilha ElevenLabs + voz Julia + legendas sincronizadas → sem custo extra
+- 2 novos agentes necessários mapeados: video-prompt-agent (prompts imagem + animação) e video-assembly-agent (montagem FFmpeg)
+- Decisão arquitetural do pipeline de Reels: Felipe aprova prompts ANTES do Kling rodar (não clips depois) — garante eficiência dos 120k créditos Artlist; toda a inteligência fica na fase de prompt
+- video-review-agent identificado: analisa Reels de referência via Gemini para extrair padrões visuais → calibra prompts do video-prompt-agent → Kling acerta na 1ª tentativa
+- Ads Paro identificado como fonte primária de criativos de referência (plataforma do João Paulo — criativos Meta Ads ativos de qualquer nicho); além dos 30 perfis do Instagram
+- Playwright MCP instalado em ~/.claude.json — msedge + perfil real do Edge (C:\Users\Felipe Augusto\AppData\Local\Microsoft\Edge\User Data); reiniciar Claude Code para ativar
+
+**O QUE O FELIPE PEDIU:**
+- Analisar se existe agente que consegue assistir vídeo — respondido: não existe nativamente; Gemini API (já configurada) consegue via upload
+- Análise de Reels de referência para calibrar prompts (não revisão de clips gerados)
+- Explicação de como a Ads Paro se encaixa no pipeline de referências
+- Acesso à Ads Paro via Playwright — MCP não estava instalado; @devops instalou
+- Playwright MCP configurado com perfil real do Edge (login salvo)
+- Alternativa ao SyncLabs/HeyGen (sem orçamento no momento)
+- Aproveitar 120k créditos/mês do Artlist (pago até novembro 2026)
+- Pipeline com única etapa manual: rodar prompts de animação no Artlist
+- Aprovação do Felipe + approval-agent antes de publicar qualquer Reel
+- Imagens automatizadas via Gemini API (Nano Banana 2 Pro)
+- ElevenLabs para voz Julia + trilha sonora; legendas sincronizadas com a fala no vídeo final
+
+**PAROU EM:** Playwright MCP instalado — fechar Edge + reiniciar Claude Code → @analyst acessa Ads Paro e estuda a plataforma para mapear integração com pipeline de Reels | Agente ativo: analyst

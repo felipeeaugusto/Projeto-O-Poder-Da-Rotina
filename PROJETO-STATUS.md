@@ -48,10 +48,10 @@
 8. ✅ ~~product-content-agent — escrever Guia de Implementação 7 Minutos~~ — **CONCLUÍDO**: aprovado por Felipe 06/04/2026 — `squads/dr-julia-resende/output/produto/guia-implementacao-7-minutos.md`
 9. ✅ ~~product-content-agent — escrever Desafio 21 Dias~~ — **CONCLUÍDO**: aprovado por Felipe 06/04/2026 — `squads/dr-julia-resende/output/produto/desafio-21-dias.md`
 10. **@dev** — corrigir DS.yaml (remover image_tool DALL-E) — consistência da spec visual do projeto
-11. **@hormozi-copy** — escrever seções "Antes e Depois", "Para Quem E / Nao E", Value Stack dos bônus — aumenta conversão da LP diretamente
-12. **@hormozi-offers** — definir estratégia das 2 ofertas (R$10 vs R$27 na mesma página) — clareza na proposta de valor ao visitante
-13. **@dev** — remover números fabricados do HTML da LP (Harvard, USP, "15.000 mães", "3.000 famílias", "20 anos de pesquisa") — esses números foram inventados e estão proibidos pelo caderno; manter compromete a credibilidade do projeto
-14. **@dev** — implementar copy no HTML/CSS após aprovação — finaliza versão 2 da LP
+11. ✅ ~~@hormozi-copy — escrever seções de copy da LP~~ — **CONCLUÍDO 06/04/2026**: 4 seções aprovadas por Felipe — Comparação R$10 vs R$27, Antes e Depois, Para Quem É/Não É, Value Stack 6 bônus (R$131 → R$27)
+12. ✅ ~~@hormozi-offers — definir estratégia das 2 ofertas (R$10 vs R$27) + composição final dos bônus~~ — **CONCLUÍDO 06/04/2026**: stack final definido — 6 bônus, R$131 percebido → R$27, ratio 4,8x; 3 bônus opcionais excluídos (Agenda, Divisão Tarefas, TDAH); Cardápios e Meditações excluídos por desalinhamento temático
+13. ✅ ~~@dev — remover números fabricados do HTML da LP~~ — **CONCLUÍDO 06/04/2026**: 11 referências removidas + data-count corrigidos (15000→7 minutos/dia, 3000→21 dias, 20→6 bônus) — commit 0e6b150
+14. ✅ ~~@dev — implementar copy no HTML/CSS~~ — **CONCLUÍDO 06/04/2026**: 4 seções implementadas (antes-depois, para-quem, comparacao, value-stack) + CSS responsivo — LP v2 finalizada — commit 0e6b150
 
 ### Pode deixar pra depois
 12. **@aiox-master** — criar video-review-agent (Playwright + Ads Paro + Meta Ad Library) — coleta criativos pagos do nicho maternidade/BR para calibrar prompts do Kling; só entra quando João Paulo quiser rodar tráfego pago
@@ -82,13 +82,26 @@
 ### SESSAO — 06/04/2026
 
 **O QUE FOI FEITO:**
-- Pendências do Reel R01 atualizadas — voz gerada no Artlist (ElevenLabs sem créditos disponíveis); Veo 3.1 Fast usado em todas as 11 cenas; montagem sendo feita no CapCut no PC casa
-- video-assembly-agent dispensado para o Reel R01 — CapCut substitui a montagem automatizada por FFmpeg neste reel
+- Reel R01 status atualizado — voz gerada no Artlist (ElevenLabs sem créditos); Veo 3.1 Fast usado em todas as 11 cenas; montagem no CapCut no PC casa; video-assembly-agent dispensado para este reel
+- product-content-agent criado — squads/dr-julia-resende/agents/product-content-agent.md + slash command + registrado em agent-authority.md; agente Tier 2 para documentos de produto
+- Guia de Implementação 7 Minutos escrito e aprovado por Felipe — squads/dr-julia-resende/output/produto/guia-implementacao-7-minutos.md; alinhado com a visão do João Paulo (leitura diária de 7min muda a família)
+- Desafio 21 Dias escrito e aprovado por Felipe — squads/dr-julia-resende/output/produto/desafio-21-dias.md; neurociência de formação de hábitos
+- @dev removeu 11 referências fabricadas do HTML da LP — Harvard, USP, 15k mães, 3k famílias, 20 anos; commit 0b67040
+- @hormozi-offers avaliou 9 bônus da LP antiga — manteve 4 alinhados (Checklist Rotina, Guia Conexão, 30 Atividades, Disciplina Positiva) + 2 novos (Guia 7 Min, Desafio 21 Dias) = 6 bônus total; excluiu Meditações/Cardápios (off-theme), Agenda/Divisão Tarefas/TDAH (opcional, Felipe decidiu não incluir)
+- @hormozi-copy escreveu 4 seções de copy para LP — Comparação R$10 vs R$27, Antes e Depois, Para Quem É/Não É, Value Stack 6 bônus (R$131 percebido → R$27, ratio 4,8x)
+- @dev implementou 4 seções no HTML + CSS + corrigiu data-count (15000→7min/dia, 3000→21 dias, 20→6 bônus) — LP v2 completa — commit 0e6b150
+- @devops fez push de tudo para GitHub — submodule LP + ponteiro pai atualizados
 
 **O QUE O FELIPE PEDIU:**
-- Atualizar caderno com novo status do Reel R01: voz Artlist, clips Veo 3.1 Fast nas 11 cenas, montagem CapCut
+- Atualizar caderno com novo status do Reel R01 (voz Artlist, Veo 3.1 Fast, CapCut)
+- Saber o que falta arrumar no ebook e na LP nova
+- Confirmar alinhamento da proposta do @hormozi-audit com visão do João Paulo (7min/dia todos os dias)
+- Seguir a ordem lógica de execução dos 6 passos definidos pelo @analyst
+- Avaliar se os 9 bônus da LP antiga estão alinhados com os ajustes atuais
+- Decisão imediata: não incluir os bônus opcionais (Agenda, Divisão, TDAH)
+- @hormozi-copy escrever as seções faltantes da LP
 
-**PAROU EM:** Reel R01 em montagem no CapCut (PC casa) | Agente ativo: analyst
+**PAROU EM:** LP v2 completa e no GitHub — 4 seções novas implementadas, data-count corrigido, 6 bônus configurados; próximo: julia-chief criar Post Único (antes do carrossel-03) → publisher-agent publicar | Agente ativo: aiox-master
 
 ---
 
@@ -180,37 +193,6 @@
 
 ---
 
-### SESSAO — 01/04/2026
-
-**O QUE FOI FEITO:**
-- Tabela de créditos Artlist mapeada — Veo 3.1 (1200c/8s, 4K + áudio), Veo 3.1 Fast (700c/8s), Kling 3.0/03 (1050c/15s, 1080p + áudio), Edição Kling 03 (1800c/10s), Controle Movimento Kling 3.0 (2100c/30s)
-- SyncLabs e HeyGen descartados definitivamente — sem orçamento; pipeline de Reels reformulado
-- Kling 3.0/03 identificado como modelo mais eficiente: 70 créditos/segundo, 4 clips × 15s = 60s, ~28 vídeos completos/mês com 120k créditos do Artlist
-- Novo pipeline de Reels mapeado: Gemini API (imagens automáticas) → aprovação Felipe → prompts animação (agente) → Artlist Kling manual (único passo manual) → FFmpeg assembly automatizado → approval-agent + Felipe → publisher-agent
-- FFmpeg identificado como substituto gratuito do CapCut API: concatena clips + trilha ElevenLabs + voz Julia + legendas sincronizadas → sem custo extra
-- 2 novos agentes necessários mapeados: video-prompt-agent (prompts imagem + animação) e video-assembly-agent (montagem FFmpeg)
-- Decisão arquitetural do pipeline de Reels: Felipe aprova prompts ANTES do Kling rodar (não clips depois) — garante eficiência dos 120k créditos Artlist; toda a inteligência fica na fase de prompt
-- video-review-agent identificado: analisa Reels de referência via Gemini para extrair padrões visuais → calibra prompts do video-prompt-agent → Kling acerta na 1ª tentativa
-- Ads Paro identificado como fonte primária de criativos de referência (plataforma do João Paulo — criativos Meta Ads ativos de qualquer nicho); além dos 30 perfis do Instagram
-- Playwright MCP instalado em ~/.claude.json — msedge + perfil real do Edge (C:\Users\Felipe Augusto\AppData\Local\Microsoft\Edge\User Data); reiniciar Claude Code para ativar
-
-**O QUE O FELIPE PEDIU:**
-- Analisar se existe agente que consegue assistir vídeo — respondido: não existe nativamente; Gemini API (já configurada) consegue via upload
-- Análise de Reels de referência para calibrar prompts (não revisão de clips gerados)
-- Explicação de como a Ads Paro se encaixa no pipeline de referências
-- Acesso à Ads Paro via Playwright — MCP não estava instalado; @devops instalou
-- Playwright MCP configurado com perfil real do Edge (login salvo)
-- Alternativa ao SyncLabs/HeyGen (sem orçamento no momento)
-- Aproveitar 120k créditos/mês do Artlist (pago até novembro 2026)
-- Pipeline com única etapa manual: rodar prompts de animação no Artlist
-- Aprovação do Felipe + approval-agent antes de publicar qualquer Reel
-- Imagens automatizadas via Gemini API (Nano Banana 2 Pro)
-- ElevenLabs para voz Julia + trilha sonora; legendas sincronizadas com a fala no vídeo final
-
-**PAROU EM:** Playwright MCP instalado — fechar Edge + reiniciar Claude Code → @analyst acessa Ads Paro e estuda a plataforma para mapear integração com pipeline de Reels | Agente ativo: analyst
-
----
-
 ---
 
 ## DECISOES IMPORTANTES
@@ -235,6 +217,7 @@
 | Briefing semanal | OBRIGATORIO para julia-chief — sem briefing, julia-chief nao opera (heurística JC007) |
 | Apify | Token configurado — mineração mensal no 1o de cada mes (créditos renovam), 50 posts/perfil |
 | Estratégia Apify free | 1 coleta mensal no 1o de cada mês (50 posts/perfil × 30 perfis) → briefing-agent gera 4 briefings semanais de uma vez sem repetição de temas — cobre o mês inteiro. Confirmado: Opção A. Não pagar Apify. |
+| Value Stack LP (06/04/2026) | 6 bônus no pacote R$27: Guia 7 Min (R$17) + Desafio 21 Dias (R$27) + Checklist Rotina (R$9) + Guia Conexão 10 Min (R$17) + 30 Atividades (R$17) + Guia Disciplina Positiva (R$17) = R$131 percebido → R$27 (ratio 4,8x). Excluídos: Cardápios, Meditações, Agenda, Divisão Tarefas, Rotinas TDAH. |
 | Cloudinary | dvxe4ijzt — upload temporário para URL publica (~5s) — bug de assinatura corrigido (resource_type não entra na assinatura) |
 | Vertex AI | Substituiu AI Studio para geração de vídeo — endpoint `us-central1-aiplatform.googleapis.com`, modelo `veo-3.0-generate-001`, Service Account em `config/vertex-ai-key.json`, projeto `gen-lang-client-0541444185`; suporta image input + lip-sync (AI Studio não suportava) |
 | ElevenLabs | Plano Creator — 100k créditos/mês; desbloqueado em 31/03/2026 |
