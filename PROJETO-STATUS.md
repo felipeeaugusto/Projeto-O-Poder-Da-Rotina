@@ -26,6 +26,8 @@
 
 ### Prioridade Maxima
 0. **URGENTE — Felipe DEVE revogar chave AIzaSyB2ldwoSpGxon--EK75lohgFWnuZzUU1jE** no Google AI Studio (aistudio.google.com → API Keys → revogar) — estava hardcoded no commit c54bab4; GitHub detectou e enviou alerta; fix de código feito (ea77d29), mas a chave continua válida até ser revogada manualmente
+0b. **Felipe** — ver e aprovar visualmente bônus 04, 05, 06 PDFs em `squads/dr-julia-resende/output/produtos/pdfs/` — bônus 03 já aprovado; 04/05/06 gerados mas ainda não revisados por Felipe
+0c. **@hormozi-audit** — auditar LP v2 completa como unidade holística (copy, oferta, value stack 6 bônus, coerência geral) — Felipe pediu explicitamente após aprovação dos bônus
 1. ✅ ~~Felipe gerar fala.mp3~~ — **CONCLUÍDO**: áudio do roteiro v2 gerado pelo Felipe via MiniMax; arquivo salvo como `Seu_filho_no_celular_você_perc_Essence_MiniMax_02_HD_...mp3` (1.3 MB) em `squads/dr-julia-resende/output/reels/2026-04-02/`; commitado na auditoria de 05/04
 2. ✅ ~~Felipe decidir sobre animações das cenas 02 e 03~~ — **CONCLUÍDO**: Veo 3.1 Fast usado em todas as 11 cenas; voz gerada no Artlist (ElevenLabs sem créditos); montagem sendo feita no CapCut no PC casa
 3. ✅ ~~Felipe gerar clips no Artlist~~ — **CONCLUÍDO**: clip-01 a clip-12 (sem clip-09) gerados por Felipe e salvos na pasta; commitados na auditoria de 05/04; ⚠️ clip-12 é extra (roteiro tem 11 cenas, clip-09 é imagem estática = 10 clips esperados); video-assembly-agent precisa verificar o mapeamento cena↔clip na próxima sessão
@@ -34,6 +36,8 @@
 5. **publisher-agent** — publicar Post Único (após aprovação do Felipe) → publicar carrossel-03 em sequência (já pronto em `carrossel-03/`, legenda no `publish-config.json`)
 
 ### Prioridade Normal
+1b. **pdf-agent** — gerar PDF do ebook v2 (`squads/dr-julia-resende/data/ebook_v2.txt`) — mesmo pipeline dos bônus; entregável: `ebook-v2-o-poder-da-rotina.pdf`
+1c. **@aiox-master** — salvar criação do pdf-agent no MANUAL.md como Customização — BLOCO 0-E pendente desde a sessão 11/04
 2. **@devops** — reconectar Playwright MCP (desconectou após erro da sessão 02/04 — processo Node.js do MCP foi encerrado acidentalmente; necessário para todas as sessões futuras com Playwright)
 3. **@dev** — adicionar templates `post-unico` (P01 Manifesto, 1080×1080) e `story` (ST01 Direta, 1080×1920) ao content-generator.js — pipeline julia-chief precisa desses templates para automatizar geração de todos os 3 formatos; interrompido na sessão 31/03
 4. **@aiox-master** — atualizar julia-chief.md: handoff `image-agent` → `compositor-agent` — image-agent usa DALL-E (descartado permanentemente); referência errada quebra o pipeline de conteúdo
@@ -78,6 +82,28 @@
 
 ## ULTIMAS 3 SESSOES
 > Rotativo — ao adicionar nova sessão, mover a mais antiga para HISTORICO-SESSOES.md.
+
+### SESSAO — 11/04/2026
+
+**O QUE FOI FEITO:**
+- Sessão travada do notebook (07/04) recuperada — .jsonl de 574 entradas lido; todos os arquivos pendentes mapeados (LP submodule não commitado + 4 bônus .md commitados mas não pushed)
+- pdf-agent criado — novo agente Tier 1 do squad Dr. Julia: `squads/dr-julia-resende/agents/pdf-agent.md` + slash command `/dr-julia-resende:agents:pdf-agent` + registrado em `agent-authority.md`; converte .md de bônus e .txt de ebook em PDFs A4 visuais com identidade da Dra. Julia via Playwright page.pdf()
+- `agent-authority.md` atualizado — pdf-agent adicionado à matriz de escopo; compositor-agent recebeu restrição "Gerar PDF de ebooks ou bônus → pdf-agent"
+- `bonus-03-checklist-rotina-visual.pdf` gerado (73.1 KB) — capa verde + 3 checklists por faixa etária + contracapa; **aprovado por Felipe** visualmente
+- `bonus-04-guia-conexao-10-minutos.pdf` gerado (69.5 KB) — 10 práticas organizadas por período do dia (manhã/após-escola/noite) com cards "como fazer" + "por que funciona"
+- `bonus-05-30-atividades-casa.pdf` gerado (100.6 KB) — 30 atividades em 3 faixas etárias (2–4, 5–7, 8–10), sem compra, sem saída; cards com materiais + como fazer + benefício
+- `bonus-06-guia-disciplina-positiva.pdf` gerado (61.3 KB) — 5 comportamentos difíceis com protocolo de resposta + script de 3 frases + reconexão após conflito
+
+**O QUE O FELIPE PEDIU:**
+- Recuperar tudo do terminal travado antes do notebook desligar
+- Ver os 4 bônus como produto visual (não .md no Bloco de Notas)
+- Verificar se pasta design/Downloads tinha agente para PDF (não tinha — necessário criar)
+- Testar com 1 bônus primeiro antes de gerar os 4
+- Aprovar bônus 03 → gerar os restantes
+
+**PAROU EM:** bônus 04, 05, 06 PDFs gerados aguardando aprovação visual do Felipe; próximo: Felipe aprova → @hormozi-audit LP v2 | Agente ativo: aiox-master
+
+---
 
 ### SESSAO — 06/04/2026
 
@@ -130,66 +156,6 @@
 - Texto do roteiro v2 completo para gerar fala.mp3 manualmente no site ElevenLabs
 
 **PAROU EM:** fala.mp3 pendente de geração manual por Felipe no site ElevenLabs; clips do Artlist pendentes (cenas 02/03 aguardam decisão); video-assembly-agent aguarda todos os assets para montar o Reel final | Agente ativo: aiox-master
-
----
-
-### SESSAO — 02/04/2026
-
-**O QUE FOI FEITO:**
-- Ads Paro explorado completamente via Playwright — filtros mapeados: Categories (22 nichos), Media (Video/Image), Country, Sort By (Date found/Last seen/Ads Number), Platform (e-commerce: Shopify/ShopBase/etc), Pixels, Total ads (1-1000); seções: Trending=Hot Ads, Ad Library, Saved Ads
-- URLs de vídeo do Ads Paro confirmadas como diretas — DigitalOcean Spaces (.mp4 assinado 8h), baixáveis sem bloqueio
-- Desafio 1 RESOLVIDO — Meta Ad Library: vídeos são baixáveis diretamente via `.src` do elemento `<video>` (fbcdn.net CDN); script capturou 28 URLs .mp4 em 1 carregamento sem nenhum bloqueio
-- Desafio 2 PARCIAL — Meta Ad Library não aceita ordenação por data via URL (`sort_data[mode]=creation_time` ignorado); solução: extrair campo "Iniciou a exibição em" de cada card e ordenar por data mais antiga
-- Nano Banana Pro identificado — Google DeepMind Gemini 3 Pro Image: 4K, texto legível em PT, consistência de personagem, integração nativa com Veo 3.1; modelo correto para geração de imagens do pipeline de Reels
-- Clareza estratégica definida — Ads Paro = tráfego pago (quando João Paulo quiser rodar ads); Mineração Apify = conteúdo orgânico (pipeline já existente)
-- Pipeline completo de tráfego pago mapeado: Ads Paro → Meta Ad Library (longevidade) → Gemini analisa → @hormozi-ads → video-prompt-agent → Nano Banana Pro/Kling → traffic-agent → performance-agent
-- ⚠️ Playwright MCP desconectado por erro do agente (processo Node.js encerrado acidentalmente); solução temporária: script Node.js direto rodou Playwright sem MCP
-- apify-scraper.js criado em squads/dr-julia-resende/assets/ — resolve dependência técnica do scout-agent para Apify sem MCP; lê perfis dinamicamente do YAML; implementa SC001-SC004
-- publisher-secrets.yaml atualizado — Apify token conta 2 (apify_api_9EHpR...) substituiu conta 1 (limite mensal excedido em 02/04)
-- coleta-2026-04-02.json gerado e commitado — 1054 posts brutos, 65 duplicados removidos, 320 posts filtrados, 26/29 perfis, run_id jbntAbmhEcsFls1DG — coleta mensal abril/2026 CONCLUÍDA
-- .mcp.json criado — Apify MCP configurado via npx @apify/actors-mcp-server para futuras sessões; .gitignore atualizado com .mcp.json
-- Pendência #1 CONCLUÍDA — coleta mensal de abril/2026 executada pelo scout-agent; desbloqueado para briefing-agent gerar 4 briefings semanais
-
-**O QUE O FELIPE PEDIU:**
-- Explorar Ads Paro por inteiro via Playwright
-- Entender se vídeos da Meta Ad Library são baixáveis (respondido: sim, diretamente)
-- Pesquisar o modelo "Nano Banana Pro" (respondido: Gemini 3 Pro Image do Google DeepMind)
-- Mapear pipeline completo que o patrão descreveu (Ads Paro → Meta Ad Library → análise → criativos)
-- Testar os 2 desafios técnicos da Meta Ad Library (testado: ambos resolvidos/mapeados)
-- Clareza sobre Ads Paro: para Ads ou conteúdo? (respondido: para Ads; orgânico usa mineração)
-- Resolver problema do docker-gateway MCP não disponível nesta sessão (resolvido: apify-scraper.js via REST API)
-- Executar coleta mensal de abril/2026 (concluído: 320 posts, 26/29 perfis)
-- Qual próximo passo para criação do Reel? (respondido: analyst-agent-mineracao → briefing-agent → julia-chief → pipeline de vídeo)
-
-- run-analyst-mineracao.js criado em squads/dr-julia-resende/assets/ — implementa Método Subido de Mineração 1.0 completo com heurísticas AN001-AN004; lê coleta-2026-04-02.json e gera analise-2026-04-02.json
-- analise-2026-04-02.json gerado — 320 posts processados, 0 erros; top ângulos: baixa_relevância(224), organização_do_lar(31), maternidade_real(25), rotina_familiar(19); top gatilhos: curiosidade(167), urgência(76)
-- 4 briefings semanais de abril/2026 gerados (20 temas únicos sem repetição, BR004+BR005 ✅):
-  - briefing-semana-01-abril-2026.md (01–07/04) — Telas cérebro / Energia gestação / Autoridade×autoritarismo / Valorizar presente / Rotina autocuidado
-  - briefing-semana-02-abril-2026.md (08–14/04) — Mãe que se abandonou / Escola+transtorno / Vitamina desconhecida / Mães fazem / Autismo
-  - briefing-semana-03-abril-2026.md (15–21/04) — Pré-diabetes silencioso / Mãe cuidadora / Humor margarina / GLP-1 / Pai e parenting
-  - briefing-semana-04-abril-2026.md (22–30/04) — Filho atípico / Tabela telas / Saúde como investimento / 2 anos jornada / 3 hábitos simples
-- Pipeline de mineração abril/2026 CONCLUÍDO: scout-agent ✅ → analyst-agent-mineracao ✅ → briefing-agent ✅
-
-- video-prompt-agent criado — squads/dr-julia-resende/agents/video-prompt-agent.md; gera prompts de imagem (Gemini/Imagen) + prompts de animação Kling 3.0 para Reels; inclui heurísticas VP001-VP005 e modelo Nano Banana Pro (gemini-3-pro-image-preview)
-- video-review-agent criado — squads/dr-julia-resende/agents/video-review-agent.md; analisa Reels de referência via Gemini File API; extraiu padrões do vídeo VIDEO-2025-11-18 de Felipe
-- Reel R01 "Telas e Crianças Pequenas" pipeline completo: julia-chief ✅ → hormozi-hooks (Hook A aprovado) ✅ → script-agent (roteiro 8 cenas aprovado, 40-45s) ✅ → video-prompt-agent FASE 1 (8 prompts de imagem aprovados) ✅
-- ebook-capa-poder-da-rotina.png criado em squads/dr-julia-resende/assets/ — cópia de packages/landing-page-dr-julia/assets/images/05.png; usado como reference_image na CENA 8 do Reel
-- generate-reel-images.js criado em squads/dr-julia-resende/assets/ — script FASE 2: gera 8 PNGs via Gemini API + escreve prompts-animacao.md; suporte a reference_image para CENA 8; lê GOOGLE_AI_STUDIO_KEY (→ trocar para GOOGLE_VEO3_API_KEY)
-- prompts-animacao.md gerado em squads/dr-julia-resende/output/reels/2026-04-02/ — 8 prompts Kling 3.0 prontos para Felipe rodar manualmente no Artlist
-- FASE 2 bloqueada — Veo3 key TEM acesso a gemini-3-pro-image-preview (confirmado: 429 "quota exceeded" ≠ limit:0) mas cota diária esgotada; Vertex AI billing desabilitado; Imagen exige plano pago; aguardar reset da cota da chave Veo3 (meia-noite horário Google)
-
-**O QUE O FELIPE PEDIU:**
-- (continuação da sessão do dia — ver primeiro bloco "O QUE O FELIPE PEDIU" acima)
-- Confirmar se chave Veo3 funciona para imagens (respondido: sim, gemini-3-pro-image-preview acessível, mas cota do dia esgotada)
-- Esclarecimento sobre Nano Banana Pro = gemini-3-pro-image-preview (confirmado)
-
-- BLOCO 0-R criado — proíbe agentes de decompor tarefa fora do escopo ou orquestrar pipeline; BLOCO 0-C expandido para fluxos condicionais (Customizações 34 e 35)
-- approval-agent.md corrigido — handoff image-agent→compositor-agent; AP003 condicional explícito
-- API key AIzaSyB2ldwoSpGxon--EK75lohgFWnuZzUU1jE exposta no commit c54bab4 — GitHub enviou alerta; fix: analyze-video.js agora lê de publisher-secrets.yaml (ea77d29); chave ainda precisa ser revogada manualmente
-- video-prompt-agent slash command commitado — .claude/commands/dr-julia-resende/agents/video-prompt-agent.md
-- generate-reel-images.js atualizado e commitado — usa GOOGLE_AI_STUDIO_KEY (trocar por GOOGLE_VEO3_API_KEY na próxima sessão)
-
-**PAROU EM:** FASE 2 bloqueada — cota diária Gemini/Veo3 esgotada; na próxima sessão: (1) Felipe revoga chave exposta no Google AI Studio, (2) rodar `node squads/dr-julia-resende/assets/generate-reel-images.js` com GOOGLE_VEO3_API_KEY após reset da cota | Agente ativo: aiox-master
 
 ---
 

@@ -343,3 +343,27 @@
 - ElevenLabs para voz Julia + trilha sonora; legendas sincronizadas com a fala no vídeo final
 
 **PAROU EM:** Playwright MCP instalado — fechar Edge + reiniciar Claude Code → @analyst acessa Ads Paro e estuda a plataforma para mapear integração com pipeline de Reels | Agente ativo: analyst
+
+### SESSAO — 02/04/2026
+
+**O QUE FOI FEITO:**
+- Ads Paro explorado completamente via Playwright — filtros mapeados: Categories (22 nichos), Media (Video/Image), Country, Sort By, Platform (e-commerce: Shopify/ShopBase/etc), Pixels, Total ads (1-1000)
+- URLs de vídeo do Ads Paro confirmadas como diretas — DigitalOcean Spaces (.mp4 assinado 8h), baixáveis sem bloqueio
+- Meta Ad Library: vídeos baixáveis diretamente via `.src` do elemento `<video>` (fbcdn.net CDN); script capturou 28 URLs .mp4 em 1 carregamento
+- Nano Banana Pro identificado — Google DeepMind Gemini 3 Pro Image: 4K, texto legível em PT, consistência de personagem, integração nativa com Veo 3.1
+- Clareza estratégica: Ads Paro = tráfego pago; Mineração Apify = conteúdo orgânico
+- apify-scraper.js criado; coleta-2026-04-02.json gerado (320 posts, 26/29 perfis); analise-2026-04-02.json gerado
+- 4 briefings semanais de abril/2026 gerados (20 temas únicos sem repetição)
+- Pipeline de mineração abril/2026 CONCLUÍDO: scout-agent ✅ → analyst-agent-mineracao ✅ → briefing-agent ✅
+- video-prompt-agent e video-review-agent criados; Reel R01 pipeline: julia-chief ✅ → hormozi-hooks ✅ → script-agent ✅ → video-prompt-agent FASE 1 ✅
+- generate-reel-images.js criado; FASE 2 bloqueada — cota diária Gemini/Veo3 esgotada
+- BLOCO 0-R criado; API key exposta no commit c54bab4 — fix: analyze-video.js lê de publisher-secrets.yaml (ea77d29); chave precisa ser revogada manualmente
+
+**O QUE O FELIPE PEDIU:**
+- Explorar Ads Paro por inteiro via Playwright; entender se vídeos da Meta Ad Library são baixáveis
+- Pesquisar o modelo "Nano Banana Pro"; mapear pipeline do patrão
+- Resolver problema do docker-gateway MCP; executar coleta mensal de abril/2026
+
+**PAROU EM:** FASE 2 bloqueada — cota diária Gemini/Veo3 esgotada; Felipe revoga chave no Google AI Studio | Agente ativo: aiox-master
+
+---
