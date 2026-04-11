@@ -1531,3 +1531,65 @@ button { cursor: pointer; font-family: var(--fonte); border: none; background: n
   /* CTA */
   .cta-final__title { font-size: 2.4rem; }
 }
+
+/* ------------------------------------------------------------
+   TRUST LINE — selo de segurança abaixo dos CTAs
+   ------------------------------------------------------------ */
+.cta__trust-line {
+  font-size: 0.75rem;
+  color: #888;
+  text-align: center;
+  margin-top: 0.5rem;
+  margin-bottom: 0;
+}
+
+/* ------------------------------------------------------------
+   PÁGINAS LEGAIS (Política de Privacidade / Termos de Uso)
+   ------------------------------------------------------------ */
+.legal-page {
+  padding: 3rem 0 5rem;
+}
+
+.legal-page__back {
+  display: inline-block;
+  color: var(--color-primary, #03bb85);
+  text-decoration: none;
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+}
+
+.legal-page__back:hover { text-decoration: underline; }
+
+.legal-page__title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.legal-page__updated {
+  font-size: 0.85rem;
+  color: #888;
+  margin-bottom: 2.5rem;
+}
+
+.legal-page__body h2 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin: 2rem 0 0.5rem;
+}
+
+.legal-page__body p,
+.legal-page__body li {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: #444;
+}
+
+.legal-page__body ul {
+  padding-left: 1.5rem;
+  margin: 0.5rem 0 1rem;
+}
+
+.legal-page__body a {
+  color: var(--color-primary, #03bb85);
+}
