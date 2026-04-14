@@ -93,6 +93,8 @@
 - `bonus-04-guia-conexao-10-minutos.pdf` gerado (69.5 KB) — 10 práticas organizadas por período do dia (manhã/após-escola/noite) com cards "como fazer" + "por que funciona"
 - `bonus-05-30-atividades-casa.pdf` gerado (100.6 KB) — 30 atividades em 3 faixas etárias (2–4, 5–7, 8–10), sem compra, sem saída; cards com materiais + como fazer + benefício
 - `bonus-06-guia-disciplina-positiva.pdf` gerado (61.3 KB) — 5 comportamentos difíceis com protocolo de resposta + script de 3 frases + reconexão após conflito
+- `CUSTOMIZACOES-FELIPE/templates/novo-projeto-CLAUDE.md` criado — template reutilizável com todos os BLOCOs para setup de projetos futuros sem copiar manualmente
+- projeto05 configurado com estrutura AIOX completa — CLAUDE.md com BLOCOs, hook check-agent-scope.js, settings.json, .gitignore, PROJETO-STATUS.md, git init + commit inicial; novo projeto pronto para usar as customizações do Felipe
 
 **O QUE O FELIPE PEDIU:**
 - Recuperar tudo do terminal travado antes do notebook desligar
@@ -100,8 +102,11 @@
 - Verificar se pasta design/Downloads tinha agente para PDF (não tinha — necessário criar)
 - Testar com 1 bônus primeiro antes de gerar os 4
 - Aprovar bônus 03 → gerar os restantes
+- Saber se precisa mostrar o MANUAL para Orion em projetos novos
+- Criar template de CLAUDE.md para projetos novos
+- Fazer setup completo do projeto05 com todas as customizações
 
-**PAROU EM:** bônus 04, 05, 06 PDFs gerados aguardando aprovação visual do Felipe; próximo: Felipe aprova → @hormozi-audit LP v2 | Agente ativo: aiox-master
+**PAROU EM:** projeto05 configurado e commitado; bônus 04/05/06 aguardando aprovação visual do Felipe; próximo: Felipe aprova → @hormozi-audit LP v2 | Agente ativo: aiox-master
 
 ---
 
