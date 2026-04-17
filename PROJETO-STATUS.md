@@ -36,6 +36,7 @@
 5. **publisher-agent** — publicar Post Único (após aprovação do Felipe) → publicar carrossel-03 em sequência (já pronto em `carrossel-03/`, legenda no `publish-config.json`)
 
 ### Prioridade Normal
+1a. **@aiox-master** — redesenhar pipeline de criação de conteúdo: abordagem conceito-first + AI gera imagem base fotorrealista sem texto + texto entra por cima via HTML/CSS + Playwright — inspiração: análise visual @sambaskincare concluída em 16/04 (screenshots referência em `.playwright-mcp/samba*.png`)
 1b. **pdf-agent** — gerar PDF do ebook v2 (`squads/dr-julia-resende/data/ebook_v2.txt`) — mesmo pipeline dos bônus; entregável: `ebook-v2-o-poder-da-rotina.pdf`
 1c. **@aiox-master** — salvar criação do pdf-agent no MANUAL.md como Customização — BLOCO 0-E pendente desde a sessão 11/04
 2. **@devops** — reconectar Playwright MCP (desconectou após erro da sessão 02/04 — processo Node.js do MCP foi encerrado acidentalmente; necessário para todas as sessões futuras com Playwright)
@@ -82,6 +83,27 @@
 
 ## ULTIMAS 3 SESSOES
 > Rotativo — ao adicionar nova sessão, mover a mais antiga para HISTORICO-SESSOES.md.
+
+### SESSAO — 16/04/2026
+
+**O QUE FOI FEITO:**
+- Análise visual do @sambaskincare via Playwright — 15 screenshots capturados (feed, 3 carrosseis completos, 2 posts de produto); referências salvas em `.playwright-mcp/samba*.png`
+- Relatório visual entregue: paleta de cores (laranja #E8622A, azul claro #B3D9E8, roxo #9B7FB6, rosa #F5D0D0, amarelo #F5C842); tipografia bold extralarge nas capas; estrutura de carrossel: capa lifestyle + slides informativos fundo sólido colorido + solução + CTA
+- Diagnóstico estratégico identificado: conteúdo atual da Dra. Julia é template-first (molde → conteúdo encaixado); @sambaskincare é conceito-first (ideia criativa → execução segue a ideia); esse gap é a causa do nível visual inferior
+- Insight validado: AI gera imagem base fotorrealista sem texto → texto entra por cima via HTML/CSS + Playwright já existente — não é DALL-E; ferramenta a definir pelo @aiox-master
+- cena-033.png e 15 screenshots @sambaskincare commitados — arquivos que estavam untracked desde sessões anteriores
+
+**O QUE O FELIPE PEDIU:**
+- Criar conteúdo para @drjuliaresende com estética/formato inspirado no @sambaskincare
+- Análise visual completa do @sambaskincare antes de criar qualquer conteúdo
+- Nível profissional de conteúdo equivalente ao @sambaskincare — não apenas inspirado
+- Criatividade real: não fórmula produto/pessoa alternados; cada post é uma ideia criativa diferente
+- Metodologia Sobral aplicada: salvar o que admira como referência, criar com intenção criativa, não com template fixo
+- Auditoria profunda da sessão antes de fechar o PC
+
+**PAROU EM:** diagnóstico estratégico de criação de conteúdo entregue; screenshots @sambaskincare commitados; próximo: @aiox-master redesenhar pipeline de criação visual (conceito-first + AI imagem base + texto Playwright) | Agente ativo: analyst
+
+---
 
 ### SESSAO — 11/04/2026
 
@@ -133,34 +155,6 @@
 - @hormozi-copy escrever as seções faltantes da LP
 
 **PAROU EM:** LP v2 completa e no GitHub — 4 seções novas implementadas, data-count corrigido, 6 bônus configurados; próximo: julia-chief criar Post Único (antes do carrossel-03) → publisher-agent publicar | Agente ativo: aiox-master
-
----
-
-### SESSAO — 04/04/2026
-
-**O QUE FOI FEITO:**
-- script-agent finalizou roteiro v2 com estrutura dual audio+legenda — 11 cenas × 4s, cada cena tem fala (o que Julia diz) e legenda (texto diferente e complementar na tela); aprovado por Felipe
-- 3 novas imagens geradas no Nano Banana Pro pelo Felipe: cena-05 (mãe pesquisando no celular), cena-06 (criança dormindo agitada), cena-07 (mãe determinada atrás do sofá com filho sorrindo)
-- Imagens reorganizadas de 8 para 11 cenas — cena-01 a cena-04 inalteradas; cena-05/06/07 NOVAS; cena-08 a cena-11 = antigas cena-05 a cena-08 renomeadas; nomes finais aprovados por Felipe
-- prompts-animacao-v2.md gerado em `squads/dr-julia-resende/output/reels/2026-04-02/` — estrutura "Camera slowly zooms in..." para todas as 11 cenas no Veo 3.1 Fast; cena-09 (infográfico OMS) marcada como imagem estática sem clip
-- Veo 3.1 Fast testado extensivamente — descoberta crítica: modelo anima sujeitos independente do prompt para rostos expressivos; estruturas testadas: Ken Burns, cinematográfico, "Camera slowly zooms in"; melhor resultado = "Camera slowly zooms in..." mas sujeitos ainda se movem em cenas expressivas (02/03)
-- Roteiro v2 reescrito pelo script-agent — fala contínua e fluida com reticências/conectivos no estilo storytelling ChatGPT; arco Dor→Consequência→Virada→Solução→CTA; aprovado por Felipe
-- generate-tts-continuo.js criado em `squads/dr-julia-resende/assets/` — geração de fala.mp3 contínuo via ElevenLabs; FALHOU por cota esgotada (372 créditos restantes vs 491 necessários)
-- Texto completo do roteiro v2 entregue ao Felipe para gerar fala.mp3 manualmente no site ElevenLabs
-
-**O QUE O FELIPE PEDIU:**
-- Entender estrutura dual (áudio ≠ legenda) — confirmado: são diferentes e complementares; confusão resolvida com exemplos
-- Corrigir "Link na bio. Grátis para você." na cena-11 — ebook é pago, não grátis; corrigido para "Link na bio. Acesse agora."
-- Corrigir prompt cena-05: celular mostrando tela para câmera (ângulo esquisito) → screen facing her, not the camera
-- Corrigir prompt cena-07: filho "entrando na cena" → "already seated calmly"; expressão raiva → "calm, decided, warm, gentle closed-mouth smile"
-- Testar múltiplas estruturas de prompt Veo 3.1 Fast (Ken Burns, cinematográfico, "Camera slowly zooms in")
-- Cena-09 como imagem estática sem animação (animação ficou horrível)
-- Nomes corretos para baixar as novas imagens (cena-05.png/06/07 com renomeação das antigas)
-- Áudio como único arquivo contínuo com fala fluida — não 11 bullets choppy
-- Reescrita completa do roteiro no estilo storytelling (exemplo ChatGPT aprovado)
-- Texto do roteiro v2 completo para gerar fala.mp3 manualmente no site ElevenLabs
-
-**PAROU EM:** fala.mp3 pendente de geração manual por Felipe no site ElevenLabs; clips do Artlist pendentes (cenas 02/03 aguardam decisão); video-assembly-agent aguarda todos os assets para montar o Reel final | Agente ativo: aiox-master
 
 ---
 

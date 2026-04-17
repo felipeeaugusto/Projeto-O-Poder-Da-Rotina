@@ -3,6 +3,26 @@
 
 ---
 
+### SESSAO — 04/04/2026
+
+**O QUE FOI FEITO:**
+- script-agent finalizou roteiro v2 com estrutura dual audio+legenda — 11 cenas × 4s, cada cena tem fala (o que Julia diz) e legenda (texto diferente e complementar na tela); aprovado por Felipe
+- 3 novas imagens geradas no Nano Banana Pro pelo Felipe: cena-05 (mãe pesquisando no celular), cena-06 (criança dormindo agitada), cena-07 (mãe determinada atrás do sofá com filho sorrindo)
+- Imagens reorganizadas de 8 para 11 cenas — cena-01 a cena-04 inalteradas; cena-05/06/07 NOVAS; cena-08 a cena-11 = antigas cena-05 a cena-08 renomeadas; nomes finais aprovados por Felipe
+- prompts-animacao-v2.md gerado em squads/dr-julia-resende/output/reels/2026-04-02/ — estrutura "Camera slowly zooms in..." para todas as 11 cenas no Veo 3.1 Fast
+- Roteiro v2 reescrito pelo script-agent — fala contínua e fluida; arco Dor→Consequência→Virada→Solução→CTA; aprovado por Felipe
+- generate-tts-continuo.js criado em squads/dr-julia-resende/assets/ — geração fala.mp3 via ElevenLabs; FALHOU por cota esgotada
+
+**O QUE O FELIPE PEDIU:**
+- Estrutura dual (áudio ≠ legenda) explicada e confirmada
+- Correções em cenas 05, 07 e 11
+- Áudio como único arquivo contínuo com fala fluida
+- Texto do roteiro v2 completo para gerar fala.mp3 manualmente
+
+**PAROU EM:** fala.mp3 pendente de geração manual por Felipe no site ElevenLabs | Agente ativo: aiox-master
+
+---
+
 ### SESSAO — 31/03/2026
 
 **O QUE FOI FEITO:**
