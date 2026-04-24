@@ -25,7 +25,7 @@
 > 1 bloco único — sempre sobrescreve o anterior, nunca acumula.
 
 ### Prioridade Maxima
-0-NOVO. **scout-agent → analyst-agent-mineracao → briefing-agent** — verificar se briefings de abril/2026 (gerados em 02/04) ainda cobrem a semana atual (23/04); se esgotados → rodar nova coleta (créditos Apify renovam 01/05); julia-chief entra em VETO automático sem briefing válido — pré-requisito obrigatório antes de criar qualquer Reel ou conteúdo novo via julia-chief
+0-NOVO. ✅ **Briefing Semana 04 ATIVO** — válido 22/04 a 30/04/2026 (confirmado @analyst em 24/04); julia-chief pode operar normalmente; tema #1 disponível: "Mãe de filho atípico não está sozinha" (score 94, Reel); **próxima ação: scout-agent rodar nova coleta em 01/05** (créditos Apify renovam) → briefing-agent gera 4 briefings de maio de uma vez
 0. **URGENTE — Felipe DEVE revogar chave AIzaSyB2ldwoSpGxon--EK75lohgFWnuZzUU1jE** no Google AI Studio (aistudio.google.com → API Keys → revogar) — estava hardcoded no commit c54bab4; GitHub detectou e enviou alerta; fix de código feito (ea77d29), mas a chave continua válida até ser revogada manualmente
 0b. **Felipe** — ver e aprovar visualmente bônus 04, 05, 06 PDFs em `squads/dr-julia-resende/output/produtos/pdfs/` — bônus 03 já aprovado; 04/05/06 gerados mas ainda não revisados por Felipe
 0c. **@hormozi-audit** — auditar LP v2 completa como unidade holística (copy, oferta, value stack 6 bônus, coerência geral) — Felipe pediu explicitamente após aprovação dos bônus
@@ -44,11 +44,11 @@
 3. **@dev** — adicionar templates `post-unico` (P01 Manifesto, 1080×1080) e `story` (ST01 Direta, 1080×1920) ao content-generator.js — pipeline julia-chief precisa desses templates para automatizar geração de todos os 3 formatos; interrompido na sessão 31/03
 4. **@aiox-master** — atualizar julia-chief.md: handoff `image-agent` → `compositor-agent` — image-agent usa DALL-E (descartado permanentemente); referência errada quebra o pipeline de conteúdo
 5. **@aiox-master** — salvar BLOCO 0-Q no MANUAL.md (Customização 32) — rastreabilidade permanente da regra de gate obrigatório do julia-chief
-5. **@dev** — reescrever `video-agent.js` — pipeline reformulado: SyncLabs descartado (sem orçamento); novo fluxo: Gemini API (imagens) → aprovação Felipe → Artlist Kling 3.0 manual (único passo manual) → FFmpeg assembly automatizado → approval-agent → publisher-agent; aguarda criação de video-prompt-agent e video-assembly-agent antes de implementar; Vertex AI OK + ElevenLabs OK (ambos já configurados)
-5b. **@aiox-master** — criar video-prompt-agent — gera 8 prompts de imagem (Gemini API) + 8 prompts de animação com nome de arquivo de cada imagem aprovada; squad a definir (Dr. Julia ou Hormozi?)
-5c. **@aiox-master** — criar video-assembly-agent — FFmpeg: concatena 8 clips animados + trilha ElevenLabs + voz Julia (ID `bMQVOFw0g6ACPbiM5XqE`) + legendas sincronizadas → MP4 9:16 → approval-agent → publisher-agent
-5d. **Felipe** — decidir squad do video-prompt-agent: Dr. Julia ou Hormozi? — define onde o agente será criado e qual squad gerencia o pipeline de Reels
-5e. **@aiox-master** — criar video-review-agent — analisa Reels de referência via Gemini API, extrai padrões visuais (timing, corte, movimento, ritmo) que calibram os prompts do video-prompt-agent; fontes: Apify (30 perfis Instagram) + Ads Paro
+5. **@dev** — reescrever `video-agent.js` — pipeline reformulado: montagem manual (Felipe + JP no CapCut); novo fluxo: Gemini API (imagens) → aprovação Felipe → Artlist Kling 3.0 manual → montagem manual CapCut → approval-agent → publisher-agent; aguarda criação de video-prompt-agent antes de implementar; Vertex AI OK + ElevenLabs OK (ambos já configurados)
+5b. ✅ ~~**@aiox-master** — criar video-prompt-agent~~ — **CONCLUÍDO 24/04/2026**: `squads/dr-julia-resende/agents/video-prompt-agent.md` atualizado + slash command existente + registrado em agent-authority.md + fluxo de Reel documentado; Squad Dr. Julia; prompt-only (sem API calls)
+5c. ❌ ~~**@aiox-master** — criar video-assembly-agent~~ — **CANCELADO 24/04/2026**: montagem manual feita por Felipe + João Paulo (CapCut) — agente não será criado
+5d. ✅ ~~**Felipe** — decidir squad do video-prompt-agent~~ — **RESOLVIDO 24/04/2026**: Squad Dr. Julia
+5e. ~~**@aiox-master** — criar video-review-agent~~ — movido para "Pode deixar pra depois" (24/04/2026) — não é prioridade agora; já registrado como item 12
 6. **compositor-agent** — criar carrosseis dos Briefings #3 a #5 — completa ciclo do briefing e gera estoque de conteúdo (content-generator.js já pronto — só rodar)
 7. ✅ ~~@aiox-master — criar `product-content-agent`~~ — **CONCLUÍDO**: agente criado em `squads/dr-julia-resende/agents/product-content-agent.md` + slash command + registrado no agent-authority.md
 8. ✅ ~~product-content-agent — escrever Guia de Implementação 7 Minutos~~ — **CONCLUÍDO**: aprovado por Felipe 06/04/2026 — `squads/dr-julia-resende/output/produto/guia-implementacao-7-minutos.md`
@@ -183,6 +183,8 @@
 | publisher-secrets.yaml | Gitignored — Felipe sincroniza via Google Drive entre PCs |
 | Proxima mineração | 01/04/2026 (créditos Apify renovam no 1o de cada mes) |
 | Pipeline Reels — aprovação | Felipe aprova PROMPTS (imagem + animação) antes do Kling rodar — não clips depois; garante eficiência dos 120k créditos Artlist |
+| Pipeline Reels — fluxo final (24/04/2026) | julia-chief → @hormozi-hooks → script-agent → video-prompt-agent [GATE 1 imagem] → [GATE 2 animação] → Felipe manual Kling/CapCut → publisher-agent. SEM approval-agent (montagem manual = aprovação implícita). SEM video-assembly-agent (CANCELADO). |
+| video-prompt-agent | Squad Dr. Julia — gerador de PROMPTS DE TEXTO apenas (8 imagem + 8 animação Kling); NÃO chama API; Felipe escolhe a ferramenta (Gemini ou DALL-E) na hora |
 | Ads Paro | Plataforma paga do João Paulo — pesquisa criativos Meta Ads ativos de qualquer nicho; fonte primária para video-review-agent além dos 30 perfis Instagram |
 | Playwright MCP | Instalado em ~/.claude.json — msedge + perfil real do Edge; reiniciar Claude Code para ativar; fechar Edge antes de usar |
 | *waves | Usar sempre que houver stories paralelas |
