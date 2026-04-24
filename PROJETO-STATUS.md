@@ -25,6 +25,7 @@
 > 1 bloco único — sempre sobrescreve o anterior, nunca acumula.
 
 ### Prioridade Maxima
+0-NOVO. **scout-agent → analyst-agent-mineracao → briefing-agent** — verificar se briefings de abril/2026 (gerados em 02/04) ainda cobrem a semana atual (23/04); se esgotados → rodar nova coleta (créditos Apify renovam 01/05); julia-chief entra em VETO automático sem briefing válido — pré-requisito obrigatório antes de criar qualquer Reel ou conteúdo novo via julia-chief
 0. **URGENTE — Felipe DEVE revogar chave AIzaSyB2ldwoSpGxon--EK75lohgFWnuZzUU1jE** no Google AI Studio (aistudio.google.com → API Keys → revogar) — estava hardcoded no commit c54bab4; GitHub detectou e enviou alerta; fix de código feito (ea77d29), mas a chave continua válida até ser revogada manualmente
 0b. **Felipe** — ver e aprovar visualmente bônus 04, 05, 06 PDFs em `squads/dr-julia-resende/output/produtos/pdfs/` — bônus 03 já aprovado; 04/05/06 gerados mas ainda não revisados por Felipe
 0c. **@hormozi-audit** — auditar LP v2 completa como unidade holística (copy, oferta, value stack 6 bônus, coerência geral) — Felipe pediu explicitamente após aprovação dos bônus
@@ -84,6 +85,23 @@
 ## ULTIMAS 3 SESSOES
 > Rotativo — ao adicionar nova sessão, mover a mais antiga para HISTORICO-SESSOES.md.
 
+### SESSAO — 23/04/2026
+
+**O QUE FOI FEITO:**
+- script-agent identificado como responsável pelo roteiro de Reel — fala de 8 cenas sincronizadas + legenda + texto contínuo para ElevenLabs TTS + prompt de trilha sonora
+- Clarificação de arquitetura: script-agent (fala), video-prompt-agent (prompts visuais Gemini + Kling), video-assembly-agent (montagem FFmpeg) são 3 agentes distintos com responsabilidades separadas — não é o mesmo agente
+- Pipeline completo de Reel mapeado pelo @aiox-master: julia-chief (lê briefing + decide tema/pilar/grade) → @hormozi-hooks (hook 5s) → script-agent (roteiro 8 cenas) → video-prompt-agent Fase 1 (8 prompts de imagem + Gate 1 Felipe) → video-prompt-agent Fase 2 (prompts animação Kling + Gate 2 Felipe) → Felipe manual (Kling Artlist) → video-assembly-agent → approval-agent → publisher-agent
+- Identificado: briefings de abril/2026 (gerados 02/04) podem estar próximos do limite (23/04); adicionado às pendências de Prioridade Máxima como pré-requisito para criação de Reels
+
+**O QUE O FELIPE PEDIU:**
+- Saber quem é o agente responsável pelo roteiro do Reel para postar nos canais da Julia
+- Entender se script-agent é o video-prompt-agent + video-assembly-agent juntos (respondido: são 3 agentes distintos)
+- Passo a passo do processo de criação de Reel até os prompts de imagem
+
+**PAROU EM:** pipeline de Reel mapeado; verificar status dos briefings de abril antes de criar Reel via julia-chief | Agente ativo: aiox-master
+
+---
+
 ### SESSAO — 16/04/2026
 
 **O QUE FOI FEITO:**
@@ -129,32 +147,6 @@
 - Fazer setup completo do projeto05 com todas as customizações
 
 **PAROU EM:** projeto05 configurado e commitado; bônus 04/05/06 aguardando aprovação visual do Felipe; próximo: Felipe aprova → @hormozi-audit LP v2 | Agente ativo: aiox-master
-
----
-
-### SESSAO — 06/04/2026
-
-**O QUE FOI FEITO:**
-- Reel R01 status atualizado — voz gerada no Artlist (ElevenLabs sem créditos); Veo 3.1 Fast usado em todas as 11 cenas; montagem no CapCut no PC casa; video-assembly-agent dispensado para este reel
-- product-content-agent criado — squads/dr-julia-resende/agents/product-content-agent.md + slash command + registrado em agent-authority.md; agente Tier 2 para documentos de produto
-- Guia de Implementação 7 Minutos escrito e aprovado por Felipe — squads/dr-julia-resende/output/produto/guia-implementacao-7-minutos.md; alinhado com a visão do João Paulo (leitura diária de 7min muda a família)
-- Desafio 21 Dias escrito e aprovado por Felipe — squads/dr-julia-resende/output/produto/desafio-21-dias.md; neurociência de formação de hábitos
-- @dev removeu 11 referências fabricadas do HTML da LP — Harvard, USP, 15k mães, 3k famílias, 20 anos; commit 0b67040
-- @hormozi-offers avaliou 9 bônus da LP antiga — manteve 4 alinhados (Checklist Rotina, Guia Conexão, 30 Atividades, Disciplina Positiva) + 2 novos (Guia 7 Min, Desafio 21 Dias) = 6 bônus total; excluiu Meditações/Cardápios (off-theme), Agenda/Divisão Tarefas/TDAH (opcional, Felipe decidiu não incluir)
-- @hormozi-copy escreveu 4 seções de copy para LP — Comparação R$10 vs R$27, Antes e Depois, Para Quem É/Não É, Value Stack 6 bônus (R$131 percebido → R$27, ratio 4,8x)
-- @dev implementou 4 seções no HTML + CSS + corrigiu data-count (15000→7min/dia, 3000→21 dias, 20→6 bônus) — LP v2 completa — commit 0e6b150
-- @devops fez push de tudo para GitHub — submodule LP + ponteiro pai atualizados
-
-**O QUE O FELIPE PEDIU:**
-- Atualizar caderno com novo status do Reel R01 (voz Artlist, Veo 3.1 Fast, CapCut)
-- Saber o que falta arrumar no ebook e na LP nova
-- Confirmar alinhamento da proposta do @hormozi-audit com visão do João Paulo (7min/dia todos os dias)
-- Seguir a ordem lógica de execução dos 6 passos definidos pelo @analyst
-- Avaliar se os 9 bônus da LP antiga estão alinhados com os ajustes atuais
-- Decisão imediata: não incluir os bônus opcionais (Agenda, Divisão, TDAH)
-- @hormozi-copy escrever as seções faltantes da LP
-
-**PAROU EM:** LP v2 completa e no GitHub — 4 seções novas implementadas, data-count corrigido, 6 bônus configurados; próximo: julia-chief criar Post Único (antes do carrossel-03) → publisher-agent publicar | Agente ativo: aiox-master
 
 ---
 

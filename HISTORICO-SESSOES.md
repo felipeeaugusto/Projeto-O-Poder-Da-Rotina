@@ -3,6 +3,32 @@
 
 ---
 
+### SESSAO — 06/04/2026
+
+**O QUE FOI FEITO:**
+- Reel R01 status atualizado — voz gerada no Artlist (ElevenLabs sem créditos); Veo 3.1 Fast usado em todas as 11 cenas; montagem no CapCut no PC casa; video-assembly-agent dispensado para este reel
+- product-content-agent criado — squads/dr-julia-resende/agents/product-content-agent.md + slash command + registrado em agent-authority.md; agente Tier 2 para documentos de produto
+- Guia de Implementação 7 Minutos escrito e aprovado por Felipe — squads/dr-julia-resende/output/produto/guia-implementacao-7-minutos.md; alinhado com a visão do João Paulo (leitura diária de 7min muda a família)
+- Desafio 21 Dias escrito e aprovado por Felipe — squads/dr-julia-resende/output/produto/desafio-21-dias.md; neurociência de formação de hábitos
+- @dev removeu 11 referências fabricadas do HTML da LP — Harvard, USP, 15k mães, 3k famílias, 20 anos; commit 0b67040
+- @hormozi-offers avaliou 9 bônus da LP antiga — manteve 4 alinhados (Checklist Rotina, Guia Conexão, 30 Atividades, Disciplina Positiva) + 2 novos (Guia 7 Min, Desafio 21 Dias) = 6 bônus total; excluiu Meditações/Cardápios (off-theme), Agenda/Divisão Tarefas/TDAH (opcional, Felipe decidiu não incluir)
+- @hormozi-copy escreveu 4 seções de copy para LP — Comparação R$10 vs R$27, Antes e Depois, Para Quem É/Não É, Value Stack 6 bônus (R$131 percebido → R$27, ratio 4,8x)
+- @dev implementou 4 seções no HTML + CSS + corrigiu data-count (15000→7min/dia, 3000→21 dias, 20→6 bônus) — LP v2 completa — commit 0e6b150
+- @devops fez push de tudo para GitHub — submodule LP + ponteiro pai atualizados
+
+**O QUE O FELIPE PEDIU:**
+- Atualizar caderno com novo status do Reel R01 (voz Artlist, Veo 3.1 Fast, CapCut)
+- Saber o que falta arrumar no ebook e na LP nova
+- Confirmar alinhamento da proposta do @hormozi-audit com visão do João Paulo (7min/dia todos os dias)
+- Seguir a ordem lógica de execução dos 6 passos definidos pelo @analyst
+- Avaliar se os 9 bônus da LP antiga estão alinhados com os ajustes atuais
+- Decisão imediata: não incluir os bônus opcionais (Agenda, Divisão, TDAH)
+- @hormozi-copy escrever as seções faltantes da LP
+
+**PAROU EM:** LP v2 completa e no GitHub — 4 seções novas implementadas, data-count corrigido, 6 bônus configurados; próximo: julia-chief criar Post Único (antes do carrossel-03) → publisher-agent publicar | Agente ativo: aiox-master
+
+---
+
 ### SESSAO — 04/04/2026
 
 **O QUE FOI FEITO:**
