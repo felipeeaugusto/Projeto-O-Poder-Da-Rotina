@@ -197,8 +197,8 @@
 | *waves | Usar sempre que houver stories paralelas |
 | Squad de Mineracao | 5 agentes em squads/dr-julia-resende/agents/: scout, analyst-mineracao, briefing, compositor, publisher |
 | Squad Hormozi | 15 agentes em squads/hormozi/ — metodologia Alex Hormozi completa |
-| Formato de Reel — Julia no vídeo | Julia PODE aparecer nos Reels como imagem gerada por IA com animação suave (Kling) + áudio ElevenLabs por cima. A preocupação era lip sync REALISTA (boca movendo sincronizada), não a aparição da Julia. Esse formato resolve — sem lip sync. |
-| Foto de referência Julia (video-prompt-agent) | packages/landing-page-dr-julia/assets/images/dr-julia-oficial.jpeg — usar em todos os prompts de imagem via VP001 |
+| Formato de Reel — conceito-first (24/04/2026) | Julia NÃO aparece visualmente em Reels. Voz dela narra em off (ElevenLabs). Visual mostra situações reais do universo do público-alvo (mães, filhos, objetos, ambientes). Talking head DESCARTADO permanentemente. |
+| Foto de referência Julia (video-prompt-agent) | NÃO usar em Reels — Julia não aparece. Foto existe em packages/landing-page-dr-julia/assets/images/dr-julia-oficial.jpeg mas só para outros usos (LP, posts estáticos). |
 
 ---
 
