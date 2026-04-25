@@ -37,14 +37,16 @@
 5. **publisher-agent** — publicar Post Único (após aprovação do Felipe) → publicar carrossel-03 em sequência (já pronto em `carrossel-03/`, legenda no `publish-config.json`)
 
 ### Prioridade Normal
-0-REEL. 🎬 **Reel R02 — EM PRODUÇÃO (24/04/2026)** — pipeline iniciado nesta sessão:
+0-REEL. 🎬 **Reel R02 — EM PRODUÇÃO (24/04/2026)** — pipeline conceito-first:
   - ✅ julia-chief: tema "Mãe de filho atípico não está sozinha" (Briefing S04 #1, score 94, pilar EM)
   - ✅ @hormozi-hooks: hook aprovado → "Mãe de filho atípico: você não está sozinha."
-  - ⏳ **PRÓXIMO: script-agent** → roteiro 8 cenas + fala + legenda + trilha
-  - ⬜ video-prompt-agent → 8 prompts imagem [GATE 1] + 8 prompts animação [GATE 2]
+  - ✅ script-agent: roteiro conceito-first reescrito e aprovado por Felipe (24/04) — 8 situações reais, Julia narra em off
+  - ✅ video-prompt-agent FASE 1: 8 prompts conceito-first gerados (24/04) — sem Julia, sem foto de referência
+  - ⏳ **PRÓXIMO: Felipe gera as 8 imagens** (Gemini ou DALL-E, sem upload de foto) → [GATE 1: aprovar visualmente]
+  - ⬜ video-prompt-agent FASE 2: 8 prompts de animação Kling [após GATE 1]
   - ⬜ Felipe manual → Kling Artlist + CapCut
   - ⬜ publisher-agent → publicar Instagram + Facebook
-1a. **@aiox-master** — redesenhar pipeline de criação de conteúdo: abordagem conceito-first + AI gera imagem base fotorrealista sem texto + texto entra por cima via HTML/CSS + Playwright — inspiração: análise visual @sambaskincare concluída em 16/04 (screenshots referência em `.playwright-mcp/samba*.png`)
+1a. ✅ **@aiox-master** — pipeline conceito-first implementado (24/04): script-agent + video-prompt-agent atualizados; Julia nunca aparece visualmente em Reels; voz narra em off; WhatsApp e apps de terceiros proibidos nas cenas
 1b. **pdf-agent** — gerar PDF do ebook v2 (`squads/dr-julia-resende/data/ebook_v2.txt`) — mesmo pipeline dos bônus; entregável: `ebook-v2-o-poder-da-rotina.pdf`
 1c. **@aiox-master** — salvar criação do pdf-agent no MANUAL.md como Customização — BLOCO 0-E pendente desde a sessão 11/04
 2. **@devops** — reconectar Playwright MCP (desconectou após erro da sessão 02/04 — processo Node.js do MCP foi encerrado acidentalmente; necessário para todas as sessões futuras com Playwright)
@@ -92,6 +94,30 @@
 ## ULTIMAS 3 SESSOES
 > Rotativo — ao adicionar nova sessão, mover a mais antiga para HISTORICO-SESSOES.md.
 
+### SESSAO — 24/04/2026
+
+**O QUE FOI FEITO:**
+- script-agent atualizado para formato conceito-first — Julia NUNCA aparece visualmente em Reels; voz narra em off; WhatsApp e qualquer UI de app de terceiros proibidos nas descrições de cena; veto automático para descrições genéricas
+- video-prompt-agent atualizado — VP001 reescrito: proibido mencionar Julia, usar foto de referência, descrever poses dela; cada prompt descreve APENAS a situação visual da cena (objetos, ambiente, pessoas anônimas); `foto_referencia` removido da seção de input
+- roteiro-R02.md reescrito em formato conceito-first — 8 situações reais do universo de mãe de filho atípico (agenda com consultas, beira da cama do filho à noite, pia do banheiro, mochila escolar, sala de espera, xícara de café fria, mãe e filho no chão rindo, mãos com celular); Julia narra em off; commitado
+- 8 prompts de imagem conceito-first gerados (FASE 1) — sem Julia, sem foto de referência, pilar EM (luz quente, bokeh, íntimo); aguardando GATE 1 (Felipe gera as imagens)
+- video-assembly-agent cancelado permanentemente — montagem manual pelo Felipe + João Paulo no CapCut
+- Decisão registrada: formato talking head descartado permanentemente — conceito-first é o padrão de todos os Reels daqui em diante
+- Diagnóstico da causa raiz: VP001 original gerava descrição textual de mulher brasileira (não Julia) — IA gerava mulher genérica; novo VP001 elimina o problema proibindo Julia no visual
+
+**O QUE O FELIPE PEDIU:**
+- Continuar de onde parou após API Error 400 "Could not process image"
+- Explicação do formato conceito-first antes de implementar
+- Redesenhar roteiro R02 no formato conceito-first e apagar talking head do script-agent definitivamente
+- Nunca incluir WhatsApp em nenhuma cena dos agentes
+- Entender por que as imagens pareciam "sessão de fotos da Dr. Julia mudando expressões"
+- Atualizar script-agent, video-prompt-agent e VP001 para o novo formato
+- Confirmar que o problema de "mulher genérica" (Julia vs imagem gerada) foi resolvido
+
+**PAROU EM:** 8 prompts conceito-first entregues; GATE 1 aguardando Felipe gerar as imagens (Gemini ou DALL-E, sem upload de foto) | Agente ativo: aiox-master
+
+---
+
 ### SESSAO — 23/04/2026
 
 **O QUE FOI FEITO:**
@@ -127,33 +153,6 @@
 - Auditoria profunda da sessão antes de fechar o PC
 
 **PAROU EM:** diagnóstico estratégico de criação de conteúdo entregue; screenshots @sambaskincare commitados; próximo: @aiox-master redesenhar pipeline de criação visual (conceito-first + AI imagem base + texto Playwright) | Agente ativo: analyst
-
----
-
-### SESSAO — 11/04/2026
-
-**O QUE FOI FEITO:**
-- Sessão travada do notebook (07/04) recuperada — .jsonl de 574 entradas lido; todos os arquivos pendentes mapeados (LP submodule não commitado + 4 bônus .md commitados mas não pushed)
-- pdf-agent criado — novo agente Tier 1 do squad Dr. Julia: `squads/dr-julia-resende/agents/pdf-agent.md` + slash command `/dr-julia-resende:agents:pdf-agent` + registrado em `agent-authority.md`; converte .md de bônus e .txt de ebook em PDFs A4 visuais com identidade da Dra. Julia via Playwright page.pdf()
-- `agent-authority.md` atualizado — pdf-agent adicionado à matriz de escopo; compositor-agent recebeu restrição "Gerar PDF de ebooks ou bônus → pdf-agent"
-- `bonus-03-checklist-rotina-visual.pdf` gerado (73.1 KB) — capa verde + 3 checklists por faixa etária + contracapa; **aprovado por Felipe** visualmente
-- `bonus-04-guia-conexao-10-minutos.pdf` gerado (69.5 KB) — 10 práticas organizadas por período do dia (manhã/após-escola/noite) com cards "como fazer" + "por que funciona"
-- `bonus-05-30-atividades-casa.pdf` gerado (100.6 KB) — 30 atividades em 3 faixas etárias (2–4, 5–7, 8–10), sem compra, sem saída; cards com materiais + como fazer + benefício
-- `bonus-06-guia-disciplina-positiva.pdf` gerado (61.3 KB) — 5 comportamentos difíceis com protocolo de resposta + script de 3 frases + reconexão após conflito
-- `CUSTOMIZACOES-FELIPE/templates/novo-projeto-CLAUDE.md` criado — template reutilizável com todos os BLOCOs para setup de projetos futuros sem copiar manualmente
-- projeto05 configurado com estrutura AIOX completa — CLAUDE.md com BLOCOs, hook check-agent-scope.js, settings.json, .gitignore, PROJETO-STATUS.md, git init + commit inicial; novo projeto pronto para usar as customizações do Felipe
-
-**O QUE O FELIPE PEDIU:**
-- Recuperar tudo do terminal travado antes do notebook desligar
-- Ver os 4 bônus como produto visual (não .md no Bloco de Notas)
-- Verificar se pasta design/Downloads tinha agente para PDF (não tinha — necessário criar)
-- Testar com 1 bônus primeiro antes de gerar os 4
-- Aprovar bônus 03 → gerar os restantes
-- Saber se precisa mostrar o MANUAL para Orion em projetos novos
-- Criar template de CLAUDE.md para projetos novos
-- Fazer setup completo do projeto05 com todas as customizações
-
-**PAROU EM:** projeto05 configurado e commitado; bônus 04/05/06 aguardando aprovação visual do Felipe; próximo: Felipe aprova → @hormozi-audit LP v2 | Agente ativo: aiox-master
 
 ---
 

@@ -3,6 +3,33 @@
 
 ---
 
+### SESSAO — 11/04/2026
+
+**O QUE FOI FEITO:**
+- Sessão travada do notebook (07/04) recuperada — .jsonl de 574 entradas lido; todos os arquivos pendentes mapeados (LP submodule não commitado + 4 bônus .md commitados mas não pushed)
+- pdf-agent criado — novo agente Tier 1 do squad Dr. Julia: `squads/dr-julia-resende/agents/pdf-agent.md` + slash command `/dr-julia-resende:agents:pdf-agent` + registrado em `agent-authority.md`; converte .md de bônus e .txt de ebook em PDFs A4 visuais com identidade da Dra. Julia via Playwright page.pdf()
+- `agent-authority.md` atualizado — pdf-agent adicionado à matriz de escopo; compositor-agent recebeu restrição "Gerar PDF de ebooks ou bônus → pdf-agent"
+- `bonus-03-checklist-rotina-visual.pdf` gerado (73.1 KB) — capa verde + 3 checklists por faixa etária + contracapa; **aprovado por Felipe** visualmente
+- `bonus-04-guia-conexao-10-minutos.pdf` gerado (69.5 KB) — 10 práticas organizadas por período do dia (manhã/após-escola/noite) com cards "como fazer" + "por que funciona"
+- `bonus-05-30-atividades-casa.pdf` gerado (100.6 KB) — 30 atividades em 3 faixas etárias (2–4, 5–7, 8–10), sem compra, sem saída; cards com materiais + como fazer + benefício
+- `bonus-06-guia-disciplina-positiva.pdf` gerado (61.3 KB) — 5 comportamentos difíceis com protocolo de resposta + script de 3 frases + reconexão após conflito
+- `CUSTOMIZACOES-FELIPE/templates/novo-projeto-CLAUDE.md` criado — template reutilizável com todos os BLOCOs para setup de projetos futuros sem copiar manualmente
+- projeto05 configurado com estrutura AIOX completa — CLAUDE.md com BLOCOs, hook check-agent-scope.js, settings.json, .gitignore, PROJETO-STATUS.md, git init + commit inicial; novo projeto pronto para usar as customizações do Felipe
+
+**O QUE O FELIPE PEDIU:**
+- Recuperar tudo do terminal travado antes do notebook desligar
+- Ver os 4 bônus como produto visual (não .md no Bloco de Notas)
+- Verificar se pasta design/Downloads tinha agente para PDF (não tinha — necessário criar)
+- Testar com 1 bônus primeiro antes de gerar os 4
+- Aprovar bônus 03 → gerar os restantes
+- Saber se precisa mostrar o MANUAL para Orion em projetos novos
+- Criar template de CLAUDE.md para projetos novos
+- Fazer setup completo do projeto05 com todas as customizações
+
+**PAROU EM:** projeto05 configurado e commitado; bônus 04/05/06 aguardando aprovação visual do Felipe; próximo: Felipe aprova → @hormozi-audit LP v2 | Agente ativo: aiox-master
+
+---
+
 ### SESSAO — 06/04/2026
 
 **O QUE FOI FEITO:**
