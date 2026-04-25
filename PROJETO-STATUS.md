@@ -37,6 +37,13 @@
 5. **publisher-agent** — publicar Post Único (após aprovação do Felipe) → publicar carrossel-03 em sequência (já pronto em `carrossel-03/`, legenda no `publish-config.json`)
 
 ### Prioridade Normal
+0-REEL. 🎬 **Reel R02 — EM PRODUÇÃO (24/04/2026)** — pipeline iniciado nesta sessão:
+  - ✅ julia-chief: tema "Mãe de filho atípico não está sozinha" (Briefing S04 #1, score 94, pilar EM)
+  - ✅ @hormozi-hooks: hook aprovado → "Mãe de filho atípico: você não está sozinha."
+  - ⏳ **PRÓXIMO: script-agent** → roteiro 8 cenas + fala + legenda + trilha
+  - ⬜ video-prompt-agent → 8 prompts imagem [GATE 1] + 8 prompts animação [GATE 2]
+  - ⬜ Felipe manual → Kling Artlist + CapCut
+  - ⬜ publisher-agent → publicar Instagram + Facebook
 1a. **@aiox-master** — redesenhar pipeline de criação de conteúdo: abordagem conceito-first + AI gera imagem base fotorrealista sem texto + texto entra por cima via HTML/CSS + Playwright — inspiração: análise visual @sambaskincare concluída em 16/04 (screenshots referência em `.playwright-mcp/samba*.png`)
 1b. **pdf-agent** — gerar PDF do ebook v2 (`squads/dr-julia-resende/data/ebook_v2.txt`) — mesmo pipeline dos bônus; entregável: `ebook-v2-o-poder-da-rotina.pdf`
 1c. **@aiox-master** — salvar criação do pdf-agent no MANUAL.md como Customização — BLOCO 0-E pendente desde a sessão 11/04
@@ -190,6 +197,8 @@
 | *waves | Usar sempre que houver stories paralelas |
 | Squad de Mineracao | 5 agentes em squads/dr-julia-resende/agents/: scout, analyst-mineracao, briefing, compositor, publisher |
 | Squad Hormozi | 15 agentes em squads/hormozi/ — metodologia Alex Hormozi completa |
+| Formato de Reel — Julia no vídeo | Julia PODE aparecer nos Reels como imagem gerada por IA com animação suave (Kling) + áudio ElevenLabs por cima. A preocupação era lip sync REALISTA (boca movendo sincronizada), não a aparição da Julia. Esse formato resolve — sem lip sync. |
+| Foto de referência Julia (video-prompt-agent) | packages/landing-page-dr-julia/assets/images/dr-julia-oficial.jpeg — usar em todos os prompts de imagem via VP001 |
 
 ---
 
