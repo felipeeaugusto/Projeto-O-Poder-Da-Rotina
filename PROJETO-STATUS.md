@@ -49,7 +49,7 @@
 1a. ✅ **@aiox-master** — pipeline conceito-first implementado (24/04): script-agent + video-prompt-agent atualizados; Julia nunca aparece visualmente em Reels; voz narra em off; WhatsApp e apps de terceiros proibidos nas cenas
 1b. **pdf-agent** — gerar PDF do ebook v2 (`squads/dr-julia-resende/data/ebook_v2.txt`) — mesmo pipeline dos bônus; entregável: `ebook-v2-o-poder-da-rotina.pdf`
 1c. **@aiox-master** — salvar criação do pdf-agent no MANUAL.md como Customização — BLOCO 0-E pendente desde a sessão 11/04
-2. **@devops** — reconectar Playwright MCP (desconectou após erro da sessão 02/04 — processo Node.js do MCP foi encerrado acidentalmente; necessário para todas as sessões futuras com Playwright)
+2. ✅ ~~**@devops** — reconectar Playwright MCP~~ — **CONCLUÍDO 27/04/2026**: MCP estava conectado e funcional — bloqueio era Edge aberto em paralelo; fechar Edge antes de usar o Playwright resolve; nenhuma mudança de configuração necessária
 3. **@dev** — adicionar templates `post-unico` (P01 Manifesto, 1080×1080) e `story` (ST01 Direta, 1080×1920) ao content-generator.js — pipeline julia-chief precisa desses templates para automatizar geração de todos os 3 formatos; interrompido na sessão 31/03
 4. **@aiox-master** — atualizar julia-chief.md: handoff `image-agent` → `compositor-agent` — image-agent usa DALL-E (descartado permanentemente); referência errada quebra o pipeline de conteúdo
 5. **@aiox-master** — salvar BLOCO 0-Q no MANUAL.md (Customização 32) — rastreabilidade permanente da regra de gate obrigatório do julia-chief
