@@ -69,7 +69,7 @@
 14. ✅ ~~@dev — implementar copy no HTML/CSS~~ — **CONCLUÍDO 06/04/2026**: 4 seções implementadas (antes-depois, para-quem, comparacao, value-stack) + CSS responsivo — LP v2 finalizada — commit 0e6b150
 
 ### Pode deixar pra depois
-12. **@aiox-master** — criar video-review-agent (Playwright + Ads Paro + Meta Ad Library) — coleta criativos pagos do nicho maternidade/BR para calibrar prompts do Kling; só entra quando João Paulo quiser rodar tráfego pago
+12. **@aiox-master** — criar ads-mining-agent (Playwright + Ads Paro + Meta Ad Library) — arquitetura confirmada 27/04/2026: Ads Paro (discovery) → Meta Ad Library search_type=page (validação) → extrair "Veiculação iniciada em [DD de MMM de YYYY]" do DOM → ordenar do mais antigo programaticamente (UI não tem "oldest first") → extrair video.currentSrc → download .mp4 imediato; objetivo: coletar criativos pagos do nicho maternidade/BR para calibrar prompts do Kling; só entra quando João Paulo quiser rodar tráfego pago
 13. **@aiox-master** — criar traffic-agent + performance-agent (Meta Ads Manager + métricas de campanha) — necessários para pipeline de tráfego pago completo; futuro
 14. **@dev** — corrigir links quebrados no footer (Política de Privacidade e Termos de Uso) — credibilidade legal da LP
 13. **@dev** — adicionar selos de segurança visuais próximos aos CTAs — aumenta confiança do visitante
@@ -93,6 +93,36 @@
 
 ## ULTIMAS 3 SESSOES
 > Rotativo — ao adicionar nova sessão, mover a mais antiga para HISTORICO-SESSOES.md.
+
+### SESSAO — 27/04/2026
+
+**O QUE FOI FEITO:**
+- PC reiniciou inesperadamente — sessão recuperada via arquivo .jsonl
+- Playwright MCP confirmado funcional na prática — bloqueio era Edge aberto em paralelo; fechar Edge antes de usar o Playwright resolve; nenhuma mudança de configuração necessária
+- Meta Ad Library investigada completamente via Playwright (Pedro Sobral como exemplo de busca por palavra-chave)
+- Mapeamento de dados disponíveis por anúncio individual: Status (✅ Ativo / ❌ Inativo) + library_id + "Veiculação iniciada em [DD de MMM de YYYY]" (ex: "31 de mar de 2026") + plataformas + criativo visual + copy completo + seção "Sobre o anunciante" (page name, Facebook page ID, followers, category, bio)
+- Confirmado: UI da Meta Ad Library NÃO tem ordenação "mais antigo primeiro" — só "Mais recentes" e "Impressões: do mais alto ao mais baixo" — ordenação programática pelo DOM é obrigatória para identificar golden creatives
+- Confirmado: NÃO existe botão de download de vídeo na interface — download possível apenas via JavaScript
+- URLs de vídeo .mp4 mapeadas: 31 URLs extraídas em um único carregamento via `video.currentSrc` no DOM; hospedadas em fbcdn.net; parâmetro `oe=` é Unix timestamp hex da expiração — download obrigatório imediato
+- Parâmetro `efg` (base64) mapeado: contém `asset_age_days`, `duration_s`, `xpv_asset_id`; assets com até 866 dias encontrados (2+ anos)
+- Distinção crítica documentada: `asset_age_days` = idade do arquivo de vídeo (NÃO da campanha); "Veiculação iniciada em [data]" = data real de início da campanha (métrica correta para golden creatives)
+- search_type=page confirmado para busca por anunciante específico; keyword_unordered gera falsos positivos (corresponde por palavras no nome E no copy)
+- Fluxo final do ads-mining-agent documentado e confirmado: Ads Paro (discovery) → Meta Ad Library search_type=page (validação + coleta) → extrair "Veiculação iniciada em" do DOM → ordenar do mais antigo programaticamente → extrair video.currentSrc → download .mp4 imediato
+
+**O QUE O FELIPE PEDIU:**
+- Retomada após reinicialização inesperada do PC
+- Continuar investigação da Meta Ad Library de onde havia parado (clique em "Ver detalhes do anúncio")
+- Entender todos os dados disponíveis no painel "Detalhes do anúncio"
+- Verificar se existe botão de download de vídeo na interface
+- Verificar se as URLs de vídeo são acessíveis via JavaScript e como extraí-las
+- Entender o mecanismo de expiração das URLs
+- Entender a diferença entre asset_age_days e idade da campanha
+- Entender como buscar um anunciante específico (não por palavra-chave)
+- Salvar todas as descobertas no caderno (aprovação explícita: "sim, pode salvar")
+
+**PAROU EM:** investigação Meta Ad Library completa; salvando no caderno e fazendo push | Agente ativo: aiox-master
+
+---
 
 ### SESSAO — 24/04/2026
 
@@ -132,27 +162,6 @@
 - Passo a passo do processo de criação de Reel até os prompts de imagem
 
 **PAROU EM:** pipeline de Reel mapeado; verificar status dos briefings de abril antes de criar Reel via julia-chief | Agente ativo: aiox-master
-
----
-
-### SESSAO — 16/04/2026
-
-**O QUE FOI FEITO:**
-- Análise visual do @sambaskincare via Playwright — 15 screenshots capturados (feed, 3 carrosseis completos, 2 posts de produto); referências salvas em `.playwright-mcp/samba*.png`
-- Relatório visual entregue: paleta de cores (laranja #E8622A, azul claro #B3D9E8, roxo #9B7FB6, rosa #F5D0D0, amarelo #F5C842); tipografia bold extralarge nas capas; estrutura de carrossel: capa lifestyle + slides informativos fundo sólido colorido + solução + CTA
-- Diagnóstico estratégico identificado: conteúdo atual da Dra. Julia é template-first (molde → conteúdo encaixado); @sambaskincare é conceito-first (ideia criativa → execução segue a ideia); esse gap é a causa do nível visual inferior
-- Insight validado: AI gera imagem base fotorrealista sem texto → texto entra por cima via HTML/CSS + Playwright já existente — não é DALL-E; ferramenta a definir pelo @aiox-master
-- cena-033.png e 15 screenshots @sambaskincare commitados — arquivos que estavam untracked desde sessões anteriores
-
-**O QUE O FELIPE PEDIU:**
-- Criar conteúdo para @drjuliaresende com estética/formato inspirado no @sambaskincare
-- Análise visual completa do @sambaskincare antes de criar qualquer conteúdo
-- Nível profissional de conteúdo equivalente ao @sambaskincare — não apenas inspirado
-- Criatividade real: não fórmula produto/pessoa alternados; cada post é uma ideia criativa diferente
-- Metodologia Sobral aplicada: salvar o que admira como referência, criar com intenção criativa, não com template fixo
-- Auditoria profunda da sessão antes de fechar o PC
-
-**PAROU EM:** diagnóstico estratégico de criação de conteúdo entregue; screenshots @sambaskincare commitados; próximo: @aiox-master redesenhar pipeline de criação visual (conceito-first + AI imagem base + texto Playwright) | Agente ativo: analyst
 
 ---
 
@@ -198,6 +207,10 @@
 | Squad Hormozi | 15 agentes em squads/hormozi/ — metodologia Alex Hormozi completa |
 | Formato de Reel — conceito-first (24/04/2026) | Julia NÃO aparece visualmente em Reels. Voz dela narra em off (ElevenLabs). Visual mostra situações reais do universo do público-alvo (mães, filhos, objetos, ambientes). Talking head DESCARTADO permanentemente. |
 | Foto de referência Julia (video-prompt-agent) | NÃO usar em Reels — Julia não aparece. Foto existe em packages/landing-page-dr-julia/assets/images/dr-julia-oficial.jpeg mas só para outros usos (LP, posts estáticos). |
+| Meta Ad Library — dados por anúncio (27/04/2026) | Por anúncio disponível: Status (Ativo/Inativo) + library_id + "Veiculação iniciada em [DD de MMM de YYYY]" (ex: "31 de mar de 2026") + plataformas + criativo + copy + "Sobre o anunciante" (page name, page ID Facebook, followers, category, bio) |
+| Meta Ad Library — vídeos .mp4 (27/04/2026) | Acessíveis via `video.currentSrc` no DOM (sem login); URLs assinadas em fbcdn.net com expiração via `oe=` (hex Unix timestamp) → download IMEDIATO obrigatório; parâmetro `efg` (base64) = `asset_age_days` + `duration_s`; ATENÇÃO: `asset_age_days` é idade do arquivo de vídeo, NÃO da campanha |
+| Meta Ad Library — search_type | `search_type=page` para anunciante específico (filtra pela página); `search_type=keyword_unordered` → falsos positivos (corresponde por palavras no nome E no copy do anúncio) |
+| Fluxo ads-mining-agent (confirmado 27/04/2026) | Ads Paro (discovery de anunciantes) → Meta Ad Library search_type=page (validação + coleta) → extrair "Veiculação iniciada em" do DOM → ordenar do mais antigo programaticamente (SEM "oldest first" na UI) → extrair video.currentSrc → download .mp4 imediato |
 
 ---
 
