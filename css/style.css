@@ -410,6 +410,18 @@ button { cursor: pointer; font-family: var(--fonte); border: none; background: n
   margin-top: 4px;
 }
 
+/* Mecanismo neurológico */
+.solucao__mecanismo {
+  font-size: 0.95rem;
+  color: var(--texto-sec);
+  line-height: 1.8;
+  background: var(--verde-claro);
+  border-left: 4px solid var(--verde);
+  padding: 18px 22px;
+  border-radius: 0 var(--raio) var(--raio) 0;
+  margin-bottom: 32px;
+}
+
 /* Quote */
 .solucao__quote {
   background: var(--verde-claro);
