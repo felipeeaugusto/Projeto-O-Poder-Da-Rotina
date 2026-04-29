@@ -37,7 +37,6 @@
       '.faq__item',
       '.cta-final__title',
       '.cta-final__subtitle',
-      '.cta-final .countdown'
     ];
 
     animTargets.forEach(function (selector) {
@@ -95,70 +94,6 @@
         }
       });
     });
-  }
-
-  // ============================================================
-  // 5. COUNTDOWN TIMER (sessionStorage)
-  // ============================================================
-  function initCountdown() {
-    var DURATION = 15 * 60; // 15 minutos em segundos
-    var KEY = 'lp_countdown_end';
-
-    var endTime = sessionStorage.getItem(KEY);
-    if (!endTime) {
-      endTime = Date.now() + DURATION * 1000;
-      sessionStorage.setItem(KEY, endTime);
-    } else {
-      endTime = parseInt(endTime, 10);
-      // Bug fix: se o tempo já expirou (sessão antiga), reinicia o timer
-      if (endTime <= Date.now()) {
-        endTime = Date.now() + DURATION * 1000;
-        sessionStorage.setItem(KEY, endTime);
-      }
-    }
-
-    var ticker = null;
-    var heroBox     = document.getElementById('countdown-hero');
-    var heroDisplay = document.getElementById('countdown-hero-display');
-
-    function updateDisplay() {
-      var remaining = Math.max(0, Math.floor((endTime - Date.now()) / 1000));
-      var mm = String(Math.floor(remaining / 60)).padStart(2, '0');
-      var ss = String(remaining % 60).padStart(2, '0');
-      var timeStr = mm + ':' + ss;
-
-      // Atualiza o hero (se ainda visivel)
-      if (heroDisplay) heroDisplay.textContent = timeStr;
-
-      // Atualiza o countdown do CTA final (exclui o hero pelo id)
-      document.querySelectorAll('.countdown-display').forEach(function (el) {
-        if (el.id !== 'countdown-hero-display') el.textContent = timeStr;
-      });
-
-      if (remaining === 0) {
-        clearInterval(ticker);
-
-        // Esconde o hero countdown inteiro
-        if (heroBox) heroBox.style.display = 'none';
-
-        // Atualiza mensagem no countdown do final
-        document.querySelectorAll('.countdown__label').forEach(function (el) {
-          if (el.id !== 'countdown-hero-display') {
-            el.textContent = 'Oferta especial — garanta o seu antes que encerre!';
-          }
-        });
-        document.querySelectorAll('.countdown-display').forEach(function (el) {
-          if (el.id !== 'countdown-hero-display') {
-            el.style.fontSize = '1.2rem';
-            el.style.letterSpacing = '0';
-            el.textContent = 'Ainda disponivel por tempo limitado';
-          }
-        });
-      }
-    }
-
-    updateDisplay();
-    ticker = setInterval(updateDisplay, 1000);
   }
 
   // ============================================================
@@ -313,7 +248,6 @@
   // 9. INICIALIZAÇÃO
   // ============================================================
   document.addEventListener('DOMContentLoaded', function () {
-    initCountdown();
     initFAQ();
     initWhatsApp();
     initAnimations();
