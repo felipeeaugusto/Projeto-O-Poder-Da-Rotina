@@ -3,6 +3,23 @@
 
 ---
 
+### SESSAO — 23/04/2026
+
+**O QUE FOI FEITO:**
+- script-agent identificado como responsável pelo roteiro de Reel — fala de 8 cenas sincronizadas + legenda + texto contínuo para ElevenLabs TTS + prompt de trilha sonora
+- Clarificação de arquitetura: script-agent (fala), video-prompt-agent (prompts visuais Gemini + Kling), video-assembly-agent (montagem FFmpeg) são 3 agentes distintos com responsabilidades separadas — não é o mesmo agente
+- Pipeline completo de Reel mapeado pelo @aiox-master: julia-chief (lê briefing + decide tema/pilar/grade) → @hormozi-hooks (hook 5s) → script-agent (roteiro 8 cenas) → video-prompt-agent Fase 1 (8 prompts de imagem + Gate 1 Felipe) → video-prompt-agent Fase 2 (prompts animação Kling + Gate 2 Felipe) → Felipe manual (Kling Artlist) → video-assembly-agent → approval-agent → publisher-agent
+- Identificado: briefings de abril/2026 (gerados 02/04) podem estar próximos do limite (23/04); adicionado às pendências de Prioridade Máxima como pré-requisito para criação de Reels
+
+**O QUE O FELIPE PEDIU:**
+- Saber quem é o agente responsável pelo roteiro do Reel para postar nos canais da Julia
+- Entender se script-agent é o video-prompt-agent + video-assembly-agent juntos (respondido: são 3 agentes distintos)
+- Passo a passo do processo de criação de Reel até os prompts de imagem
+
+**PAROU EM:** pipeline de Reel mapeado; verificar status dos briefings de abril antes de criar Reel via julia-chief | Agente ativo: aiox-master
+
+---
+
 ### SESSAO — 16/04/2026
 
 **O QUE FOI FEITO:**

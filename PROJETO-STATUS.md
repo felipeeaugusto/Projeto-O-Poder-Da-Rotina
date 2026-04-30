@@ -28,7 +28,7 @@
 0-NOVO. ✅ **Briefing Semana 04 ATIVO** — válido 22/04 a 30/04/2026 (confirmado @analyst em 24/04); julia-chief pode operar normalmente; tema #1 disponível: "Mãe de filho atípico não está sozinha" (score 94, Reel); **próxima ação: scout-agent rodar nova coleta em 01/05** (créditos Apify renovam) → briefing-agent gera 4 briefings de maio de uma vez
 0. **URGENTE — Felipe DEVE revogar chave AIzaSyB2ldwoSpGxon--EK75lohgFWnuZzUU1jE** no Google AI Studio (aistudio.google.com → API Keys → revogar) — estava hardcoded no commit c54bab4; GitHub detectou e enviou alerta; fix de código feito (ea77d29), mas a chave continua válida até ser revogada manualmente
 0b. **Felipe** — ver e aprovar visualmente bônus 04, 05, 06 PDFs em `squads/dr-julia-resende/output/produtos/pdfs/` — bônus 03 já aprovado; 04/05/06 gerados mas ainda não revisados por Felipe
-0c. ✅ ~~**@hormozi-audit** — auditar LP v2 completa + implementar copy~~ — **CONCLUÍDO 29/04/2026**: score 62/100 — 6 gaps; Rodada 1 (commit baa5860) + Rodada 2 copy (commit c6df0b6) + Rodada 3 pixel+CSS (commit 33fc28c); pixel Meta atualizado; garantia 30 dias condicional; origin story 4 parágrafos; mecanismo neurológico; **@devops push pendente**
+0c. ✅ ~~**@hormozi-audit** — auditar LP v2 completa + implementar copy~~ — **CONCLUÍDO 29/04/2026**: score 62/100 — 6 gaps resolvidos; Rodada 1 (baa5860) + Rodada 2 copy (c6df0b6) + Rodada 3 pixel+CSS (33fc28c); pixel Meta atualizado; garantia 30 dias condicional; origin story 4 parágrafos; mecanismo neurológico; LP live em vercel ✅
 1. ✅ ~~Felipe gerar fala.mp3~~ — **CONCLUÍDO**: áudio do roteiro v2 gerado pelo Felipe via MiniMax; arquivo salvo como `Seu_filho_no_celular_você_perc_Essence_MiniMax_02_HD_...mp3` (1.3 MB) em `squads/dr-julia-resende/output/reels/2026-04-02/`; commitado na auditoria de 05/04
 2. ✅ ~~Felipe decidir sobre animações das cenas 02 e 03~~ — **CONCLUÍDO**: Veo 3.1 Fast usado em todas as 11 cenas; voz gerada no Artlist (ElevenLabs sem créditos); montagem sendo feita no CapCut no PC casa
 3. ✅ ~~Felipe gerar clips no Artlist~~ — **CONCLUÍDO**: clip-01 a clip-12 (sem clip-09) gerados por Felipe e salvos na pasta; commitados na auditoria de 05/04; ⚠️ clip-12 é extra (roteiro tem 11 cenas, clip-09 é imagem estática = 10 clips esperados); video-assembly-agent precisa verificar o mapeamento cena↔clip na próxima sessão
@@ -94,6 +94,30 @@
 ## ULTIMAS 3 SESSOES
 > Rotativo — ao adicionar nova sessão, mover a mais antiga para HISTORICO-SESSOES.md.
 
+### SESSAO — 29/04/2026
+
+**O QUE FOI FEITO:**
+- @hormozi-audit auditou LP v2 completa como unidade holística — score 62/100; 6 gaps identificados; prescrições priorizadas entregues; #2 (fotos depoimentos) descartado por Felipe
+- Rodada 1 (commit baa5860): countdown timer fake removido do hero e cta-final; âncora R$149,90 corrigida para R$27; `initCountdown()` + sessionStorage removidos do main.js — urgência falsa eliminada
+- Rodada 2 (commit c6df0b6): garantia condicional 30 dias implementada (vinculada ao Desafio 21 Dias, opção de maior conversão); 4 parágrafos de origin story inseridos na seção #autoridade antes da bio; referências "14 dias" → "30 dias" em hero trust, CTA final e FAQ
+- Rodada 3 (commit 33fc28c): pixel Meta substituído por novo snippet correto; CSS `.solucao__mecanismo` criado em style.css; mecanismo neurológico movido para fora do flex container (evitava terceira coluna em tablet)
+- @devops push: todos os commits pushed para origin; LP live em https://projeto-o-poder-da-rotina.vercel.app/ ✅
+- Respondidas: auditoria gap-by-gap (o que foi/não foi feito), URL da LP, como testar Pixel no Meta Events Manager
+
+**O QUE O FELIPE PEDIU:**
+- "sobre a nova LP o que falta dela para ficar pronta?" — disparou o fluxo de auditoria
+- Descartou #2 da auditoria (fotos nos depoimentos): "não tem nada a ver"
+- "passe para a rodada 2 agora, para o agente devido"
+- "aprovo as 3 peças" (copy do @hormozi-copy: garantia + origin story + mecanismo)
+- Instalação do novo pixel Meta (snippet fornecido inline)
+- "pode seguir a rodada 3 e depois chamar o devops assim que finalizar"
+- "O que a hormozi-audit falou pra mudar, então foi tudo mudado? Está correto agora?"
+- Auditoria profunda antes de fechar o terminal
+
+**PAROU EM:** auditoria de fechamento concluída; caderno atualizado; pronto para push final | Agente ativo: aiox-master
+
+---
+
 ### SESSAO — 27/04/2026
 
 **O QUE FOI FEITO:**
@@ -145,23 +169,6 @@
 - Confirmar que o problema de "mulher genérica" (Julia vs imagem gerada) foi resolvido
 
 **PAROU EM:** 8 prompts conceito-first entregues; GATE 1 aguardando Felipe gerar as imagens (Gemini ou DALL-E, sem upload de foto) | Agente ativo: aiox-master
-
----
-
-### SESSAO — 23/04/2026
-
-**O QUE FOI FEITO:**
-- script-agent identificado como responsável pelo roteiro de Reel — fala de 8 cenas sincronizadas + legenda + texto contínuo para ElevenLabs TTS + prompt de trilha sonora
-- Clarificação de arquitetura: script-agent (fala), video-prompt-agent (prompts visuais Gemini + Kling), video-assembly-agent (montagem FFmpeg) são 3 agentes distintos com responsabilidades separadas — não é o mesmo agente
-- Pipeline completo de Reel mapeado pelo @aiox-master: julia-chief (lê briefing + decide tema/pilar/grade) → @hormozi-hooks (hook 5s) → script-agent (roteiro 8 cenas) → video-prompt-agent Fase 1 (8 prompts de imagem + Gate 1 Felipe) → video-prompt-agent Fase 2 (prompts animação Kling + Gate 2 Felipe) → Felipe manual (Kling Artlist) → video-assembly-agent → approval-agent → publisher-agent
-- Identificado: briefings de abril/2026 (gerados 02/04) podem estar próximos do limite (23/04); adicionado às pendências de Prioridade Máxima como pré-requisito para criação de Reels
-
-**O QUE O FELIPE PEDIU:**
-- Saber quem é o agente responsável pelo roteiro do Reel para postar nos canais da Julia
-- Entender se script-agent é o video-prompt-agent + video-assembly-agent juntos (respondido: são 3 agentes distintos)
-- Passo a passo do processo de criação de Reel até os prompts de imagem
-
-**PAROU EM:** pipeline de Reel mapeado; verificar status dos briefings de abril antes de criar Reel via julia-chief | Agente ativo: aiox-master
 
 ---
 
