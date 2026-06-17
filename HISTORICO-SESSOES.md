@@ -3,6 +3,30 @@
 
 ---
 
+### SESSAO — 24/04/2026
+
+**O QUE FOI FEITO:**
+- script-agent atualizado para formato conceito-first — Julia NUNCA aparece visualmente em Reels; voz narra em off; WhatsApp e qualquer UI de app de terceiros proibidos nas descrições de cena; veto automático para descrições genéricas
+- video-prompt-agent atualizado — VP001 reescrito: proibido mencionar Julia, usar foto de referência, descrever poses dela; cada prompt descreve APENAS a situação visual da cena (objetos, ambiente, pessoas anônimas); `foto_referencia` removido da seção de input
+- roteiro-R02.md reescrito em formato conceito-first — 8 situações reais do universo de mãe de filho atípico (agenda com consultas, beira da cama do filho à noite, pia do banheiro, mochila escolar, sala de espera, xícara de café fria, mãe e filho no chão rindo, mãos com celular); Julia narra em off; commitado
+- 8 prompts de imagem conceito-first gerados (FASE 1) — sem Julia, sem foto de referência, pilar EM (luz quente, bokeh, íntimo); aguardando GATE 1 (Felipe gera as imagens)
+- video-assembly-agent cancelado permanentemente — montagem manual pelo Felipe + João Paulo no CapCut
+- Decisão registrada: formato talking head descartado permanentemente — conceito-first é o padrão de todos os Reels daqui em diante
+- Diagnóstico da causa raiz: VP001 original gerava descrição textual de mulher brasileira (não Julia) — IA gerava mulher genérica; novo VP001 elimina o problema proibindo Julia no visual
+
+**O QUE O FELIPE PEDIU:**
+- Continuar de onde parou após API Error 400 "Could not process image"
+- Explicação do formato conceito-first antes de implementar
+- Redesenhar roteiro R02 no formato conceito-first e apagar talking head do script-agent definitivamente
+- Nunca incluir WhatsApp em nenhuma cena dos agentes
+- Entender por que as imagens pareciam "sessão de fotos da Dr. Julia mudando expressões"
+- Atualizar script-agent, video-prompt-agent e VP001 para o novo formato
+- Confirmar que o problema de "mulher genérica" (Julia vs imagem gerada) foi resolvido
+
+**PAROU EM:** 8 prompts conceito-first entregues; GATE 1 aguardando Felipe gerar as imagens (Gemini ou DALL-E, sem upload de foto) | Agente ativo: aiox-master
+
+---
+
 ### SESSAO — 23/04/2026
 
 **O QUE FOI FEITO:**

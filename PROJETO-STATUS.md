@@ -49,7 +49,7 @@
 1a. ✅ **@aiox-master** — pipeline conceito-first implementado (24/04): script-agent + video-prompt-agent atualizados; Julia nunca aparece visualmente em Reels; voz narra em off; WhatsApp e apps de terceiros proibidos nas cenas
 1b. **pdf-agent** — gerar PDF do ebook v2 (`squads/dr-julia-resende/data/ebook_v2.txt`) — mesmo pipeline dos bônus; entregável: `ebook-v2-o-poder-da-rotina.pdf`
 1c. **@aiox-master** — salvar criação do pdf-agent no MANUAL.md como Customização — BLOCO 0-E pendente desde a sessão 11/04
-2. ✅ ~~**@devops** — reconectar Playwright MCP~~ — **CONCLUÍDO 27/04/2026**: MCP estava conectado e funcional — bloqueio era Edge aberto em paralelo; fechar Edge antes de usar o Playwright resolve; nenhuma mudança de configuração necessária
+2. ✅ ~~**@devops** — reconectar Playwright MCP~~ — **CONCLUÍDO 17/06/2026** (fix definitivo): causa raiz era `npx @playwright/mcp@latest` baixando pacote a cada início (~5min delay → timeout) + conflito com perfil real do Edge; fix: `@playwright/mcp@0.0.75` instalado globalmente + `~/.claude.json` atualizado para usar `playwright-mcp.cmd` (binário global) + perfil isolado `playwright-mcp-profile`; **reiniciar o Claude Code** para ativar
 3. **@dev** — adicionar templates `post-unico` (P01 Manifesto, 1080×1080) e `story` (ST01 Direta, 1080×1920) ao content-generator.js — pipeline julia-chief precisa desses templates para automatizar geração de todos os 3 formatos; interrompido na sessão 31/03
 4. **@aiox-master** — atualizar julia-chief.md: handoff `image-agent` → `compositor-agent` — image-agent usa DALL-E (descartado permanentemente); referência errada quebra o pipeline de conteúdo
 5. **@aiox-master** — salvar BLOCO 0-Q no MANUAL.md (Customização 32) — rastreabilidade permanente da regra de gate obrigatório do julia-chief
@@ -93,6 +93,25 @@
 
 ## ULTIMAS 3 SESSOES
 > Rotativo — ao adicionar nova sessão, mover a mais antiga para HISTORICO-SESSOES.md.
+
+### SESSAO — 17/06/2026
+
+**O QUE FOI FEITO:**
+- Playwright MCP investigado — não aparecia nas tools da sessão apesar de configurado em `~/.claude.json`
+- @devops diagnosticou causa raiz: `npx @playwright/mcp@latest` baixava o pacote a cada início do Claude Code (~5min de delay → timeout no handshake MCP) + `--user-data-dir` apontava para perfil real do Edge (bloqueado quando Edge estava aberto)
+- @devops instalou `@playwright/mcp@0.0.75` globalmente via `npm install -g` (3 pacotes, ~5min de instalação)
+- @devops criou diretório de perfil isolado `C:\Users\Felipe Augusto\AppData\Local\playwright-mcp-profile`
+- @devops atualizou `~/.claude.json`: `command` trocado de `npx @playwright/mcp@latest` para `playwright-mcp.cmd` (binário global); `--user-data-dir` trocado para perfil isolado
+- Playwright MCP pronto — inicia em <1s na próxima sessão após restart do Claude Code
+
+**O QUE O FELIPE PEDIU:**
+- Abrir Edge em segundo plano via Playwright e navegar para `https://comunidade.vidalendaria.com.br/feed` sem roubar foco de tela
+- Identificar qual agente corrige problema de MCP → @devops
+- Confirmar que @devops podia prosseguir com o fix
+
+**PAROU EM:** Playwright MCP corrigido; próximo passo: reiniciar Claude Code e executar a navegação original | Agente ativo: aiox-master
+
+---
 
 ### SESSAO — 29/04/2026
 
@@ -145,30 +164,6 @@
 - Salvar todas as descobertas no caderno (aprovação explícita: "sim, pode salvar")
 
 **PAROU EM:** investigação Meta Ad Library completa; salvando no caderno e fazendo push | Agente ativo: aiox-master
-
----
-
-### SESSAO — 24/04/2026
-
-**O QUE FOI FEITO:**
-- script-agent atualizado para formato conceito-first — Julia NUNCA aparece visualmente em Reels; voz narra em off; WhatsApp e qualquer UI de app de terceiros proibidos nas descrições de cena; veto automático para descrições genéricas
-- video-prompt-agent atualizado — VP001 reescrito: proibido mencionar Julia, usar foto de referência, descrever poses dela; cada prompt descreve APENAS a situação visual da cena (objetos, ambiente, pessoas anônimas); `foto_referencia` removido da seção de input
-- roteiro-R02.md reescrito em formato conceito-first — 8 situações reais do universo de mãe de filho atípico (agenda com consultas, beira da cama do filho à noite, pia do banheiro, mochila escolar, sala de espera, xícara de café fria, mãe e filho no chão rindo, mãos com celular); Julia narra em off; commitado
-- 8 prompts de imagem conceito-first gerados (FASE 1) — sem Julia, sem foto de referência, pilar EM (luz quente, bokeh, íntimo); aguardando GATE 1 (Felipe gera as imagens)
-- video-assembly-agent cancelado permanentemente — montagem manual pelo Felipe + João Paulo no CapCut
-- Decisão registrada: formato talking head descartado permanentemente — conceito-first é o padrão de todos os Reels daqui em diante
-- Diagnóstico da causa raiz: VP001 original gerava descrição textual de mulher brasileira (não Julia) — IA gerava mulher genérica; novo VP001 elimina o problema proibindo Julia no visual
-
-**O QUE O FELIPE PEDIU:**
-- Continuar de onde parou após API Error 400 "Could not process image"
-- Explicação do formato conceito-first antes de implementar
-- Redesenhar roteiro R02 no formato conceito-first e apagar talking head do script-agent definitivamente
-- Nunca incluir WhatsApp em nenhuma cena dos agentes
-- Entender por que as imagens pareciam "sessão de fotos da Dr. Julia mudando expressões"
-- Atualizar script-agent, video-prompt-agent e VP001 para o novo formato
-- Confirmar que o problema de "mulher genérica" (Julia vs imagem gerada) foi resolvido
-
-**PAROU EM:** 8 prompts conceito-first entregues; GATE 1 aguardando Felipe gerar as imagens (Gemini ou DALL-E, sem upload de foto) | Agente ativo: aiox-master
 
 ---
 
