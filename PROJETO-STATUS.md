@@ -69,6 +69,7 @@
 14. ✅ ~~@dev — implementar copy no HTML/CSS~~ — **CONCLUÍDO 06/04/2026**: 4 seções implementadas (antes-depois, para-quem, comparacao, value-stack) + CSS responsivo — LP v2 finalizada — commit 0e6b150
 
 ### Pode deixar pra depois
+PLAYWRIGHT-CDP. ✅ ~~**@aiox-master** — implementar BLOCO 0-V (Playwright com CDP)~~ — **CONCLUÍDO 20/06/2026**: BLOCO 0-V adicionado ao CLAUDE.md + Customização 39 salva no MANUAL.md; fluxo formalizado para todos os agentes
 12. **@aiox-master** — criar ads-mining-agent (Playwright + Ads Paro + Meta Ad Library) — arquitetura confirmada 27/04/2026: Ads Paro (discovery) → Meta Ad Library search_type=page (validação) → extrair "Veiculação iniciada em [DD de MMM de YYYY]" do DOM → ordenar do mais antigo programaticamente (UI não tem "oldest first") → extrair video.currentSrc → download .mp4 imediato; objetivo: coletar criativos pagos do nicho maternidade/BR para calibrar prompts do Kling; só entra quando João Paulo quiser rodar tráfego pago
 13. **@aiox-master** — criar traffic-agent + performance-agent (Meta Ads Manager + métricas de campanha) — necessários para pipeline de tráfego pago completo; futuro
 14. **@dev** — corrigir links quebrados no footer (Política de Privacidade e Termos de Uso) — credibilidade legal da LP
