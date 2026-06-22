@@ -3,6 +3,36 @@
 
 ---
 
+### SESSAO — 27/04/2026
+
+**O QUE FOI FEITO:**
+- PC reiniciou inesperadamente — sessão recuperada via arquivo .jsonl
+- Playwright MCP confirmado funcional na prática — bloqueio era Edge aberto em paralelo; fechar Edge antes de usar o Playwright resolve; nenhuma mudança de configuração necessária
+- Meta Ad Library investigada completamente via Playwright (Pedro Sobral como exemplo de busca por palavra-chave)
+- Mapeamento de dados disponíveis por anúncio individual: Status (✅ Ativo / ❌ Inativo) + library_id + "Veiculação iniciada em [DD de MMM de YYYY]" (ex: "31 de mar de 2026") + plataformas + criativo visual + copy completo + seção "Sobre o anunciante" (page name, Facebook page ID, followers, category, bio)
+- Confirmado: UI da Meta Ad Library NÃO tem ordenação "mais antigo primeiro" — só "Mais recentes" e "Impressões: do mais alto ao mais baixo" — ordenação programática pelo DOM é obrigatória para identificar golden creatives
+- Confirmado: NÃO existe botão de download de vídeo na interface — download possível apenas via JavaScript
+- URLs de vídeo .mp4 mapeadas: 31 URLs extraídas em um único carregamento via `video.currentSrc` no DOM; hospedadas em fbcdn.net; parâmetro `oe=` é Unix timestamp hex da expiração — download obrigatório imediato
+- Parâmetro `efg` (base64) mapeado: contém `asset_age_days`, `duration_s`, `xpv_asset_id`; assets com até 866 dias encontrados (2+ anos)
+- Distinção crítica documentada: `asset_age_days` = idade do arquivo de vídeo (NÃO da campanha); "Veiculação iniciada em [data]" = data real de início da campanha (métrica correta para golden creatives)
+- search_type=page confirmado para busca por anunciante específico; keyword_unordered gera falsos positivos (corresponde por palavras no nome E no copy)
+- Fluxo final do ads-mining-agent documentado e confirmado: Ads Paro (discovery) → Meta Ad Library search_type=page (validação + coleta) → extrair "Veiculação iniciada em" do DOM → ordenar do mais antigo programaticamente → extrair video.currentSrc → download .mp4 imediato
+
+**O QUE O FELIPE PEDIU:**
+- Retomada após reinicialização inesperada do PC
+- Continuar investigação da Meta Ad Library de onde havia parado (clique em "Ver detalhes do anúncio")
+- Entender todos os dados disponíveis no painel "Detalhes do anúncio"
+- Verificar se existe botão de download de vídeo na interface
+- Verificar se as URLs de vídeo são acessíveis via JavaScript e como extraí-las
+- Entender o mecanismo de expiração das URLs
+- Entender a diferença entre asset_age_days e idade da campanha
+- Entender como buscar um anunciante específico (não por palavra-chave)
+- Salvar todas as descobertas no caderno (aprovação explícita: "sim, pode salvar")
+
+**PAROU EM:** investigação Meta Ad Library completa; salvando no caderno e fazendo push | Agente ativo: aiox-master
+
+---
+
 ### SESSAO — 24/04/2026
 
 **O QUE FOI FEITO:**
